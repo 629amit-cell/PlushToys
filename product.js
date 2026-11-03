@@ -75,10 +75,42 @@ function initializeProduct() {
   };
   document.querySelector("#product-sizes").addEventListener("change", updateSelectedSizePrice);
   updateSelectedSizePrice();
+  const categoryName = store.categories.find((entry) => entry.id === product.category)?.name || product.caption;
+  const sizePrices = store.productSizes.map((size) => store.productPrice(product, size));
+  const lowPrice = Math.min(...sizePrices);
+  const highPrice = Math.max(...sizePrices);
   document.querySelector(".detail-rating").hidden = true;
-  document.querySelector(".detail-highlights").hidden = true;
-  document.querySelector(".detail-accordion").innerHTML =
-    "<p>More product details are coming soon.</p>";
+  document.querySelector(".detail-highlights").hidden = false;
+  document.querySelector(".detail-highlights").innerHTML = `
+    <div><span aria-hidden="true">✦</span><span>Available in Small, Medium, and Large — from ${store.formatCurrency.format(lowPrice)}.</span></div>
+    <div><span aria-hidden="true">✦</span><span>${categoryName} collection · soft plush character design.</span></div>
+    <div><span aria-hidden="true">✦</span><span>Delivery charges confirmed at checkout.</span></div>
+  `;
+  document.querySelector(".detail-accordion").innerHTML = `
+    <details open>
+      <summary>Product details</summary>
+      <div class="detail-panel">
+        <dl class="spec-list">
+          <div><dt>Collection</dt><dd>${categoryName}</dd></div>
+          <div><dt>Available sizes</dt><dd>${store.productSizes.join(" · ")}</dd></div>
+          <div><dt>Approx. height</dt><dd>${store.productSizes.map((size) => `${size} ${store.productSizeHeights[size]}`).join(" · ")}</dd></div>
+          <div><dt>Price range</dt><dd>${store.formatCurrency.format(lowPrice)} – ${store.formatCurrency.format(highPrice)}</dd></div>
+        </dl>
+      </div>
+    </details>
+    <details>
+      <summary>Care &amp; safety</summary>
+      <div class="detail-panel">
+        <p>Surface-clean gently with a soft, damp cloth and mild soap, then air dry away from direct heat. Remove tags and packaging before giving this plush to a child, and check the seams and any sewn-in care label regularly.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Delivery &amp; returns</summary>
+      <div class="detail-panel">
+        <p>Delivery charges will be confirmed at checkout. Returns and exchanges follow the store's policy, so please confirm the details with us before placing an order.</p>
+      </div>
+    </details>
+  `;
   document.querySelector("#detail-art").style.background = product.color;
   document.querySelector("#detail-art").innerHTML = `
     <span class="decor decor-one" aria-hidden="true">✦</span>

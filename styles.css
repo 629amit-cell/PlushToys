@@ -639,6 +639,9 @@ h1 em, h2 em { color: #e65d85; }
 .detail-accordion summary::-webkit-details-marker { display: none; }
 .detail-accordion summary::after { color: #bb5798; content: "+"; font-size: 18px; font-weight: 400; }
 .detail-accordion details[open] summary::after { content: "−"; }
+.detail-panel { padding: 0 0 16px; color: #685d70; font-size: 10px; line-height: 1.75; }
+.detail-panel p { margin: 0 0 9px; }
+.detail-panel p:last-child { margin-bottom: 0; }
 .spec-list { display: grid; gap: 0; margin: 0; }
 .spec-list div { display: flex; justify-content: space-between; gap: 14px; padding: 9px 0; border-bottom: 1px solid #f3edf0; font-size: 9px; }
 .spec-list dt { color: #887a8b; }

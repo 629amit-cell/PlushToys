@@ -23,7 +23,7 @@ Keep the terminal running while you use the site. If the browser shows `ERR_CONN
 - About, support, privacy, and contact information sections
 - One hundred and fifty plush toys, including 124 additional supplier-sourced products
 - Category filters generated from the products currently in the catalog
-- Individual product pages with image galleries, descriptions, a size chart (Small: 2 ft, Medium: 3.5 ft, Large: 6 ft), quantity selection, and recommendations
+- Individual product pages with image galleries, descriptions, a product-details accordion (collection, sizes, heights, price range, care, and delivery notes), a size chart (Small: 2 ft, Medium: 3.5 ft, Large: 6 ft), quantity selection, and recommendations
 - A checkout preview with an editable order summary and India delivery fields
 - Size-specific product prices in the requested Small (₹200–₹300), Medium (₹349–₹549), and Large (₹599–₹799) ranges
 - Launch-offer labels without fabricated discount percentages or crossed-out reference prices
