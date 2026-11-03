@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#c8102e">
+    <meta name="description" content="Meet your new favorite plush friend at Little Wonder.">
+    <title>Meet your plush friend — Little Wonder</title>
+    <link rel="stylesheet" href="styles.css?v=13">
+    <script src="catalog-additions.js?v=1" defer></script>
+    <script src="store.js?v=17" defer></script>
+    <script src="product.js?v=11" defer></script>
+  </head>
+  <body class="store-page">
+    <div class="announcement">A little friend, a lot of love</div>
+    <header class="site-header inner-site-header">
+      <a class="brand" href="index.html" aria-label="Little Wonder home">
+        <span class="brand-mark" aria-hidden="true">L</span>
+        <span class="brand-name">little wonder<small>PLUSH TOYS & LITTLE GIFTS</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html#shop">Shop all</a>
+        <a href="index.html#favorites">Best-loved</a>
+        <a href="index.html#our-story">Our story</a>
+      </nav>
+      <a class="cart-button page-bag-link" href="checkout.html" aria-label="Go to checkout">
+        <span aria-hidden="true">♡</span><span class="cart-label">Bag</span><span class="cart-count" id="detail-cart-count">0</span>
+      </a>
+    </header>
+
+    <main class="detail-main">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><a href="index.html#shop">Plush collection</a><span aria-hidden="true">/</span><span id="breadcrumb-name">Your new friend</span>
+      </nav>
+      <section class="product-detail" id="product-detail" aria-live="polite">
+        <div class="detail-art-wrap">
+          <div class="detail-art" id="detail-art"></div>
+          <span class="detail-art-note">A LITTLE FRIEND, A LOT OF LOVE</span>
+          <div class="detail-thumbnails" id="detail-thumbnails" role="group" aria-label="Product photos"></div>
+        </div>
+        <div class="detail-copy">
+          <span class="eyebrow" id="detail-badge">THE LITTLE WONDER COLLECTION</span>
+          <h1 id="detail-name">Meet your new friend</h1>
+          <div class="detail-rating" hidden></div>
+          <p class="detail-price"><span class="launch-offer-label">Launch offer</span><span id="detail-price"></span></p>
+          <p class="detail-tax-note">Delivery charges will be confirmed at checkout.</p>
+          <p class="detail-description" id="detail-description"></p>
+          <div class="detail-highlights" hidden></div>
+          <fieldset class="detail-sizes">
+            <legend>Choose a size</legend>
+            <div class="size-options" id="product-sizes"></div>
+          </fieldset>
+          <div class="size-chart">
+            <h2>Plush size chart</h2>
+            <table>
+              <thead><tr><th scope="col">Size</th><th scope="col">Approx. height</th><th scope="col">Price</th></tr></thead>
+              <tbody id="product-size-chart"></tbody>
+            </table>
+          </div>
+          <div class="detail-purchase">
+            <div class="detail-quantity">
+              <span>Quantity</span>
+              <div class="quantity-control">
+                <button id="quantity-minus" type="button" aria-label="Decrease quantity">−</button>
+                <span id="detail-quantity" aria-live="polite">1</span>
+                <button id="quantity-plus" type="button" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+            <button class="button button-dark detail-add-button" id="add-to-bag" type="button">Add to bag <span aria-hidden="true">♡</span></button>
+            <button class="button detail-buy-button" id="buy-now" type="button">Buy now <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="detail-feedback" id="detail-feedback" role="status" aria-live="polite"></p>
+          <div class="detail-accordion"></div>
+        </div>
+      </section>
+      <section class="you-may-like" aria-labelledby="you-may-like-title">
+        <span class="eyebrow">MORE FRIENDS TO LOVE</span>
+        <h2 id="you-may-like-title">Meet another little wonder.</h2>
+        <div class="recommendation-grid" id="recommendation-grid"></div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">L</span><span>little wonder</span></a>
+      <p>Little friends. Lovely feelings.</p>
+      <span>© <span id="current-year"></span> Little Wonder · India</span>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
