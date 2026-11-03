@@ -342,6 +342,30 @@
   }
   products.push(...additionalProducts);
 
+  const catalogExpansion = window.LittleWonderCatalogExpansion;
+  if (!Array.isArray(catalogExpansion)) {
+    throw new Error("The additional plush catalog could not be loaded.");
+  }
+  const expansionProductIds = new Set(products.map((product) => product.id));
+  const invalidExpansionProduct = catalogExpansion.find((product) =>
+    !product ||
+    !product.id ||
+    !product.name ||
+    !categories.some((category) => category.id === product.category) ||
+    !product.image ||
+    !product.description ||
+    expansionProductIds.has(product.id)
+  );
+  if (invalidExpansionProduct) {
+    throw new Error(`Invalid or duplicate catalog expansion product: ${invalidExpansionProduct.id || "unknown"}.`);
+  }
+  products.push(...catalogExpansion.map((product) => ({
+    ...product,
+    caption: categories.find((category) => category.id === product.category).name,
+    badge: "",
+    color: "#f5eee7",
+  })));
+
   const formatCurrency = new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
@@ -373,7 +397,7 @@
   function productImageVariant(image, width) {
     const url = new URL(image, window.location.href);
     if (url.hostname !== "s.alicdn.com") return image;
-    url.pathname = `${url.pathname.replace(/_\d+x\d+(?:q\d+)?\.jpg$/i, "")}_${width}x${width}q100.jpg`;
+    url.pathname = `${url.pathname.replace(/_\d+x\d+(?:q\d+)?\.(?:jpg|jpeg|png|webp)$/i, "")}_${width}x${width}q100.jpg`;
     return url.toString();
   }
 
