@@ -17,7 +17,7 @@ Keep the terminal running while you use the site. If the browser shows `ERR_CONN
 ## What's included
 
 - Product browsing, category filters, search, and name sorting
-- Individual, concise descriptions for every product
+- Individual, detailed descriptions for every product
 - Premium red-and-gold toy-shop styling with responsive product cards
 - Responsive supplier-image variants sized for catalog cards; full-resolution photos remain on product detail pages
 - About, support, privacy, and contact information sections
@@ -37,4 +37,4 @@ This is a frontend starter, not a complete commerce backend. Catalog data lives 
 
 The About, Support, Privacy, and Contact sections describe the current preview. Add real store contact details and confirm delivery, returns, privacy, and support policies before accepting orders.
 
-Product names and descriptions use concise retail copy based on the visible design and available supplier listing details; specifications not confirmed by those sources are omitted. The original 26 primary photos are stored in `assets/products/`; the 124 additional primary photos load from supplier image hosts. Product galleries show only distinct photos that could be verified. The storefront does not link to supplier product pages.
+Product names and descriptions use detailed retail copy based on the visible design and available supplier listing details; specifications not confirmed by those sources are omitted. The original 26 primary photos are stored in `assets/products/`; the 124 additional primary photos load from supplier image hosts. Product galleries show only distinct photos that could be verified. The storefront does not link to supplier product pages.
