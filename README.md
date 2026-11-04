@@ -26,7 +26,7 @@ Keep the terminal running while you use the site. If the browser shows `ERR_CONN
 - Category filters generated from the products currently in the catalog
 - Individual product pages with image galleries, descriptions, a product-details accordion (collection, sizes, heights, price range, care, and delivery notes), a size chart, quantity selection, and recommendations
 - A checkout preview with an editable order summary and India delivery fields
-- Size-specific product prices for most of the catalog in the requested Small (₹200–₹300), Medium (₹349–₹549), and Large (₹599–₹799) ranges; Amazon giant-plush additions use their listed single-size reference prices
+- Size-specific product prices for most of the catalog in the requested Small (₹200–₹300), Medium (₹349–₹549), and Large (₹599–₹799) ranges; Amazon giant-plush additions use single-size retail prices set between ₹499 and ₹899
 - Launch-offer labels without fabricated discount percentages or crossed-out reference prices
 - Shopping bag and checkout with size-aware prices and subtotals; delivery charges remain to be confirmed
 - Bag contents saved in the current browser with `localStorage`
@@ -34,7 +34,7 @@ Keep the terminal running while you use the site. If the browser shows `ERR_CONN
 
 ## Before taking real orders
 
-This is a frontend starter, not a complete commerce backend. Catalog data lives in `store.js`, `catalog-expansion.js`, and `catalog-amazon.js`; checkout is a preview and does not submit or save customer details or place orders. Product prices are stable, varied sample retail prices within the requested size bands, except for the Amazon giant-plush additions, which use single-size reference prices captured from the search page. Verify current supplier prices, product costs, margins, dimensions, and market fit before accepting orders. Delivery charges are not yet set. Before launching, verify product descriptions and specifications, confirm that you have permission to resell each branded product and use its supplier images, connect a secure commerce/payment provider and order-management backend, set real shipping, tax, return, privacy, and contact information, and test the full order flow. Never collect or store payment-card details directly in this static site.
+This is a frontend starter, not a complete commerce backend. Catalog data lives in `store.js`, `catalog-expansion.js`, and `catalog-amazon.js`; checkout is a preview and does not submit or save customer details or place orders. Product prices are stable, varied sample retail prices within the requested size bands, except for the Amazon giant-plush additions, which use single-size retail prices set between ₹499 and ₹899. The original Amazon prices are retained in the `supplierPrice` field for reference. Verify current supplier prices, product costs, margins, dimensions, and market fit before accepting orders. Delivery charges are not yet set. Before launching, verify product descriptions and specifications, confirm that you have permission to resell each branded product and use its supplier images, connect a secure commerce/payment provider and order-management backend, set real shipping, tax, return, privacy, and contact information, and test the full order flow. Never collect or store payment-card details directly in this static site.
 
 The About, Support, Privacy, and Contact sections describe the current preview. Add real store contact details and confirm delivery, returns, privacy, and support policies before accepting orders.
 
