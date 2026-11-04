@@ -1,0 +1,12 @@
+name = "little-wonder"
+compatibility_date = "2026-11-04"
+pages_build_output_dir = "./dist"
+
+# Optional but recommended for order records. Create the database with:
+#   npx wrangler d1 create little-wonder-orders
+# Then replace the database_id below with the value Wrangler prints.
+#
+# [[d1_databases]]
+# binding = "ORDERS_DB"
+# database_name = "little-wonder-orders"
+# database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"

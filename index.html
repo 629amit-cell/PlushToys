@@ -12,13 +12,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&amp;family=Manrope:wght@400..800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=20">
+    <link rel="preload" as="image" href="assets/products/cards/mixi-grey-bunny.jpg?v=1">
+    <link rel="preload" as="image" href="assets/products/cards/mixi-heart-balloon-bear.jpg?v=1">
+    <link rel="preload" as="image" href="assets/products/cards/mixi-grey-tabby-cat.jpg?v=1">
     <script src="catalog-additions.js?v=1" defer></script>
     <script src="catalog-expansion.js?v=2" defer></script>
     <script src="catalog-amazon.js?v=2" defer></script>
-    <script src="catalog-gallery.js?v=2" defer></script>
-    <script src="store.js?v=23" defer></script>
-    <script src="app.js?v=12" defer></script>
+    <script src="catalog-cards.js?v=1" defer></script>
+    <script src="store.js?v=24" defer></script>
+    <script src="app.js?v=13" defer></script>
   </head>
   <body>
     <div class="announcement">
@@ -134,7 +137,7 @@
           <h2 id="about-title">A little joy, chosen with care.</h2>
         </div>
         <p>Little Wonder is an India-focused plush-toy shop made for thoughtful gifting. Browse teddy bears, animal friends, character cushions and playful little surprises, all in one place.</p>
-        <p>We’re building this collection to make it easier to find a plush friend for birthdays, celebrations and everyday moments. Product details and prices will be confirmed before the store accepts real orders.</p>
+        <p>We’re building this collection to make it easier to find a plush friend for birthdays, celebrations and everyday moments. Product details, sizes and prices are shown on every plush page, with secure payment handled by Razorpay at checkout.</p>
       </section>
 
       <section class="info-section info-section-tinted" id="support" aria-labelledby="support-title">
@@ -145,11 +148,11 @@
         <div class="support-grid">
           <article>
             <h3>Can I place an order?</h3>
-            <p>Not yet. The bag and checkout are a preview; payments and order processing aren’t connected.</p>
+            <p>Yes. Add a plush to your bag and continue to checkout. Payments are processed securely by Razorpay; we never see or store your card details.</p>
           </article>
           <article>
             <h3>How are product prices set?</h3>
-            <p>Size-based sample prices are shown on each product. Delivery charges will be confirmed at checkout.</p>
+            <p>Size-based prices are shown on each product. Delivery charges are shown at checkout before payment.</p>
           </article>
           <article>
             <h3>How do I ask about a product?</h3>
@@ -157,7 +160,7 @@
           </article>
           <article>
             <h3>What are the return and delivery terms?</h3>
-            <p>Those policies haven’t been set yet. They’ll need to be published before the store launches.</p>
+            <p>Delivery is arranged after payment. Returns and exchanges follow the store policy; the final terms will be published before launch.</p>
           </article>
         </div>
       </section>
@@ -168,10 +171,10 @@
           <h2 id="privacy-title">Privacy, in plain language.</h2>
         </div>
         <div class="privacy-copy">
-          <p><strong>This is a storefront preview.</strong> The checkout form does not submit or save the personal details entered into it, and no order or payment is processed.</p>
+          <p><strong>When you check out</strong>, we collect your name, email, mobile number and delivery address so we can create and fulfil your order. Payment details are collected and processed by Razorpay; this store does not receive or store your card, UPI or netbanking credentials.</p>
           <p>The shopping bag is saved in your browser’s local storage so it can be shown again on this device. You can remove it by clearing this site’s browser storage.</p>
-          <p>Product photos are served from the supplier’s image host. Loading those images may share standard connection information with that host. No analytics or advertising features have been added to this storefront.</p>
-          <p>This notice describes the current preview only; it is not a substitute for a reviewed privacy policy. Before launch, the store owner should update it to reflect the final hosting, payment, analytics and order-processing services.</p>
+          <p>Product photos and catalogue images are served from this site after being downloaded from supplier listings. No analytics or advertising features have been added to this storefront.</p>
+          <p>Order records may be stored in Cloudflare D1 and Razorpay so the store can process and support your order. This notice is a plain-language summary, not a substitute for a reviewed privacy policy; the store owner should confirm the final hosting, payment, retention and contact details before launch.</p>
         </div>
       </section>
 
@@ -209,10 +212,10 @@
       <div class="cart-empty" id="cart-empty"><span aria-hidden="true">♡</span><p>Your bag is waiting for a friend.</p><button class="text-link" id="keep-shopping" type="button">Go find one <span aria-hidden="true">→</span></button></div>
       <div class="cart-summary" id="cart-summary" hidden>
         <p class="shipping-note" id="shipping-note"></p>
-        <div class="subtotal-row"><span>Subtotal</span><strong id="cart-subtotal">To be confirmed</strong></div>
-        <p class="checkout-disclaimer">Delivery charges will be confirmed at checkout.</p>
+        <div class="subtotal-row"><span>Subtotal</span><strong id="cart-subtotal">₹0</strong></div>
+        <p class="checkout-disclaimer">Delivery charges are shown at checkout before payment.</p>
         <button class="button button-dark checkout-button" id="checkout-button" type="button">Continue to checkout <span aria-hidden="true">→</span></button>
-        <p class="demo-note">Checkout is a preview. Payments aren't connected yet.</p>
+        <p class="demo-note">Secure payment via Razorpay.</p>
       </div>
     </aside>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>

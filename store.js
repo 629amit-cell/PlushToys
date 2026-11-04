@@ -467,13 +467,38 @@
     return url.toString();
   }
 
-  function productVisual(product, loading = "lazy", size = "full", image = product.image) {
-    const source = image || product.image;
+  function productCardImage(product) {
+    const cardImages = window.LittleWonderCardImages || {};
+    return cardImages[product.id] || product.image;
+  }
+
+  function productThumbImage(product) {
+    const cardImages = window.LittleWonderCardImages || {};
+    if (cardImages[product.id]) {
+      return `assets/products/thumbs/${product.id}-main.jpg?v=1`;
+    }
+    return productCardImage(product);
+  }
+
+  function productVisual(product, loading = "lazy", size = "full", image) {
+    const source = image || (size === "thumbnail" ? productThumbImage(product) : productCardImage(product));
     const widths = size === "card" ? [480, 720, 960] : size === "thumbnail" ? [240, 360, 480] : [];
     const responsiveAttributes = widths.length && productImageVariant(source, widths[0]) !== source
       ? ` srcset="${widths.map((width) => `${productImageVariant(source, width)} ${width}w`).join(", ")}" sizes="${size === "card" ? "(max-width: 600px) 46vw, (max-width: 900px) 30vw, 22vw" : "120px"}"`
       : "";
-    return `<img class="product-image" src="${source}"${responsiveAttributes} alt="${product.name}" loading="${loading}" decoding="async">`;
+    const dimensions = size === "full" && image
+      ? ` width="900" height="900"`
+      : size === "thumbnail"
+        ? ` width="240" height="240"`
+        : ` width="480" height="480"`;
+    return `<img class="product-image" src="${source}"${responsiveAttributes}${dimensions} alt="${product.name}" loading="${loading}" decoding="async">`;
+  }
+
+  function galleryThumbnail(image) {
+    if (typeof image === "string" && image.startsWith("assets/products/gallery/")) {
+      return `${image.replace("assets/products/gallery/", "assets/products/thumbs/")}?v=1`;
+    }
+    return productImageVariant(image, 480);
   }
 
   function productImages(product) {
@@ -530,8 +555,11 @@
     storageKey: "little-wonder-cart",
     formatCurrency,
     productVisual,
+    productCardImage,
+    productThumbImage,
     productImageVariant,
     productImages,
+    galleryThumbnail,
     readCart,
     saveCart,
   };

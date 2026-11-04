@@ -8,14 +8,16 @@
     <title>Your checkout — Little Wonder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://checkout.razorpay.com">
+    <link rel="preconnect" href="https://api.razorpay.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&amp;family=Manrope:wght@400..800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=20">
     <script src="catalog-additions.js?v=1" defer></script>
     <script src="catalog-expansion.js?v=2" defer></script>
     <script src="catalog-amazon.js?v=2" defer></script>
-    <script src="catalog-gallery.js?v=2" defer></script>
-    <script src="store.js?v=23" defer></script>
-    <script src="checkout.js?v=10" defer></script>
+    <script src="catalog-cards.js?v=1" defer></script>
+    <script src="store.js?v=24" defer></script>
+    <script src="checkout.js?v=11" defer></script>
   </head>
   <body class="store-page checkout-page">
     <div class="announcement">Your plush friends are almost home</div>
@@ -34,13 +36,13 @@
         <h1>Your checkout.</h1>
         <p>Review your plush friends and delivery details.</p>
       </div>
-      <div class="checkout-preview-notice">
-        <strong>Store preview</strong>
-        <span>Payments and order processing aren't connected yet. No order will be placed and your details won't be sent or saved.</span>
+      <div class="checkout-preview-notice" id="checkout-status">
+        <strong id="checkout-status-title">Secure checkout</strong>
+        <span id="checkout-status-text">Checking secure payment availability…</span>
       </div>
       <div class="checkout-layout">
         <section class="checkout-form-panel" aria-labelledby="delivery-title">
-          <div class="checkout-step-heading"><span>01</span><div><h2 id="delivery-title">Delivery details</h2><p>All fields are for preview only.</p></div></div>
+          <div class="checkout-step-heading"><span>01</span><div><h2 id="delivery-title">Delivery details</h2><p>We'll use these details to deliver your order.</p></div></div>
           <form id="checkout-form">
             <label class="form-field form-field-wide">Email address
               <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
@@ -69,10 +71,10 @@
             <div class="form-field form-field-wide country-field"><span>Country</span><strong>India</strong></div>
             <div class="payment-preview form-field-wide">
               <span class="payment-preview-icon" aria-hidden="true">♡</span>
-              <div><strong>Payment comes next</strong><p>UPI, cards, and other payment methods can be added when you connect a payment provider.</p></div>
-              <span class="payment-coming-soon">COMING SOON</span>
+              <div><strong>Secure payment by Razorpay</strong><p>UPI, cards and netbanking are handled securely by Razorpay. We never see or store your payment details.</p></div>
+              <span class="payment-coming-soon">SECURE</span>
             </div>
-            <button class="button button-dark checkout-place-order" id="place-order" type="submit">Continue to payment <span aria-hidden="true">→</span></button>
+            <button class="button button-dark checkout-place-order" id="place-order" type="submit">Continue to secure payment <span aria-hidden="true">→</span></button>
             <p class="checkout-form-message" id="checkout-form-message" role="status" aria-live="polite"></p>
           </form>
         </section>
@@ -89,11 +91,27 @@
             <div><span>Subtotal</span><strong id="checkout-subtotal"></strong></div>
             <div><span>Shipping</span><strong id="checkout-shipping"></strong></div>
             <div class="checkout-grand-total"><span>Total</span><strong id="checkout-total"></strong></div>
-            <p>Delivery charges will be confirmed before payment.</p>
+            <p id="checkout-shipping-note">Delivery charges are shown before payment.</p>
           </div>
           <a class="checkout-return-link" href="index.html#shop">← Back to the plush collection</a>
         </aside>
       </div>
+      <section class="checkout-success" id="checkout-success" hidden aria-live="polite">
+        <span class="checkout-success-mark" aria-hidden="true">♡</span>
+        <span class="eyebrow" id="success-eyebrow">PAYMENT RECEIVED</span>
+        <h1 id="success-title">Your order is confirmed.</h1>
+        <p class="checkout-success-lead" id="success-lead">Thank you. We'll prepare your plush friends with care.</p>
+        <dl class="checkout-success-details">
+          <div><dt>Order number</dt><dd id="success-order-number"></dd></div>
+          <div><dt>Total paid</dt><dd id="success-total"></dd></div>
+          <div><dt>Contact email</dt><dd id="success-email"></dd></div>
+        </dl>
+        <p class="checkout-success-note" id="success-note">Keep your order number handy. If you need help with this order, contact the store with this number.</p>
+        <div class="checkout-success-actions">
+          <a class="button button-dark" href="index.html#shop">Continue shopping <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="index.html#contact">Contact the store</a>
+        </div>
+      </section>
     </main>
     <footer class="site-footer">
       <a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">L</span><span>little wonder</span></a>

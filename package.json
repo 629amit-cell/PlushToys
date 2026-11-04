@@ -1,0 +1,18 @@
+{
+  "name": "little-wonder",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-pages.mjs",
+    "dev": "npm run build && wrangler pages dev dist",
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "generate:catalog": "node scripts/generate-server-catalog.mjs",
+    "generate:assets": "python3 scripts/generate-product-assets.py"
+  },
+  "engines": {
+    "node": ">=20.11"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

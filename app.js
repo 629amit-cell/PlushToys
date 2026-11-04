@@ -145,7 +145,7 @@ function renderCart() {
   }, 0);
   document.querySelector("#cart-subtotal").textContent = formatCurrency.format(subtotal);
   document.querySelector("#shipping-note").textContent =
-    "Delivery charges will be confirmed at checkout.";
+    "Delivery charges are shown at checkout before payment.";
 }
 
 function showToast(message) {

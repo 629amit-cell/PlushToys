@@ -102,7 +102,8 @@ function initializeProduct() {
   document.querySelector(".detail-highlights").innerHTML = `
     <div><span aria-hidden="true">✦</span><span>${sizeSummary}</span></div>
     <div><span aria-hidden="true">✦</span><span>${collectionLabel} collection · soft plush character design.</span></div>
-    <div><span aria-hidden="true">✦</span><span>Delivery charges confirmed at checkout.</span></div>
+    <div><span aria-hidden="true">✦</span><span>Delivery charges shown at checkout before secure payment.</span></div>
+    <div><span aria-hidden="true">✦</span><span>Secure payment via Razorpay · UPI, cards and netbanking.</span></div>
   `;
   document.querySelector(".detail-accordion").innerHTML = `
     <details open>
@@ -125,7 +126,7 @@ function initializeProduct() {
     <details>
       <summary>Delivery &amp; returns</summary>
       <div class="detail-panel">
-        <p>Delivery charges will be confirmed at checkout. Returns and exchanges follow the store's policy, so please confirm the details with us before placing an order.</p>
+        <p>Delivery charges are shown at checkout before payment. Returns and exchanges follow the store's policy, so please confirm the details with us before placing an order.</p>
       </div>
     </details>
   `;
@@ -158,16 +159,10 @@ function initializeProduct() {
   };
   thumbnails.innerHTML = productImages.map((image, index) => {
     const label = photoLabel(image, index);
-    const thumbnailImage = store.productImageVariant(image, 480);
-    const thumbnailSources = [240, 360, 480]
-      .map((width) => store.productImageVariant(image, width))
-      .filter((source, sourceIndex, sources) => source !== image && sources.indexOf(source) === sourceIndex);
-    const responsiveAttributes = thumbnailSources.length
-      ? ` srcset="${thumbnailSources.map((source, sourceIndex) => `${source} ${[240, 360, 480][sourceIndex]}w`).join(", ")}" sizes="140px"`
-      : "";
+    const thumbnailImage = store.galleryThumbnail(image);
     return `
       <button class="detail-thumbnail${index === 0 ? " is-active" : ""}" type="button" data-photo-index="${index}" title="${label}" aria-label="View ${label.toLowerCase()} of ${product.name}" aria-pressed="${index === 0}">
-        <img src="${thumbnailImage}"${responsiveAttributes} alt="" loading="lazy" decoding="async">
+        <img src="${thumbnailImage}" alt="" loading="lazy" decoding="async" width="240" height="240">
       </button>
     `;
   }).join("");
