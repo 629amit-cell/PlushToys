@@ -1,5 +1,6 @@
 (() => {
   const categories = [
+    { id: "giant", name: "Giant plush" },
     { id: "bears", name: "Bears" },
     { id: "cats", name: "Cats" },
     { id: "novelty", name: "Novelty & pillows" },
@@ -366,6 +367,34 @@
     color: "#f5eee7",
   })));
 
+  const catalogAmazon = window.LittleWonderCatalogAmazon;
+  if (!Array.isArray(catalogAmazon)) {
+    throw new Error("The Amazon plush catalog could not be loaded.");
+  }
+  const amazonProductIds = new Set(products.map((product) => product.id));
+  const invalidAmazonProduct = catalogAmazon.find((product) =>
+    !product ||
+    !product.id ||
+    !product.name ||
+    !categories.some((category) => category.id === product.category) ||
+    !product.image ||
+    !product.description ||
+    !Array.isArray(product.sizes) ||
+    !product.sizes.length ||
+    !Number.isFinite(product.price) ||
+    amazonProductIds.has(product.id)
+  );
+  if (invalidAmazonProduct) {
+    throw new Error(`Invalid or duplicate Amazon catalog product: ${invalidAmazonProduct.id || "unknown"}.`);
+  }
+  products.push(...catalogAmazon.map((product) => ({
+    ...product,
+    caption: categories.find((category) => category.id === product.category).name,
+    badge: product.badge || "",
+    color: product.color || "#f5eee7",
+    collections: Array.isArray(product.collections) ? [...product.collections] : [],
+  })));
+
   const formatCurrency = new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
@@ -400,10 +429,27 @@
     ["mixi-whale-pillow", 1], // Whale Pillow
   ]);
   products.forEach((product) => {
-    product.sizeRank = sizeRankById.get(product.id) || 0;
+    const curatedRank = sizeRankById.get(product.id);
+    product.sizeRank = curatedRank ?? product.sizeRank ?? 0;
+    const collections = new Set(product.collections || []);
+    if (product.sizeRank >= 1) collections.add("giant");
+    product.collections = [...collections];
   });
 
+  function productSizesFor(product) {
+    return Array.isArray(product.sizes) && product.sizes.length ? product.sizes : productSizes;
+  }
+
+  function productSizeHeight(product, size) {
+    const productHeights = product.sizeHeights || {};
+    return productHeights[size] || productSizeHeights[size] || size;
+  }
+
   function productPrice(product, size) {
+    const sizes = productSizesFor(product);
+    if (!sizes.includes(size)) throw new RangeError(`Unknown product size: ${size}.`);
+    if (product.prices && typeof product.prices[size] === "number") return product.prices[size];
+    if (typeof product.price === "number") return product.price;
     const range = productSizePriceRanges[size];
     if (!range) throw new RangeError(`Unknown product size: ${size}.`);
     let hash = 2166136261;
@@ -442,10 +488,15 @@
         products.some((product) => product.id === item.id) &&
         Number.isInteger(item.quantity) &&
         item.quantity > 0
-      ).map((item) => ({
-        ...item,
-        size: productSizes.includes(item.size) ? item.size : "Medium",
-      }));
+      ).map((item) => {
+        const product = products.find((entry) => entry.id === item.id);
+        const availableSizes = productSizesFor(product);
+        const fallbackSize = availableSizes.includes("Medium") ? "Medium" : availableSizes[0];
+        return {
+          ...item,
+          size: availableSizes.includes(item.size) ? item.size : fallbackSize,
+        };
+      });
     } catch (error) {
       console.error("Could not read the saved shopping bag.", error);
       return [];
@@ -466,8 +517,10 @@
     products,
     categories,
     productSizes,
+    productSizesFor,
     productSizePriceRanges,
     productSizeHeights,
+    productSizeHeight,
     productPrice,
     storageKey: "little-wonder-cart",
     formatCurrency,

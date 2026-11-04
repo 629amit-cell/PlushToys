@@ -21,11 +21,12 @@ Keep the terminal running while you use the site. If the browser shows `ERR_CONN
 - Premium red-and-gold toy-shop styling with responsive product cards
 - Responsive supplier-image variants sized for catalog cards; full-resolution photos remain on product detail pages
 - About, support, privacy, and contact information sections
-- One hundred and fifty plush toys, including 124 additional supplier-sourced products
+- One hundred and seventy-four plush toys, including 124 AliExpress-sourced products and 24 Amazon-sourced giant plushies
+- A "Giant plush" collection filter for oversized teddy bears, body pillows, and large character plushies
 - Category filters generated from the products currently in the catalog
-- Individual product pages with image galleries, descriptions, a product-details accordion (collection, sizes, heights, price range, care, and delivery notes), a size chart (Small: 2 ft, Medium: 3.5 ft, Large: 6 ft), quantity selection, and recommendations
+- Individual product pages with image galleries, descriptions, a product-details accordion (collection, sizes, heights, price range, care, and delivery notes), a size chart, quantity selection, and recommendations
 - A checkout preview with an editable order summary and India delivery fields
-- Size-specific product prices in the requested Small (₹200–₹300), Medium (₹349–₹549), and Large (₹599–₹799) ranges
+- Size-specific product prices for most of the catalog in the requested Small (₹200–₹300), Medium (₹349–₹549), and Large (₹599–₹799) ranges; Amazon giant-plush additions use their listed single-size reference prices
 - Launch-offer labels without fabricated discount percentages or crossed-out reference prices
 - Shopping bag and checkout with size-aware prices and subtotals; delivery charges remain to be confirmed
 - Bag contents saved in the current browser with `localStorage`
@@ -33,8 +34,8 @@ Keep the terminal running while you use the site. If the browser shows `ERR_CONN
 
 ## Before taking real orders
 
-This is a frontend starter, not a complete commerce backend. Catalog data lives in `store.js` and `catalog-expansion.js`; checkout is a preview and does not submit or save customer details or place orders. Product prices are stable, varied sample retail prices within the requested size bands; verify product costs, margins, and market fit before accepting orders. Delivery charges are not yet set. Before launching, verify product descriptions and specifications, connect a secure commerce/payment provider and order-management backend, set real shipping, tax, return, privacy, and contact information, and test the full order flow. Never collect or store payment-card details directly in this static site.
+This is a frontend starter, not a complete commerce backend. Catalog data lives in `store.js`, `catalog-expansion.js`, and `catalog-amazon.js`; checkout is a preview and does not submit or save customer details or place orders. Product prices are stable, varied sample retail prices within the requested size bands, except for the Amazon giant-plush additions, which use single-size reference prices captured from the search page. Verify current supplier prices, product costs, margins, dimensions, and market fit before accepting orders. Delivery charges are not yet set. Before launching, verify product descriptions and specifications, confirm that you have permission to resell each branded product and use its supplier images, connect a secure commerce/payment provider and order-management backend, set real shipping, tax, return, privacy, and contact information, and test the full order flow. Never collect or store payment-card details directly in this static site.
 
 The About, Support, Privacy, and Contact sections describe the current preview. Add real store contact details and confirm delivery, returns, privacy, and support policies before accepting orders.
 
-Product names and descriptions use detailed retail copy based on the visible design and available supplier listing details; specifications not confirmed by those sources are omitted. The original 26 primary photos are stored in `assets/products/`; the 124 additional primary photos load from supplier image hosts. Product galleries show only distinct photos that could be verified. The storefront does not link to supplier product pages.
+Product names and descriptions use detailed retail copy based on the visible design and available supplier listing details; specifications not confirmed by those sources are omitted. The original 26 primary photos are stored in `assets/products/`; the 124 AliExpress additional primary photos load from supplier image hosts; the 24 Amazon giant-plush photos are stored in `assets/products/amazon/`. Product galleries show only distinct photos that could be verified. The storefront does not link to supplier product pages. Amazon listings and images are included as supplier references, not as proof of resale authorization.

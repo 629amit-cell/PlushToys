@@ -14,12 +14,14 @@ function renderCheckout() {
   linesContainer.innerHTML = validCart.map((item) => {
     const product = store.products.find((entry) => entry.id === item.id);
     const unitPrice = store.productPrice(product, item.size);
+    const sizeDetail = store.productSizeHeight(product, item.size);
+    const sizeText = sizeDetail && sizeDetail !== item.size ? `${item.size} · ${sizeDetail}` : item.size;
     return `
       <article class="checkout-line">
         <div class="checkout-line-art" style="background:${product.color}">${store.productVisual(product, "lazy", "thumbnail")}</div>
         <div class="checkout-line-info">
           <a href="product.html?id=${encodeURIComponent(product.id)}">${product.name}</a>
-          <span>Size: ${item.size}</span>
+          <span>Size: ${sizeText}</span>
           <span>${store.formatCurrency.format(unitPrice)} each</span>
           <div class="checkout-quantity" aria-label="Quantity for ${product.name}, ${item.size}">
             <button type="button" data-quantity="${product.id}" data-size="${item.size}" data-change="-1" aria-label="Remove one ${product.name}, ${item.size}">−</button>

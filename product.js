@@ -29,13 +29,13 @@ function addProductToBag() {
 function renderRecommendations() {
   const relatedProducts = store.products
     .filter((item) => item.id !== product.id)
-    .sort((a, b) => Number(b.category === product.category) - Number(a.category === product.category))
+    .sort((a, b) => Number(b.category === product.category) - Number(a.category === product.category) || (b.sizeRank || 0) - (a.sizeRank || 0))
     .slice(0, 3)
     .map((item) => `
       <a class="recommendation-card" href="product.html?id=${encodeURIComponent(item.id)}">
         <div class="recommendation-art" style="background:${item.color}">${store.productVisual(item, "lazy", "card")}</div>
         <span>${item.name}</span>
-        <strong>From ${store.formatCurrency.format(store.productPrice(item, "Small"))}</strong>
+        <strong>From ${store.formatCurrency.format(store.productPrice(item, store.productSizesFor(item)[0]))}</strong>
       </a>
     `).join("");
   document.querySelector("#recommendation-grid").innerHTML = relatedProducts;
@@ -60,14 +60,16 @@ function initializeProduct() {
   document.querySelector("#detail-badge").textContent = product.caption;
   document.querySelector("#detail-name").textContent = product.name;
   document.querySelector("#detail-description").textContent = product.description;
-  document.querySelector("#product-sizes").innerHTML = store.productSizes.map((size) => `
+  const sizes = store.productSizesFor(product);
+  const defaultSize = sizes.includes("Medium") ? "Medium" : sizes[0];
+  document.querySelector("#product-sizes").innerHTML = sizes.map((size) => `
     <label class="size-option">
-      <input type="radio" name="product-size" value="${size}"${size === "Medium" ? " checked" : ""}>
+      <input type="radio" name="product-size" value="${size}"${size === defaultSize ? " checked" : ""}>
       <span>${size}<small>${store.formatCurrency.format(store.productPrice(product, size))}</small></span>
     </label>
   `).join("");
-  document.querySelector("#product-size-chart").innerHTML = store.productSizes.map((size) => `
-    <tr><th scope="row">${size}</th><td>${store.productSizeHeights[size]}</td><td>${store.formatCurrency.format(store.productPrice(product, size))}</td></tr>
+  document.querySelector("#product-size-chart").innerHTML = sizes.map((size) => `
+    <tr><th scope="row">${size}</th><td>${store.productSizeHeight(product, size)}</td><td>${store.formatCurrency.format(store.productPrice(product, size))}</td></tr>
   `).join("");
   const updateSelectedSizePrice = () => {
     const selectedSize = document.querySelector('input[name="product-size"]:checked').value;
@@ -76,14 +78,30 @@ function initializeProduct() {
   document.querySelector("#product-sizes").addEventListener("change", updateSelectedSizePrice);
   updateSelectedSizePrice();
   const categoryName = store.categories.find((entry) => entry.id === product.category)?.name || product.caption;
-  const sizePrices = store.productSizes.map((size) => store.productPrice(product, size));
+  const collectionNames = (product.collections || [])
+    .map((id) => store.categories.find((entry) => entry.id === id)?.name || id)
+    .filter((name) => name !== categoryName);
+  const collectionLabel = [categoryName, ...collectionNames].join(" · ");
+  const sizePrices = sizes.map((size) => store.productPrice(product, size));
   const lowPrice = Math.min(...sizePrices);
   const highPrice = Math.max(...sizePrices);
+  const priceRange = lowPrice === highPrice
+    ? store.formatCurrency.format(lowPrice)
+    : `${store.formatCurrency.format(lowPrice)} – ${store.formatCurrency.format(highPrice)}`;
+  const sizeSummary = sizes.length === 1
+    ? `One size: ${sizes[0]}${store.productSizeHeight(product, sizes[0]) !== sizes[0] ? ` — ${store.productSizeHeight(product, sizes[0])}` : ""} — ${store.formatCurrency.format(lowPrice)}.`
+    : `Available in ${sizes.join(", ")} — from ${store.formatCurrency.format(lowPrice)}.`;
+  const heightSummary = sizes
+    .map((size) => {
+      const height = store.productSizeHeight(product, size);
+      return height === size ? size : `${size} ${height}`;
+    })
+    .join(" · ");
   document.querySelector(".detail-rating").hidden = true;
   document.querySelector(".detail-highlights").hidden = false;
   document.querySelector(".detail-highlights").innerHTML = `
-    <div><span aria-hidden="true">✦</span><span>Available in Small, Medium, and Large — from ${store.formatCurrency.format(lowPrice)}.</span></div>
-    <div><span aria-hidden="true">✦</span><span>${categoryName} collection · soft plush character design.</span></div>
+    <div><span aria-hidden="true">✦</span><span>${sizeSummary}</span></div>
+    <div><span aria-hidden="true">✦</span><span>${collectionLabel} collection · soft plush character design.</span></div>
     <div><span aria-hidden="true">✦</span><span>Delivery charges confirmed at checkout.</span></div>
   `;
   document.querySelector(".detail-accordion").innerHTML = `
@@ -91,10 +109,10 @@ function initializeProduct() {
       <summary>Product details</summary>
       <div class="detail-panel">
         <dl class="spec-list">
-          <div><dt>Collection</dt><dd>${categoryName}</dd></div>
-          <div><dt>Available sizes</dt><dd>${store.productSizes.join(" · ")}</dd></div>
-          <div><dt>Approx. height</dt><dd>${store.productSizes.map((size) => `${size} ${store.productSizeHeights[size]}`).join(" · ")}</dd></div>
-          <div><dt>Price range</dt><dd>${store.formatCurrency.format(lowPrice)} – ${store.formatCurrency.format(highPrice)}</dd></div>
+          <div><dt>Collection</dt><dd>${collectionLabel}</dd></div>
+          <div><dt>Available sizes</dt><dd>${sizes.join(" · ")}</dd></div>
+          <div><dt>Approx. height</dt><dd>${heightSummary}</dd></div>
+          <div><dt>Price range</dt><dd>${priceRange}</dd></div>
         </dl>
       </div>
     </details>

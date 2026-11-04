@@ -3,6 +3,8 @@ const {
   categories,
   productVisual,
   productPrice,
+  productSizesFor,
+  productSizeHeight,
   formatCurrency,
   readCart: readStoredCart,
   saveCart: saveStoredCart,
@@ -33,8 +35,13 @@ function saveCart() {
 function renderProducts() {
   let visibleProducts = products.filter((product) => {
     const categoryName = categories.find((category) => category.id === product.category)?.name || product.category;
-    const matchesCategory = activeCategory === "all" || product.category === activeCategory;
-    const matchesSearch = `${product.name} ${product.caption} ${categoryName}`
+    const collectionNames = (product.collections || [])
+      .map((id) => categories.find((category) => category.id === id)?.name || id)
+      .join(" ");
+    const matchesCategory = activeCategory === "all" ||
+      product.category === activeCategory ||
+      (product.collections || []).includes(activeCategory);
+    const matchesSearch = `${product.name} ${product.caption} ${categoryName} ${collectionNames}`
       .toLowerCase()
       .includes(searchTerm);
     return matchesCategory && matchesSearch;
@@ -56,7 +63,7 @@ function renderProducts() {
           ${productVisual(product, index < 8 ? "eager" : "lazy", "card")}
         </div>
         <div class="product-details">
-          <div class="product-name-row"><h3 class="product-name">${product.name}</h3><span class="product-price"><small>Launch offer · From</small>${formatCurrency.format(productPrice(product, "Small"))}</span></div>
+          <div class="product-name-row"><h3 class="product-name">${product.name}</h3><span class="product-price"><small>Launch offer · From</small>${formatCurrency.format(productPrice(product, productSizesFor(product)[0]))}</span></div>
           <p class="product-summary">${product.description}</p>
           <p class="product-caption">${product.caption}</p>
           <span class="product-view-link">View plush details <span aria-hidden="true">↗</span></span>
@@ -78,16 +85,24 @@ function renderProducts() {
 
 function renderCategories() {
   const availableCategories = categories.filter((category) =>
-    products.some((product) => product.category === category.id)
+    products.some((product) =>
+      product.category === category.id ||
+      (product.collections || []).includes(category.id)
+    )
   );
   const categoryOptions = [
     { id: "all", name: "All plush toys" },
     ...availableCategories,
   ];
+  const countForCategory = (categoryId) => categoryId === "all"
+    ? products.length
+    : products.filter((product) =>
+        product.category === categoryId ||
+        (product.collections || []).includes(categoryId)
+      ).length;
+  document.querySelector("#catalog-count").textContent = products.length;
   categoryList.innerHTML = categoryOptions.map((category) => {
-    const count = category.id === "all"
-      ? products.length
-      : products.filter((product) => product.category === category.id).length;
+    const count = countForCategory(category.id);
     return `
       <button class="category-chip${activeCategory === category.id ? " is-active" : ""}" data-category="${category.id}" type="button" aria-pressed="${activeCategory === category.id}">
         ${category.name}<span class="category-count">${count}</span>
@@ -104,12 +119,14 @@ function renderCart() {
 
   cartItems.innerHTML = cart.map((item) => {
     const product = products.find((entry) => entry.id === item.id);
+    const sizeDetail = productSizeHeight(product, item.size);
+    const sizeText = sizeDetail && sizeDetail !== item.size ? `${item.size} · ${sizeDetail}` : item.size;
     return `
       <article class="cart-line">
         <div class="cart-line-art" style="background:${product.color}" aria-hidden="true">${productVisual(product, "lazy", "thumbnail")}</div>
         <div>
           <h3>${product.name}</h3>
-          <span class="cart-line-size">Size: ${item.size}</span>
+          <span class="cart-line-size">Size: ${sizeText}</span>
           <span class="cart-line-price">${formatCurrency.format(productPrice(product, item.size))} each</span>
           <div class="quantity-control" aria-label="Quantity for ${product.name}, ${item.size}">
             <button type="button" data-quantity="${product.id}" data-size="${item.size}" data-change="-1" aria-label="Remove one ${product.name}, ${item.size}">−</button>
