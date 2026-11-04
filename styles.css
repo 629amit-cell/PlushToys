@@ -1278,3 +1278,9 @@ h1 em, h2 em { font-weight: 500; }
   .product-price { font-size: 11px; }
   .detail-price { font-size: 25px; }
 }
+
+/* Keep every detail-gallery photo on the same square, centered canvas. */
+.detail-art { background: #f7f3ee; }
+.detail-art .product-image,
+.detail-thumbnail img { mix-blend-mode: normal; }
+.detail-thumbnail { background: #f7f3ee; }

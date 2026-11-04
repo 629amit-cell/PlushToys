@@ -136,11 +136,11 @@ function initializeProduct() {
     if (image.includes("-styled.jpg")) return "Styled view";
     return `Photo ${index + 1}`;
   };
-  document.querySelector("#detail-art").style.background = product.color;
+  document.querySelector("#detail-art").style.background = "#f7f3ee";
   document.querySelector("#detail-art").innerHTML = `
     <span class="decor decor-one" aria-hidden="true">✦</span>
     <span class="decor decor-two" aria-hidden="true">✧</span>
-    ${store.productVisual(product, "eager")}
+    ${store.productVisual(product, "eager", "full", productImages[0])}
     ${productImages.length > 1 ? `<span class="detail-photo-count" id="detail-photo-count" aria-hidden="true">1 / ${productImages.length}</span>` : ""}
   `;
   const thumbnails = document.querySelector("#detail-thumbnails");

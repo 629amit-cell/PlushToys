@@ -467,22 +467,21 @@
     return url.toString();
   }
 
-  function productVisual(product, loading = "lazy", size = "full") {
+  function productVisual(product, loading = "lazy", size = "full", image = product.image) {
+    const source = image || product.image;
     const widths = size === "card" ? [480, 720, 960] : size === "thumbnail" ? [240, 360, 480] : [];
-    const responsiveAttributes = widths.length && productImageVariant(product.image, widths[0]) !== product.image
-      ? ` srcset="${widths.map((width) => `${productImageVariant(product.image, width)} ${width}w`).join(", ")}" sizes="${size === "card" ? "(max-width: 600px) 46vw, (max-width: 900px) 30vw, 22vw" : "120px"}"`
+    const responsiveAttributes = widths.length && productImageVariant(source, widths[0]) !== source
+      ? ` srcset="${widths.map((width) => `${productImageVariant(source, width)} ${width}w`).join(", ")}" sizes="${size === "card" ? "(max-width: 600px) 46vw, (max-width: 900px) 30vw, 22vw" : "120px"}"`
       : "";
-    return `<img class="product-image" src="${product.image}"${responsiveAttributes} alt="${product.name}" loading="${loading}" decoding="async">`;
+    return `<img class="product-image" src="${source}"${responsiveAttributes} alt="${product.name}" loading="${loading}" decoding="async">`;
   }
 
   function productImages(product) {
     const catalogGallery = window.LittleWonderCatalogGallery || {};
-    const images = [
-      product.image,
-      ...(additionalProductImages[product.id] || []),
-      ...(catalogGallery[product.id] || []),
-    ];
-    return images.filter((image, index, list) => list.indexOf(image) === index);
+    const gallery = catalogGallery[product.id];
+    if (Array.isArray(gallery) && gallery.length) return gallery;
+    return [product.image, ...(additionalProductImages[product.id] || [])]
+      .filter((image, index, list) => list.indexOf(image) === index);
   }
 
   function readCart() {
