@@ -476,7 +476,13 @@
   }
 
   function productImages(product) {
-    return [product.image, ...(additionalProductImages[product.id] || [])];
+    const catalogGallery = window.LittleWonderCatalogGallery || {};
+    const images = [
+      product.image,
+      ...(additionalProductImages[product.id] || []),
+      ...(catalogGallery[product.id] || []),
+    ];
+    return images.filter((image, index, list) => list.indexOf(image) === index);
   }
 
   function readCart() {

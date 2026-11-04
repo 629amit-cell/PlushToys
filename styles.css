@@ -822,12 +822,14 @@ h1 em, h2 em { color: #e65d85; }
 .detail-thumbnail:hover { transform: translateY(-2px); }
 .detail-thumbnail.is-active { border: 2px solid #a64e8e; }
 .detail-thumbnail img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.detail-photo-count { position: absolute; top: 14px; right: 14px; z-index: 3; padding: 6px 10px; border: 1px solid #f0e4da; border-radius: 999px; background: #fffdfaeb; box-shadow: 0 6px 16px #2b1f170f; color: #8f4781; font-size: 8px; font-weight: 700; letter-spacing: .08em; backdrop-filter: blur(7px); }
 
 @media (max-width: 600px) {
   .product-name-row { min-height: 44px; }
   .product-summary { min-height: 3.1em; }
   .detail-thumbnails { gap: 8px; }
   .detail-thumbnail { padding: 4px; }
+  .detail-photo-count { top: 10px; right: 10px; padding: 5px 8px; font-size: 7px; }
 }
 
 /* Premium toy-shop finish */

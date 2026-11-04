@@ -129,21 +129,35 @@ function initializeProduct() {
       </div>
     </details>
   `;
+  const productImages = store.productImages(product);
+  const photoLabel = (image, index) => {
+    if (index === 0) return "Main photo";
+    if (image.includes("-closeup.jpg")) return "Close-up";
+    if (image.includes("-styled.jpg")) return "Styled view";
+    return `Photo ${index + 1}`;
+  };
   document.querySelector("#detail-art").style.background = product.color;
   document.querySelector("#detail-art").innerHTML = `
     <span class="decor decor-one" aria-hidden="true">✦</span>
     <span class="decor decor-two" aria-hidden="true">✧</span>
     ${store.productVisual(product, "eager")}
+    ${productImages.length > 1 ? `<span class="detail-photo-count" id="detail-photo-count" aria-hidden="true">1 / ${productImages.length}</span>` : ""}
   `;
-  const productImages = store.productImages(product);
   const thumbnails = document.querySelector("#detail-thumbnails");
   const mainImage = document.querySelector("#detail-art .product-image");
+  const photoCount = document.querySelector("#detail-photo-count");
   thumbnails.hidden = productImages.length < 2;
   const updateThumbnailColumns = () => {
     const visibleThumbnails = thumbnails.querySelectorAll(".detail-thumbnail:not([hidden])").length;
-    thumbnails.style.gridTemplateColumns = `repeat(${Math.min(visibleThumbnails, 3)}, minmax(0, 1fr))`;
+    if (!visibleThumbnails) {
+      thumbnails.hidden = true;
+      return;
+    }
+    const columns = visibleThumbnails === 4 ? 2 : Math.min(visibleThumbnails, 3);
+    thumbnails.style.gridTemplateColumns = `repeat(${columns}, minmax(0, 1fr))`;
   };
   thumbnails.innerHTML = productImages.map((image, index) => {
+    const label = photoLabel(image, index);
     const thumbnailImage = store.productImageVariant(image, 480);
     const thumbnailSources = [240, 360, 480]
       .map((width) => store.productImageVariant(image, width))
@@ -152,7 +166,7 @@ function initializeProduct() {
       ? ` srcset="${thumbnailSources.map((source, sourceIndex) => `${source} ${[240, 360, 480][sourceIndex]}w`).join(", ")}" sizes="140px"`
       : "";
     return `
-      <button class="detail-thumbnail${index === 0 ? " is-active" : ""}" type="button" data-photo-index="${index}" aria-label="View product photo ${index + 1}" aria-pressed="${index === 0}">
+      <button class="detail-thumbnail${index === 0 ? " is-active" : ""}" type="button" data-photo-index="${index}" title="${label}" aria-label="View ${label.toLowerCase()} of ${product.name}" aria-pressed="${index === 0}">
         <img src="${thumbnailImage}"${responsiveAttributes} alt="" loading="lazy" decoding="async">
       </button>
     `;
@@ -162,7 +176,8 @@ function initializeProduct() {
     if (!button) return;
     const index = Number(button.dataset.photoIndex);
     mainImage.src = productImages[index];
-    mainImage.alt = `${product.name}, photo ${index + 1}`;
+    mainImage.alt = `${product.name} — ${photoLabel(productImages[index], index)}`;
+    if (photoCount) photoCount.textContent = `${index + 1} / ${productImages.length}`;
     thumbnails.querySelectorAll(".detail-thumbnail").forEach((thumbnail) => {
       const isActive = thumbnail === button;
       thumbnail.classList.toggle("is-active", isActive);
