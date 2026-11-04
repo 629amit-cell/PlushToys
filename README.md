@@ -16,7 +16,7 @@ Keep the terminal running while you use the site. If the browser shows `ERR_CONN
 
 ## What's included
 
-- Product browsing, category filters, search, and name sorting
+- Product browsing, category filters, search, biggest-first and name sorting
 - Individual, detailed descriptions for every product
 - Premium red-and-gold toy-shop styling with responsive product cards
 - Responsive supplier-image variants sized for catalog cards; full-resolution photos remain on product detail pages

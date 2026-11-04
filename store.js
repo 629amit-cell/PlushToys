@@ -249,7 +249,7 @@
 
   const additionalProducts = [
     ["1601997687874", "Bow Bunny", "bunnies"],
-    ["1601599663563", "Giant Teddy Bear", "bears"],
+    ["1601599663563", "80 cm Giant Teddy Bear", "bears"],
     ["1601984481652", "Long Fox Pillow", "foxes"],
     ["1601402734988", "Panda & Unicorn Seat", "novelty"],
     ["1601951424117", "Blue Shark", "sea-life"],
@@ -382,6 +382,26 @@
     Medium: "3.5 ft",
     Large: "6 ft",
   };
+
+  const sizeRankById = new Map([
+    ["mixi-1601599663563", 3], // 80 cm Giant Teddy Bear
+    ["mixi-1601634793417", 3], // Giant Teddy Bear
+    ["mixi-1601673768888", 3], // Brown Oversized Teddy
+    ["mixi-1601557226882", 2], // Hugging Teddy Bear
+    ["mixi-1601536245463", 2], // Large Capybara Plush
+    ["mixi-1601662268776", 2], // Butterfly-Bow Teddy Bear
+    ["mixi-1601402734988", 2], // Panda & Unicorn Seat
+    ["mixi-1601984481652", 1], // Long Fox Pillow
+    ["mixi-1601965390528", 1], // Long Cat Body Pillow
+    ["mixi-1601965331197", 1], // Bear Headboard Pillow
+    ["mixi-1601965296351", 1], // Dachshund Body Pillow
+    ["mixi-1601962844388", 1], // Long Dinosaur Pillow
+    ["mixi-1601962410000", 1], // Calico Cat Pillow
+    ["mixi-whale-pillow", 1], // Whale Pillow
+  ]);
+  products.forEach((product) => {
+    product.sizeRank = sizeRankById.get(product.id) || 0;
+  });
 
   function productPrice(product, size) {
     const range = productSizePriceRanges[size];

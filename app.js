@@ -40,7 +40,11 @@ function renderProducts() {
     return matchesCategory && matchesSearch;
   });
 
-  if (sortSelect.value === "name") visibleProducts = [...visibleProducts].sort((a, b) => a.name.localeCompare(b.name));
+  if (sortSelect.value === "big") {
+    visibleProducts = [...visibleProducts].sort((a, b) => (b.sizeRank || 0) - (a.sizeRank || 0));
+  } else if (sortSelect.value === "name") {
+    visibleProducts = [...visibleProducts].sort((a, b) => a.name.localeCompare(b.name));
+  }
 
   productGrid.innerHTML = visibleProducts.map((product, index) => `
     <article class="product-card">
