@@ -1,6 +1,11 @@
 name = "little-wonder"
+main = "worker/index.js"
 compatibility_date = "2026-11-04"
-pages_build_output_dir = "./dist"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
 
 # Optional but recommended for order records. Create the database with:
 #   npx wrangler d1 create little-wonder-orders

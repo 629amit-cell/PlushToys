@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-pages.mjs",
-    "dev": "npm run build && wrangler pages dev dist",
-    "deploy": "npm run build && wrangler pages deploy dist",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
     "generate:catalog": "node scripts/generate-server-catalog.mjs",
     "generate:assets": "python3 scripts/generate-product-assets.py"
   },
