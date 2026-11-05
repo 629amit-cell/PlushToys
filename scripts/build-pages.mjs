@@ -23,6 +23,21 @@ await Promise.all(staticFiles.map((name) =>
   copyFile(path.join(root, name), path.join(output, name))
 ));
 
-await cp(path.join(root, "assets"), path.join(output, "assets"), { recursive: true });
+const assetsRoot = path.join(root, "assets");
+const outputAssets = path.join(output, "assets");
+await cp(assetsRoot, outputAssets, {
+  recursive: true,
+  // The full-size source photos are only used to generate the WebP
+  // derivatives in cards/, thumbs/ and gallery/. Every product now has a
+  // card and gallery entry, so the source folders do not need to be served.
+  filter: (source) => {
+    const relative = path.relative(assetsRoot, source);
+    if (relative === "products/amazon" || relative.startsWith(`products${path.sep}amazon${path.sep}`)) {
+      return false;
+    }
+    if (/^products[\\/][^\\/]+\.(?:jpe?g|png)$/i.test(relative)) return false;
+    return true;
+  },
+});
 
 console.log(`Built ${staticFiles.length} root files and assets into dist/`);

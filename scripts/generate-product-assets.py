@@ -8,7 +8,8 @@ Run from the repository root:
 The source of truth is catalog-gallery.js. Every product gets a 480 x 480
 catalog-card image, and every gallery image gets a 240 x 240 thumbnail. Both
 sets stay on the same cream canvas as the 900 x 900 gallery so the product
-remains centred and the visual margins stay consistent.
+remains centred and the visual margins stay consistent. Images are written as
+WebP for smaller downloads on the live site.
 """
 
 from __future__ import annotations
@@ -46,11 +47,9 @@ def resize_image(source: Path, destination: Path, size: int, quality: int) -> No
         destination.parent.mkdir(parents=True, exist_ok=True)
         image.save(
             destination,
-            format="JPEG",
+            format="WEBP",
             quality=quality,
-            optimize=True,
-            progressive=True,
-            subsampling=1,
+            method=6,
         )
 
 
@@ -84,19 +83,23 @@ def main() -> None:
         main_image = ROOT / images[0]
         if not main_image.exists():
             continue
-        card = CARDS_DIR / f"{product_id}.jpg"
-        resize_image(main_image, card, 480, 82)
+        card = CARDS_DIR / f"{product_id}.webp"
+        resize_image(main_image, card, 480, 80)
         card_count += 1
         card_lines.append(
             f"  {json.dumps(product_id)}: "
-            f"{json.dumps(f'assets/products/cards/{product_id}.jpg?v=1')},"
+            f"{json.dumps(f'assets/products/cards/{product_id}.webp?v=2')},"
         )
 
     card_lines.append("});")
     CARDS_JS.write_text("\n".join(card_lines) + "\n", encoding="utf-8")
 
-    total_bytes = sum(path.stat().st_size for path in CARDS_DIR.glob("*.jpg"))
-    total_bytes += sum(path.stat().st_size for path in THUMBS_DIR.glob("*.jpg"))
+    for folder in (CARDS_DIR, THUMBS_DIR):
+        for stale in folder.glob("*.jpg"):
+            stale.unlink()
+
+    total_bytes = sum(path.stat().st_size for path in CARDS_DIR.glob("*.webp"))
+    total_bytes += sum(path.stat().st_size for path in THUMBS_DIR.glob("*.webp"))
     print(f"Products: {len(gallery)}")
     print(f"Card images: {card_count}")
     print(f"Gallery thumbnails: {image_count}")

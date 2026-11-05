@@ -7,7 +7,7 @@ A fast, responsive plush-toy storefront built with plain HTML, CSS, and JavaScri
 - 174 plush products, including 124 AliExpress-sourced products and 24 Amazon-sourced giant plushies
 - Category filters, search, biggest-first and name sorting, and a Giant plush collection
 - Individual product pages with 3–6 aligned gallery photos, detailed descriptions, size charts, care notes, and recommendations
-- Local 480 × 480 card images and 240 × 240 gallery thumbnails served from the same Cloudflare deployment
+- Local 480 × 480 WebP card images and 240 × 240 WebP gallery thumbnails served from the same Cloudflare deployment
 - Secure Razorpay checkout with server-side price recalculation, signature verification, and an optional webhook
 - Optional Cloudflare D1 order records
 - Responsive layout, keyboard-accessible controls, and locally saved bag contents
@@ -115,8 +115,8 @@ The browser receives only the public key ID and the Razorpay order ID. The secre
 ## Performance
 
 - Cloudflare serves the storefront and images from its global CDN.
-- Catalogue cards use local 480 × 480 images instead of remote supplier URLs.
-- Product-detail thumbnails use local 240 × 240 images; the full 900 × 900 photo opens only as the main image.
+- Catalogue cards use local 480 × 480 WebP images instead of remote supplier URLs.
+- Product-detail thumbnails use local 240 × 240 WebP images; the full 900 × 900 WebP photo opens only as the main image.
 - `index.html` and `checkout.html` do not load the 40 KB gallery map; only product pages do.
 - `_headers` gives long-lived immutable caching to versioned CSS/JS and a 30-day cache to image assets.
 - `run_worker_first = ["/api/*"]` keeps static requests on the fast asset path and sends only API calls to the Worker.
@@ -152,7 +152,8 @@ The asset script requires Python 3 and Pillow. It rebuilds `catalog-cards.js`, t
 
 - `store.js`, `catalog-expansion.js`, `catalog-amazon.js`, and `catalog-gallery.js` are the client catalogue sources.
 - `functions/_lib/catalog-data.js` is generated from those files for server-side pricing.
-- Original primary photos and aligned gallery photos are stored under `assets/products/`.
+- Original primary photos and aligned gallery photos are stored under `assets/products/`; the 900 × 900 gallery files are WebP.
 - Every gallery photo is a 900 × 900 cream canvas with the product centred and consistent margins.
-- Card and thumbnail derivatives are stored in `assets/products/cards/` and `assets/products/thumbs/`.
+- Card and thumbnail WebP derivatives are stored in `assets/products/cards/` and `assets/products/thumbs/`.
+- The build uploads only the WebP derivatives and gallery files; full-size source photos stay in the repository and are not served.
 - The shopping bag is saved in the browser with `localStorage`.

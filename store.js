@@ -475,7 +475,7 @@
   function productThumbImage(product) {
     const cardImages = window.LittleWonderCardImages || {};
     if (cardImages[product.id]) {
-      return `assets/products/thumbs/${product.id}-main.jpg?v=1`;
+      return `assets/products/thumbs/${product.id}-main.webp?v=2`;
     }
     return productCardImage(product);
   }

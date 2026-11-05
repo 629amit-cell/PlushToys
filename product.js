@@ -133,8 +133,8 @@ function initializeProduct() {
   const productImages = store.productImages(product);
   const photoLabel = (image, index) => {
     if (index === 0) return "Main photo";
-    if (image.includes("-closeup.jpg")) return "Close-up";
-    if (image.includes("-styled.jpg")) return "Styled view";
+    if (image.includes("-closeup.")) return "Close-up";
+    if (image.includes("-styled.")) return "Styled view";
     return `Photo ${index + 1}`;
   };
   document.querySelector("#detail-art").style.background = "#f7f3ee";
