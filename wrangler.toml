@@ -1,4 +1,4 @@
-name = "little-wonder"
+name = "plushtoys"
 main = "worker/index.js"
 compatibility_date = "2026-11-04"
 
