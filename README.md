@@ -118,7 +118,8 @@ The browser receives only the public key ID and the Razorpay order ID. The secre
 - Catalogue cards use local 480 × 480 WebP images instead of remote supplier URLs.
 - Product-detail thumbnails use local 240 × 240 WebP images; the full 900 × 900 WebP photo opens only as the main image.
 - `index.html` and `checkout.html` do not load the 40 KB gallery map; only product pages do.
-- `_headers` gives long-lived immutable caching to versioned CSS/JS and a 30-day cache to image assets.
+- `_headers` gives long-lived immutable caching to versioned CSS/JS and fonts, and a 30-day cache to image assets.
+- Fraunces and Manrope are self-hosted as small, text-subset variable WOFF2 files. They are preloaded from the same origin, so the page no longer waits on Google Fonts CSS or extra third-party connections. The original OFL licences are in `assets/fonts/`.
 - `run_worker_first = ["/api/*"]` keeps static requests on the fast asset path and sends only API calls to the Worker.
 - Razorpay Checkout is preconnected on the checkout page and loaded during idle time, so the page itself is not blocked by the payment SDK.
 

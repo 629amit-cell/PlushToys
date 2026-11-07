@@ -1,3 +1,30 @@
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/fraunces-normal-var.woff2?v=1") format("woff2");
+  unicode-range: U+20-7D, U+00A9, U+00B0, U+00B7, U+00D7, U+00F7, U+2013-2014, U+2018-2019, U+201C-201D, U+2022, U+2026, U+2032-2033, U+20B9, U+2190-2193, U+2197, U+2212, U+2315, U+2605, U+2661, U+2726-2727, U+2733, U+273F;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/fraunces-italic-var.woff2?v=1") format("woff2");
+  unicode-range: U+20-7D, U+00A9, U+00B0, U+00B7, U+00D7, U+00F7, U+2013-2014, U+2018-2019, U+201C-201D, U+2022, U+2026, U+2032-2033, U+20B9, U+2190-2193, U+2197, U+2212, U+2315, U+2605, U+2661, U+2726-2727, U+2733, U+273F;
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("assets/fonts/manrope-normal-var.woff2?v=1") format("woff2");
+  unicode-range: U+20-7D, U+00A9, U+00B0, U+00B7, U+00D7, U+00F7, U+2013-2014, U+2018-2019, U+201C-201D, U+2022, U+2026, U+2032-2033, U+20B9, U+2190-2193, U+2197, U+2212, U+2315, U+2605, U+2661, U+2726-2727, U+2733, U+273F;
+}
+
 :root {
   color-scheme: light;
   --ink: #29241f;
