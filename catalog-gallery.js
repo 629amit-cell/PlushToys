@@ -1,4 +1,4 @@
-window.LittleWonderCatalogGallery = Object.freeze({
+window.PlushStoryCatalogGallery = Object.freeze({
   "mixi-heart-balloon-bear": ["assets/products/gallery/mixi-heart-balloon-bear-main.webp", "assets/products/gallery/mixi-heart-balloon-bear-photo-2.webp", "assets/products/gallery/mixi-heart-balloon-bear-closeup.webp", "assets/products/gallery/mixi-heart-balloon-bear-styled.webp"],
   "mixi-heart-ribbon-bear": ["assets/products/gallery/mixi-heart-ribbon-bear-main.webp", "assets/products/gallery/mixi-heart-ribbon-bear-photo-2.webp", "assets/products/gallery/mixi-heart-ribbon-bear-photo-3.webp", "assets/products/gallery/mixi-heart-ribbon-bear-closeup.webp", "assets/products/gallery/mixi-heart-ribbon-bear-styled.webp"],
   "mixi-rose-swirl-bear": ["assets/products/gallery/mixi-rose-swirl-bear-main.webp", "assets/products/gallery/mixi-rose-swirl-bear-closeup.webp", "assets/products/gallery/mixi-rose-swirl-bear-styled.webp"],

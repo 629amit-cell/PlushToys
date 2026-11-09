@@ -1,4 +1,6 @@
 (() => {
+  const STORAGE_KEY = "plush-story-cart";
+  const LEGACY_STORAGE_KEY = "little-wonder-cart";
   const categories = [
     { id: "giant", name: "Giant plush" },
     { id: "bears", name: "Bears" },
@@ -166,7 +168,7 @@
     }[product.id],
   }));
 
-  const additionalImageUrls = window.LittleWonderAdditionalImageUrls;
+  const additionalImageUrls = window.PlushStoryAdditionalImageUrls;
   if (!additionalImageUrls) {
     throw new Error("The additional product images did not load.");
   }
@@ -343,7 +345,7 @@
   }
   products.push(...additionalProducts);
 
-  const catalogExpansion = window.LittleWonderCatalogExpansion;
+  const catalogExpansion = window.PlushStoryCatalogExpansion;
   if (!Array.isArray(catalogExpansion)) {
     throw new Error("The additional plush catalog could not be loaded.");
   }
@@ -367,7 +369,7 @@
     color: "#f5eee7",
   })));
 
-  const catalogAmazon = window.LittleWonderCatalogAmazon;
+  const catalogAmazon = window.PlushStoryCatalogAmazon;
   if (!Array.isArray(catalogAmazon)) {
     throw new Error("The Amazon plush catalog could not be loaded.");
   }
@@ -468,12 +470,12 @@
   }
 
   function productCardImage(product) {
-    const cardImages = window.LittleWonderCardImages || {};
+    const cardImages = window.PlushStoryCardImages || {};
     return cardImages[product.id] || product.image;
   }
 
   function productThumbImage(product) {
-    const cardImages = window.LittleWonderCardImages || {};
+    const cardImages = window.PlushStoryCardImages || {};
     if (cardImages[product.id]) {
       return `assets/products/thumbs/${product.id}-main.webp?v=2`;
     }
@@ -502,7 +504,7 @@
   }
 
   function productImages(product) {
-    const catalogGallery = window.LittleWonderCatalogGallery || {};
+    const catalogGallery = window.PlushStoryCatalogGallery || {};
     const gallery = catalogGallery[product.id];
     if (Array.isArray(gallery) && gallery.length) return gallery;
     return [product.image, ...(additionalProductImages[product.id] || [])]
@@ -511,7 +513,16 @@
 
   function readCart() {
     try {
-      const saved = JSON.parse(localStorage.getItem("little-wonder-cart") || "[]");
+      let rawCart = localStorage.getItem(STORAGE_KEY);
+      if (rawCart === null) {
+        const legacyCart = localStorage.getItem(LEGACY_STORAGE_KEY);
+        if (legacyCart !== null) {
+          rawCart = legacyCart;
+          localStorage.setItem(STORAGE_KEY, legacyCart);
+          localStorage.removeItem(LEGACY_STORAGE_KEY);
+        }
+      }
+      const saved = JSON.parse(rawCart || "[]");
       if (!Array.isArray(saved)) return [];
       return saved.filter((item) =>
         item &&
@@ -535,7 +546,7 @@
 
   function saveCart(cart) {
     try {
-      localStorage.setItem("little-wonder-cart", JSON.stringify(cart));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
       return true;
     } catch (error) {
       console.error("Could not save the shopping bag in this browser.", error);
@@ -543,7 +554,7 @@
     }
   }
 
-  window.LittleWonderStore = {
+  window.PlushStoryStore = {
     products,
     categories,
     productSizes,
@@ -552,7 +563,7 @@
     productSizeHeights,
     productSizeHeight,
     productPrice,
-    storageKey: "little-wonder-cart",
+    storageKey: STORAGE_KEY,
     formatCurrency,
     productVisual,
     productCardImage,

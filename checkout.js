@@ -1,4 +1,4 @@
-const store = window.LittleWonderStore;
+const store = window.PlushStoryStore;
 let cart = store.readCart();
 
 const linesContainer = document.querySelector("#checkout-lines");
@@ -270,7 +270,7 @@ function openRazorpay(order, customer) {
     key: order.keyId,
     amount: order.amount,
     currency: order.currency,
-    name: "Little Wonder",
+    name: "Plush Story",
     description: `Order ${order.orderNumber}`,
     order_id: order.orderId,
     prefill: {

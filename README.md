@@ -1,4 +1,4 @@
-# Little Wonder
+# Plush Story
 
 A fast, responsive plush-toy storefront built with plain HTML, CSS, and JavaScript, deployed on Cloudflare Workers with static assets and Razorpay checkout.
 
@@ -77,13 +77,13 @@ Locally, these go in `.dev.vars`. In Cloudflare, add them under **Settings → V
 D1 is not required for payments, but it is recommended so orders can be searched and fulfilled from your own database. Without D1, the order number and delivery address are still attached to the Razorpay order notes.
 
 ```sh
-npx wrangler d1 create little-wonder-orders
+npx wrangler d1 create plush-story-orders
 ```
 
 Copy the printed `database_id` into the commented D1 binding in `wrangler.toml`, then apply the migration:
 
 ```sh
-npx wrangler d1 execute little-wonder-orders --remote --file=./migrations/0001_orders.sql
+npx wrangler d1 execute plush-story-orders --remote --file=./migrations/0001_orders.sql
 ```
 
 For local D1 testing, run the same command with `--local`.

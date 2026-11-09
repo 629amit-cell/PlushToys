@@ -8,10 +8,10 @@ binding = "ASSETS"
 run_worker_first = ["/api/*"]
 
 # Optional but recommended for order records. Create the database with:
-#   npx wrangler d1 create little-wonder-orders
+#   npx wrangler d1 create plush-story-orders
 # Then replace the database_id below with the value Wrangler prints.
 #
 # [[d1_databases]]
 # binding = "ORDERS_DB"
-# database_name = "little-wonder-orders"
+# database_name = "plush-story-orders"
 # database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"

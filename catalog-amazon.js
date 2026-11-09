@@ -1,7 +1,7 @@
 // Supplier references collected from the Amazon India "giant plush toys" search.
 // Prices and dimensions are reference values from the listing page and should be
 // rechecked with the supplier before accepting orders.
-window.LittleWonderCatalogAmazon = Object.freeze([
+window.PlushStoryCatalogAmazon = Object.freeze([
   {
     id: "amazon-B07CXR8G11",
     name: "Five-Foot Cream Giant Teddy",

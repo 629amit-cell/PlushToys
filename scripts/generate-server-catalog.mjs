@@ -18,7 +18,7 @@ const sandbox = {
   Set,
   URL,
   window: {
-    location: { href: "https://littlewonder.example/" },
+    location: { href: "https://plushstory.example/" },
   },
 };
 sandbox.globalThis = sandbox;
@@ -29,7 +29,7 @@ for (const file of catalogFiles) {
   vm.runInContext(source, sandbox, { filename: file });
 }
 
-const store = sandbox.window.LittleWonderStore;
+const store = sandbox.window.PlushStoryStore;
 if (!store || !Array.isArray(store.products)) {
   throw new Error("Could not load the client product catalog.");
 }

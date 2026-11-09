@@ -1,4 +1,4 @@
-const store = window.LittleWonderStore;
+const store = window.PlushStoryStore;
 const productId = new URLSearchParams(window.location.search).get("id");
 const product = store.products.find((item) => item.id === productId);
 const toast = document.querySelector("#toast");
@@ -54,7 +54,7 @@ function initializeProduct() {
     return;
   }
 
-  document.title = `${product.name} — Little Wonder`;
+  document.title = `${product.name} — Plush Story`;
   document.querySelector('meta[name="description"]').content = product.description;
   document.querySelector("#breadcrumb-name").textContent = product.name;
   document.querySelector("#detail-badge").textContent = product.caption;

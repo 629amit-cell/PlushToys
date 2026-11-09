@@ -8,7 +8,7 @@ const {
   formatCurrency,
   readCart: readStoredCart,
   saveCart: saveStoredCart,
-} = window.LittleWonderStore;
+} = window.PlushStoryStore;
 let activeCategory = "all";
 let searchTerm = "";
 let toastTimeout;

@@ -1,4 +1,4 @@
-window.LittleWonderAdditionalImageUrls = Object.freeze({
+window.PlushStoryAdditionalImageUrls = Object.freeze({
   "mixi-1601997687874": "https://s.alicdn.com/@sc04/kf/Hf216dfd2b92e4e7ea8d1e8dc28fd31d0c/Custom-Stuffed-Animal-Manufacturer-Plush-Toy-Peluche.jpeg?hasNWGrade=1",
   "mixi-1601599663563": "https://s.alicdn.com/@sc04/kf/H32d367ee7b6f44a0b53b2997285f2911T/80cm-Giant-Plush-Teddy-Bear-for-Valentine.jpg_480x480.jpg?hasNWGrade=1",
   "mixi-1601984481652": "https://s.alicdn.com/@sc04/kf/Hcaee8615c70e48f39c2d2c27f50e601bO/Kawaii-Long-Body-Fox-Plush-Soft-Stuffed.png_480x480.jpg?hasNWGrade=1",

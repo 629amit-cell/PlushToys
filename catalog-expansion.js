@@ -1,4 +1,4 @@
-window.LittleWonderCatalogExpansion = Object.freeze([
+window.PlushStoryCatalogExpansion = Object.freeze([
   {
     id: "mixi-1601730148383",
     name: "Animal Pillow Plush",

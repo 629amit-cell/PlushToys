@@ -23,7 +23,7 @@ function createOrderNumber() {
     String(now.getUTCMonth() + 1).padStart(2, "0"),
     String(now.getUTCDate()).padStart(2, "0"),
   ].join("");
-  return `LW-${date}-${randomToken(4)}`;
+  return `PS-${date}-${randomToken(4)}`;
 }
 
 export async function onRequestPost({ request, env }) {
@@ -40,7 +40,7 @@ export async function onRequestPost({ request, env }) {
     const summary = getCheckoutSummary(body.items, env);
 
     const orderNumber = createOrderNumber();
-    const receipt = `lw_${Date.now()}_${randomToken(6, "abcdefghijkmnopqrstuvwxyz23456789")}`;
+    const receipt = `ps_${Date.now()}_${randomToken(6, "abcdefghijkmnopqrstuvwxyz23456789")}`;
     const notes = {
       order_number: orderNumber,
       customer_name: customer.name.slice(0, 140),
