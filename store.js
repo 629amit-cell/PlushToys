@@ -406,7 +406,7 @@
   const productSizePriceRanges = {
     Small: { minimum: 200, maximum: 300 },
     Medium: { minimum: 349, maximum: 549 },
-    Large: { minimum: 599, maximum: 799 },
+    Large: { minimum: 400, maximum: 600 },
   };
   const productSizeHeights = {
     Small: "2 ft",
