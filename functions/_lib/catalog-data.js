@@ -1808,7 +1808,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B07CXR8G11-main.webp",
     "prices": {
-      "Large": 899
+      "Large": 600
     }
   },
   "amazon-B09TW8DLT6": {
@@ -1818,7 +1818,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B09TW8DLT6-main.webp",
     "prices": {
-      "Large": 899
+      "Large": 600
     }
   },
   "amazon-B0BHYMM8WC": {
@@ -1828,7 +1828,7 @@ export const CATALOG = Object.freeze({
     "caption": "Novelty & pillows",
     "primaryImage": "assets/products/gallery/amazon-B0BHYMM8WC-main.webp",
     "prices": {
-      "Large": 799
+      "Large": 550
     }
   },
   "amazon-B0CMD87R7D": {
@@ -1838,7 +1838,7 @@ export const CATALOG = Object.freeze({
     "caption": "Birds",
     "primaryImage": "assets/products/gallery/amazon-B0CMD87R7D-main.webp",
     "prices": {
-      "Large": 799
+      "Large": 550
     }
   },
   "amazon-B07CXK7HHZ": {
@@ -1848,7 +1848,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B07CXK7HHZ-main.webp",
     "prices": {
-      "Large": 799
+      "Large": 550
     }
   },
   "amazon-B0D2NKDNYZ": {
@@ -1858,7 +1858,7 @@ export const CATALOG = Object.freeze({
     "caption": "Dogs",
     "primaryImage": "assets/products/gallery/amazon-B0D2NKDNYZ-main.webp",
     "prices": {
-      "Large": 599
+      "Large": 450
     }
   },
   "amazon-B0BZ3WYMK1": {
@@ -1868,7 +1868,7 @@ export const CATALOG = Object.freeze({
     "caption": "Dogs",
     "primaryImage": "assets/products/gallery/amazon-B0BZ3WYMK1-main.webp",
     "prices": {
-      "Large": 649
+      "Large": 475
     }
   },
   "amazon-B0D395YPNZ": {
@@ -1878,7 +1878,7 @@ export const CATALOG = Object.freeze({
     "caption": "Cats",
     "primaryImage": "assets/products/gallery/amazon-B0D395YPNZ-main.webp",
     "prices": {
-      "Large": 649
+      "Large": 475
     }
   },
   "amazon-B0D8V3VF3X": {
@@ -1888,7 +1888,7 @@ export const CATALOG = Object.freeze({
     "caption": "Dogs",
     "primaryImage": "assets/products/gallery/amazon-B0D8V3VF3X-main.webp",
     "prices": {
-      "Large": 899
+      "Large": 600
     }
   },
   "amazon-B0H124QTFD": {
@@ -1898,7 +1898,7 @@ export const CATALOG = Object.freeze({
     "caption": "Capybaras",
     "primaryImage": "assets/products/gallery/amazon-B0H124QTFD-main.webp",
     "prices": {
-      "Large": 899
+      "Large": 600
     }
   },
   "amazon-B0C8FXF89K": {
@@ -1908,7 +1908,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B0C8FXF89K-main.webp",
     "prices": {
-      "Large": 499
+      "Large": 400
     }
   },
   "amazon-B08X3N99DH": {
@@ -1918,7 +1918,7 @@ export const CATALOG = Object.freeze({
     "caption": "Novelty & pillows",
     "primaryImage": "assets/products/gallery/amazon-B08X3N99DH-main.webp",
     "prices": {
-      "Large": 799
+      "Large": 550
     }
   },
   "amazon-B0GZKGHTX5": {
@@ -1928,7 +1928,7 @@ export const CATALOG = Object.freeze({
     "caption": "Novelty & pillows",
     "primaryImage": "assets/products/gallery/amazon-B0GZKGHTX5-main.webp",
     "prices": {
-      "Large": 899
+      "Large": 600
     }
   },
   "amazon-B08X3QBKB6": {
@@ -1938,7 +1938,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B08X3QBKB6-main.webp",
     "prices": {
-      "Large": 499
+      "Large": 400
     }
   },
   "amazon-B091N5G614": {
@@ -1948,7 +1948,7 @@ export const CATALOG = Object.freeze({
     "caption": "Cats",
     "primaryImage": "assets/products/gallery/amazon-B091N5G614-main.webp",
     "prices": {
-      "Large": 899
+      "Large": 600
     }
   },
   "amazon-B09BL5KCDQ": {
@@ -1958,7 +1958,7 @@ export const CATALOG = Object.freeze({
     "caption": "Novelty & pillows",
     "primaryImage": "assets/products/gallery/amazon-B09BL5KCDQ-main.webp",
     "prices": {
-      "Large": 599
+      "Large": 450
     }
   },
   "amazon-B0813NW2RY": {
@@ -1968,7 +1968,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B0813NW2RY-main.webp",
     "prices": {
-      "Large": 799
+      "Large": 550
     }
   },
   "amazon-B075VTNC7X": {
@@ -1978,7 +1978,7 @@ export const CATALOG = Object.freeze({
     "caption": "Elephants",
     "primaryImage": "assets/products/gallery/amazon-B075VTNC7X-main.webp",
     "prices": {
-      "Large": 499
+      "Large": 400
     }
   },
   "amazon-B0GZX6YD19": {
@@ -1988,7 +1988,7 @@ export const CATALOG = Object.freeze({
     "caption": "Novelty & pillows",
     "primaryImage": "assets/products/gallery/amazon-B0GZX6YD19-main.webp",
     "prices": {
-      "Large": 899
+      "Large": 600
     }
   },
   "amazon-B0FR9S2346": {
@@ -1998,7 +1998,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B0FR9S2346-main.webp",
     "prices": {
-      "Large": 799
+      "Large": 550
     }
   },
   "amazon-B0HMPF4XM7": {
@@ -2008,7 +2008,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B0HMPF4XM7-main.webp",
     "prices": {
-      "Large": 799
+      "Large": 550
     }
   },
   "amazon-B0HN8H49SY": {
@@ -2018,7 +2018,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B0HN8H49SY-main.webp",
     "prices": {
-      "Large": 899
+      "Large": 600
     }
   },
   "amazon-B0HKZYP75M": {
@@ -2028,7 +2028,7 @@ export const CATALOG = Object.freeze({
     "caption": "Dolls & charms",
     "primaryImage": "assets/products/gallery/amazon-B0HKZYP75M-main.webp",
     "prices": {
-      "Large": 599
+      "Large": 450
     }
   },
   "amazon-B09MWCN7MJ": {
@@ -2038,7 +2038,7 @@ export const CATALOG = Object.freeze({
     "caption": "Bears",
     "primaryImage": "assets/products/gallery/amazon-B09MWCN7MJ-main.webp",
     "prices": {
-      "Large": 499
+      "Large": 400
     }
   }
 });

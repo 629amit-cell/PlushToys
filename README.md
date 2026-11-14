@@ -185,7 +185,7 @@ The asset scripts require Python 3 and Pillow. `generate:assets` rebuilds `catal
 
 ## Before launch
 
-- Verify current supplier prices, costs, margins, dimensions, and product availability. The catalogue uses stable sample retail prices; Amazon giant plushies use single-size retail prices between ₹499 and ₹899, with the original Amazon reference prices kept in `supplierPrice`.
+- Verify current supplier prices, costs, margins, dimensions, and product availability. The catalogue uses stable sample retail prices; Amazon giant plushies use single-size retail prices between ₹400 and ₹600, with the original Amazon reference prices kept in `supplierPrice`.
 - Confirm that you have permission to resell each product and use its supplier images. Amazon and AliExpress listings are supplier references, not proof of resale authorization.
 - Replace generated close-up and styled gallery views with real multi-angle supplier photos where possible.
 - Set the real delivery fee in `SHIPPING_FEE_INR`, or leave it at `0` only if delivery is genuinely free.
