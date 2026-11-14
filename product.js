@@ -10,6 +10,7 @@ const mobileBagLink = document.querySelector("#mobile-bag-link");
 const mobileCartCount = document.querySelector("#mobile-cart-count");
 let quantity = 1;
 let toastTimeout;
+let toastReturnFocus = null;
 
 function hideToast() {
   window.clearTimeout(toastTimeout);
@@ -28,6 +29,7 @@ function showToast(message, options = {}) {
     toastAction.hidden = !options.action;
     if (options.action) toastAction.href = options.href || "/checkout";
   }
+  toastReturnFocus = options.returnFocus || null;
   toast.classList.add("is-visible");
   scheduleToastHide(options.action ? 7000 : 3200);
 }
@@ -47,7 +49,10 @@ if (toast) {
 if (toastClose) {
   toastClose.addEventListener("click", () => {
     hideToast();
-    document.querySelector("#add-to-bag")?.focus();
+    if (toastReturnFocus && document.contains(toastReturnFocus)) {
+      toastReturnFocus.focus({ preventScroll: true });
+    }
+    toastReturnFocus = null;
   });
 }
 
@@ -319,11 +324,11 @@ function initializeProduct() {
     updateSelectedSizePrice();
   };
 
-  const handleAddToBag = () => {
+  const handleAddToBag = (event) => {
     if (!addProductToBag()) return;
     const size = document.querySelector('input[name="product-size"]:checked').value;
     document.querySelector("#detail-feedback").textContent = `${quantity} ${product.name} (${size}) added to your bag.`;
-    showToast("Added to your bag.", { action: true });
+    showToast("Added to your bag.", { action: true, returnFocus: event?.currentTarget });
   };
 
   const handleBuyNow = () => {
