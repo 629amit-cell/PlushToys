@@ -25,7 +25,7 @@
     <meta name="twitter:image:alt" id="twitter-image-alt" content="Plush Story plush toys">
     <link rel="preload" href="assets/fonts/manrope-normal-var.woff2?v=1" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/fraunces-normal-var.woff2?v=1" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=23">
+    <link rel="stylesheet" href="styles.css?v=24">
     <script src="site-config.js?v=2" defer></script>
     <script src="meta-pixel.js?v=2" defer></script>
     <script src="catalog-additions.js?v=2" defer></script>
@@ -34,7 +34,7 @@
     <script src="catalog-cards.js?v=3" defer></script>
     <script src="catalog-gallery.js?v=4" defer></script>
     <script src="store.js?v=28" defer></script>
-    <script src="product.js?v=21" defer></script>
+    <script src="product.js?v=22" defer></script>
     <script type="application/ld+json" id="product-structured-data">
       {
         "@context": "https://schema.org",
@@ -132,6 +132,11 @@
 
     <div class="detail-mobile-bar" id="detail-mobile-bar" role="region" aria-label="Quick purchase" hidden>
       <div class="detail-mobile-price"><span id="detail-mobile-size">Your plush</span><strong id="detail-mobile-price"></strong></div>
+      <a class="detail-mobile-bag" id="mobile-bag-link" href="/checkout" aria-label="View bag, 0 items">
+        <span class="detail-mobile-bag-icon" aria-hidden="true">♡</span>
+        <span class="detail-mobile-bag-label">Bag</span>
+        <span class="detail-mobile-bag-count" id="mobile-cart-count" aria-hidden="true">0</span>
+      </a>
       <button class="button button-dark" id="mobile-add-to-bag" type="button">Add to bag</button>
       <button class="button detail-buy-button" id="mobile-buy-now" type="button">Buy now</button>
     </div>
@@ -152,7 +157,11 @@
       </nav>
       <p class="footer-support">Free delivery across India · Secure payments by Razorpay · <a href="mailto:support@plushstory.shop">support@plushstory.shop</a></p>
     </footer>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="toast" id="toast" role="region" aria-label="Bag notification">
+      <span class="toast-message" id="toast-message" role="status" aria-live="polite"></span>
+      <a class="toast-action" id="toast-action" href="/checkout" hidden>View bag <span aria-hidden="true">→</span></a>
+      <button class="toast-close" id="toast-close" type="button" aria-label="Dismiss notification">×</button>
+    </div>
     <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=4673915832877599&amp;ev=PageView&amp;noscript=1"></noscript>
   </body>
 </html>

@@ -189,8 +189,14 @@ h1 em, h2 em { color: #b87568; font-weight: 600; }
 .checkout-disclaimer { margin: 8px 0 15px; }
 .checkout-button { width: 100%; }
 .demo-note { margin: 10px 0 0; }
-.toast { position: fixed; z-index: 20; right: 24px; bottom: 24px; max-width: calc(100vw - 48px); padding: 12px 18px; border-radius: 4px; background: #302923; color: white; font-size: 11px; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s, transform .2s; }
-.toast.is-visible { opacity: 1; transform: translateY(0); }
+.toast { position: fixed; z-index: 20; right: 24px; bottom: 24px; max-width: min(440px, calc(100vw - 48px)); display: flex; align-items: center; gap: 12px; padding: 10px 10px 10px 16px; border-radius: 10px; background: #302923; color: #fff; font-size: 12px; line-height: 1.4; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(8px); transition: opacity .2s, transform .2s, visibility .2s; }
+.toast.is-visible { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+.toast-message { min-width: 0; }
+.toast-action { display: inline-flex; align-items: center; gap: 5px; min-height: 34px; padding: 0 12px; border-radius: 999px; background: #fff; color: #302923; font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.toast-action[hidden] { display: none; }
+.toast-action:hover { background: #f4eae2; }
+.toast-close { width: 34px; height: 34px; flex: 0 0 34px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #fff; cursor: pointer; font-size: 20px; line-height: 1; }
+.toast-close:hover { background: #ffffff1a; }
 body.drawer-open { overflow: hidden; }
 
 @media (max-width: 850px) {
@@ -1563,7 +1569,7 @@ img { max-width: 100%; }
     bottom: 0;
     left: 0;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
     align-items: center;
     gap: 8px;
     padding: 10px 12px max(10px, env(safe-area-inset-bottom));
@@ -1575,8 +1581,15 @@ img { max-width: 100%; }
   .detail-mobile-price { min-width: 0; display: grid; gap: 1px; line-height: 1.25; }
   .detail-mobile-price span { overflow: hidden; color: #6a635d; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
   .detail-mobile-price strong { color: var(--toy-red); font-family: var(--serif); font-size: 20px; }
+  .detail-mobile-bag { position: relative; min-width: 58px; min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 0 9px; border: 1px solid #e7e1db; border-radius: 8px; background: #fff; color: #332d28; font-size: 11px; font-weight: 700; text-decoration: none; }
+  .detail-mobile-bag-icon { font-size: 18px; line-height: 1; }
+  .detail-mobile-bag-label { line-height: 1; }
+  .detail-mobile-bag-count { position: absolute; top: 4px; right: 4px; min-width: 16px; height: 16px; display: grid; place-items: center; padding: 0 3px; border-radius: 999px; background: var(--toy-red); color: #fff; font-size: 9px; line-height: 1; }
   .detail-mobile-bar .button { min-height: 46px; padding: 0 13px; font-size: 11px; }
   .detail-mobile-bar .detail-buy-button { background: #fff; }
+  .toast { right: 12px; bottom: calc(86px + env(safe-area-inset-bottom)); left: 12px; max-width: none; gap: 8px; padding: 10px 8px 10px 14px; border-radius: 12px; font-size: 12px; }
+  .toast-action { min-height: 36px; padding: 0 11px; font-size: 11px; }
+  .toast-close { width: 32px; height: 32px; flex-basis: 32px; font-size: 19px; }
 }
 
 /* Checkout readability */
@@ -1774,8 +1787,10 @@ img { max-width: 100%; }
   .product-name { font-size: 13px; }
   .product-summary { font-size: 10px; }
   .product-caption { font-size: 9px; }
-  .detail-mobile-bar { grid-template-columns: minmax(0, 1fr) auto auto; gap: 5px; padding-right: 8px; padding-left: 8px; }
+  .detail-mobile-bar { grid-template-columns: minmax(0, 1fr) auto auto auto; gap: 5px; padding-right: 8px; padding-left: 8px; }
   .detail-mobile-bar .button { min-height: 44px; padding: 0 8px; font-size: 9px; }
+  .detail-mobile-bag { min-width: 44px; min-height: 44px; padding: 0 6px; }
+  .detail-mobile-bag-label { display: none; }
   .detail-mobile-price strong { font-size: 16px; }
   .footer-main > span { font-size: 10px; }
   .policy-header .brand-name small { display: none; }
