@@ -9,8 +9,10 @@ A fast, responsive plush-toy storefront built with plain HTML, CSS, and JavaScri
 - Individual product pages with 3–6 aligned gallery photos, detailed descriptions, size charts, care notes, and recommendations
 - Local 480 × 480 WebP card images and 240 × 240 WebP gallery thumbnails served from the same Cloudflare deployment
 - Secure Razorpay checkout with server-side price recalculation, signature verification, and an optional webhook
-- Optional Cloudflare D1 order records
-- Responsive layout, keyboard-accessible controls, and locally saved bag contents
+- Cloudflare D1 order records (database `plush-story-orders`)
+- Responsive layout, keyboard-accessible controls, locally saved bag contents, and accessible policy pages
+- Branded 1200 × 630 product social cards, Open Graph metadata, and structured data
+- Meta Pixel event hooks for PageView, ViewContent, AddToCart, InitiateCheckout, and Purchase
 
 ## Run locally
 
@@ -72,21 +74,48 @@ The first deployment will ask you to authenticate with Cloudflare.
 
 Locally, these go in `.dev.vars`. In Cloudflare, add them under **Settings → Variables & Secrets**. Do not commit `.dev.vars`.
 
-### Optional D1 order records
+### D1 order records
 
-D1 is not required for payments, but it is recommended so orders can be searched and fulfilled from your own database. Without D1, the order number and delivery address are still attached to the Razorpay order notes.
+D1 is not required for payments, but it is the store's order record source of truth. The production database is already bound in `wrangler.toml` as `ORDERS_DB`:
+
+- Database: `plush-story-orders`
+- Region: APAC
+- Migration: `migrations/0001_orders.sql`
+
+To create or migrate it on another account:
 
 ```sh
 npx wrangler d1 create plush-story-orders
-```
-
-Copy the printed `database_id` into the commented D1 binding in `wrangler.toml`, then apply the migration:
-
-```sh
+# Copy the printed database_id into wrangler.toml
 npx wrangler d1 execute plush-story-orders --remote --file=./migrations/0001_orders.sql
 ```
 
 For local D1 testing, run the same command with `--local`.
+
+### Customer support and policies
+
+The public support address is `support@plushstory.shop`. Cloudflare Email Routing forwards `support@` and `hello@` to the configured destination inbox. The customer-facing pages are:
+
+- `/faq`
+- `/shipping-returns`
+- `/privacy`
+- `/terms`
+- `/contact`
+
+Cloudflare serves the HTML files at clean extensionless URLs. Old `.html` paths and `www.plushstory.shop` URLs 301-redirect to the canonical apex URL. Unknown pages and unknown product IDs return the branded 404 page.
+
+### Meta Pixel
+
+The production Pixel ID is set in `site-config.js`:
+
+```js
+window.PLUSH_STORY_CONFIG = {
+  metaPixelId: "4673915832877599",
+  supportEmail: "support@plushstory.shop"
+};
+```
+
+When the ID is empty, no advertising scripts are loaded. With an ID set, `meta-pixel.js` queues `PageView` and the storefront events immediately, then loads the Meta SDK after the page is idle. This keeps the Pixel off the critical path while still recording the first page view. The storefront sends `ViewContent`, `AddToCart`, `InitiateCheckout`, and `Purchase` through `window.PlushStoryTracking.track()`. The privacy policy already discloses advertising and analytics use. Test the events in Meta Events Manager before running ads.
 
 ### Razorpay setup
 
@@ -120,15 +149,30 @@ The browser receives only the public key ID and the Razorpay order ID. The secre
 - `index.html` and `checkout.html` do not load the 40 KB gallery map; only product pages do.
 - `_headers` gives long-lived immutable caching to versioned CSS/JS and fonts, and a 30-day cache to image assets.
 - Fraunces and Manrope are self-hosted as small, text-subset variable WOFF2 files. They are preloaded from the same origin, so the page no longer waits on Google Fonts CSS or extra third-party connections. The original OFL licences are in `assets/fonts/`.
-- `run_worker_first = ["/api/*"]` keeps static requests on the fast asset path and sends only API calls to the Worker.
-- Razorpay Checkout is preconnected on the checkout page and loaded during idle time, so the page itself is not blocked by the payment SDK.
+- `run_worker_first` sends page and API routes through the Worker, while images, fonts, CSS, and JavaScript stay on the static asset path.
+- Product pages are rendered with product-specific `<title>`, Open Graph, Twitter Card, canonical, and JSON-LD tags on the Worker, so link previews and crawlers work without JavaScript.
+- The Worker serves the main product photo in the initial HTML with `fetchpriority="high"`, improving Largest Contentful Paint.
+- Razorpay Checkout is preconnected on the checkout page and loaded only when the customer submits the form, keeping third-party scripts off the initial page load.
+- The Meta Pixel SDK is delayed until after page load and first interaction, keeping Core Web Vitals clean while queuing the first page view.
 
-## Regenerating catalogue assets
+## Regenerating catalogue and social assets
 
 After changing prices, sizes, or the product catalogue:
 
 ```sh
 npm run generate:catalog
+```
+
+To run the safe checkout dry run:
+
+```sh
+npm run test:checkout
+```
+
+To rebuild the branded 1200 × 630 product social cards:
+
+```sh
+npm run generate:og
 ```
 
 After changing gallery images:
@@ -137,7 +181,7 @@ After changing gallery images:
 npm run generate:assets
 ```
 
-The asset script requires Python 3 and Pillow. It rebuilds `catalog-cards.js`, the 480 × 480 card images, and the 240 × 240 gallery thumbnails from `catalog-gallery.js`.
+The asset scripts require Python 3 and Pillow. `generate:assets` rebuilds `catalog-cards.js`, the 480 × 480 card images, and the 240 × 240 gallery thumbnails from `catalog-gallery.js`. `generate:og` writes one JPEG preview per product to `assets/og/products/`.
 
 ## Before launch
 
@@ -145,9 +189,13 @@ The asset script requires Python 3 and Pillow. It rebuilds `catalog-cards.js`, t
 - Confirm that you have permission to resell each product and use its supplier images. Amazon and AliExpress listings are supplier references, not proof of resale authorization.
 - Replace generated close-up and styled gallery views with real multi-angle supplier photos where possible.
 - Set the real delivery fee in `SHIPPING_FEE_INR`, or leave it at `0` only if delivery is genuinely free.
-- Publish real return, exchange, privacy, support, and contact details. The About, Support, Privacy, and Contact sections currently describe the technical setup and still need store-specific policies.
-- Add a monitored support inbox and process for order fulfilment, cancellations, refunds, and payment-dispute handling.
-- Test the complete checkout in Razorpay test mode before switching to live keys.
+- Add a public support phone/WhatsApp number and full business/legal address if you want them shown. The current contact page uses the monitored support email and a contact form that opens the customer's email app.
+- Confirm the Razorpay webhook points to `https://plushstory.shop/api/razorpay-webhook` with `payment.captured` and `order.paid` events.
+- The `www.plushstory.shop` → apex 301 redirect and HTTPS are configured. Optionally enable Always Use HTTPS and HSTS in Cloudflare.
+- Verify the configured Meta Pixel events in Meta Events Manager before launching ads.
+- Complete a small live Razorpay payment and refund (or a controlled test-mode run with test keys) to verify the full order, webhook, and D1 records flow.
+- Run `npm run test:checkout` for a safe, mocked Razorpay order and signature-verification dry run. It does not contact Razorpay or charge anyone.
+- Send a test email to `support@plushstory.shop` and confirm it arrives in the forwarding inbox.
 
 ## Catalogue and image notes
 

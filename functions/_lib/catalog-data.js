@@ -2,1345 +2,2041 @@
 // Prices are retail prices in whole Indian rupees.
 export const CATALOG = Object.freeze({
   "mixi-heart-balloon-bear": {
+    "id": "mixi-heart-balloon-bear",
     "name": "Heart Balloon Teddy",
+    "description": "A classic teddy in soft honey-brown plush, dressed with a neck bow and a glossy red heart balloon. A sweet pick for Valentine's Day, birthdays, or a just-because surprise.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-heart-balloon-bear-main.webp",
     "prices": {
       "Small": 263,
       "Medium": 538,
-      "Large": 677
+      "Large": 478
     }
   },
   "mixi-heart-ribbon-bear": {
+    "id": "mixi-heart-ribbon-bear",
     "name": "Heart Ribbon Bear",
+    "description": "This teddy wears a heart-print ribbon and carries matching heart accents on its paws. Its soft, huggable shape makes it an easy gift for someone you love.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-heart-ribbon-bear-main.webp",
     "prices": {
       "Small": 270,
       "Medium": 535,
-      "Large": 742
+      "Large": 543
     }
   },
   "mixi-rose-swirl-bear": {
+    "id": "mixi-rose-swirl-bear",
     "name": "Rose Teddy Bear",
+    "description": "Swirling rose-pattern fabric gives this teddy its romantic look, finished with a coordinating bow tie. A keepsake-style bear for anniversaries and special occasions.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-rose-swirl-bear-main.webp",
     "prices": {
       "Small": 289,
       "Medium": 392,
-      "Large": 777
+      "Large": 578
     }
   },
   "mixi-love-heart-bear": {
+    "id": "mixi-love-heart-bear",
     "name": "Love Heart Bear",
+    "description": "A cuddly teddy holds a shining heart marked “LOVE,” with sequin accents that catch the light. Made for grand gestures and everyday reminders alike.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-love-heart-bear-main.webp",
     "prices": {
       "Small": 212,
       "Medium": 509,
-      "Large": 712
+      "Large": 513
     }
   },
   "mixi-heart-cushion": {
+    "id": "mixi-heart-cushion",
     "name": "Heart Cushion",
+    "description": "A plump red heart cushion with a cheerful embroidered smile. Tuck it on a bed, sofa, or reading nook for a little extra warmth.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-heart-cushion-main.webp",
     "prices": {
       "Small": 295,
       "Medium": 505,
-      "Large": 601
+      "Large": 402
     }
   },
   "mixi-pink-heart-bear": {
+    "id": "mixi-pink-heart-bear",
     "name": "Pink Heart Bear",
+    "description": "A pretty pink teddy with a soft finish and a bright red heart in its paws. A gentle, cheerful gift for birthdays and new arrivals.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-pink-heart-bear-main.webp",
     "prices": {
       "Small": 297,
       "Medium": 358,
-      "Large": 623
+      "Large": 424
     }
   },
   "mixi-corduroy-elephant": {
+    "id": "mixi-corduroy-elephant",
     "name": "Corduroy Elephant",
+    "description": "A textured corduroy elephant with blush-pink cheeks, ivory-toned tusks, and a soft rounded body. Its calm, classic look suits nurseries and grown-up shelves alike.",
+    "caption": "Elephants",
+    "primaryImage": "assets/products/gallery/mixi-corduroy-elephant-main.webp",
     "prices": {
       "Small": 214,
       "Medium": 409,
-      "Large": 691
+      "Large": 492
     }
   },
   "mixi-santa-snowman": {
+    "id": "mixi-santa-snowman",
     "name": "Santa & Snowman Plush",
+    "description": "A festive duo featuring Santa and a snowman in soft plush. Set them out together for a cheerful Christmas display or give them as a pair.",
+    "caption": "Seasonal",
+    "primaryImage": "assets/products/gallery/mixi-santa-snowman-main.webp",
     "prices": {
       "Small": 215,
       "Medium": 482,
-      "Large": 608
+      "Large": 409
     }
   },
   "mixi-cupid-fox": {
+    "id": "mixi-cupid-fox",
     "name": "Cupid Fox",
+    "description": "A fox plush with Cupid-inspired wings and heart details, ready for Valentine's gifting. The sweet winged design makes it a playful alternative to a traditional teddy.",
+    "caption": "Foxes",
+    "primaryImage": "assets/products/gallery/mixi-cupid-fox-main.webp",
     "prices": {
       "Small": 239,
       "Medium": 422,
-      "Large": 689
+      "Large": 490
     }
   },
   "mixi-whale-pillow": {
+    "id": "mixi-whale-pillow",
     "name": "Whale Pillow",
+    "description": "A broad, cushion-soft whale pillow with a relaxed, huggable body. Lean it against a headboard or sofa for a playful touch of ocean comfort.",
+    "caption": "Sea life",
+    "primaryImage": "assets/products/gallery/mixi-whale-pillow-main.webp",
     "prices": {
       "Small": 250,
       "Medium": 378,
-      "Large": 643
+      "Large": 444
     }
   },
   "mixi-grey-bunny": {
+    "id": "mixi-grey-bunny",
     "name": "Grey Bunny",
+    "description": "A soft grey bunny with long, floppy ears and a gentle expression. An easy everyday companion for bedtime cuddles and quiet play.",
+    "caption": "Bunnies",
+    "primaryImage": "assets/products/gallery/mixi-grey-bunny-main.webp",
     "prices": {
       "Small": 247,
       "Medium": 426,
-      "Large": 770
+      "Large": 571
     }
   },
   "mixi-grey-tabby-cat": {
+    "id": "mixi-grey-tabby-cat",
     "name": "Grey Tabby Cat",
+    "description": "A grey tabby cat plush stretched out in a relaxed lying pose. Its realistic markings and soft body make it a calm companion for cat lovers.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/mixi-grey-tabby-cat-main.webp",
     "prices": {
       "Small": 271,
       "Medium": 450,
-      "Large": 738
+      "Large": 539
     }
   },
   "mixi-ginger-tabby-cat": {
+    "id": "mixi-ginger-tabby-cat",
     "name": "Ginger Tabby Cat",
+    "description": "Warm ginger stripes and a lounging pose give this tabby cat plush its lifelike charm. Settle it on a bed or chair for a cosy, cat-friendly touch.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/mixi-ginger-tabby-cat-main.webp",
     "prices": {
       "Small": 283,
       "Medium": 452,
-      "Large": 608
+      "Large": 409
     }
   },
   "mixi-red-fox": {
+    "id": "mixi-red-fox",
     "name": "Red Fox Plush",
+    "description": "A russet-red fox with a pointed muzzle, upright ears, and a bushy tail. Its woodland look makes it a favourite for nature-themed nurseries and playrooms.",
+    "caption": "Foxes",
+    "primaryImage": "assets/products/gallery/mixi-red-fox-main.webp",
     "prices": {
       "Small": 214,
       "Medium": 386,
-      "Large": 664
+      "Large": 465
     }
   },
   "mixi-christmas-gonks": {
+    "id": "mixi-christmas-gonks",
     "name": "Christmas Gonk",
+    "description": "A Christmas gonk with a tall, knitted-look hat and a full white beard. This quirky Nordic-style character brings instant festive cheer to a mantel or sofa.",
+    "caption": "Seasonal",
+    "primaryImage": "assets/products/gallery/mixi-christmas-gonks-main.webp",
     "prices": {
       "Small": 242,
       "Medium": 427,
-      "Large": 604
+      "Large": 405
     }
   },
   "mixi-christmas-monster": {
+    "id": "mixi-christmas-monster",
     "name": "Christmas Monster",
+    "description": "A playful Christmas monster peeking out of a festive stocking. A fun, light-hearted gift for anyone who likes their holidays a little mischievous.",
+    "caption": "Seasonal",
+    "primaryImage": "assets/products/gallery/mixi-christmas-monster-main.webp",
     "prices": {
       "Small": 242,
       "Medium": 537,
-      "Large": 771
+      "Large": 572
     }
   },
   "mixi-sloth": {
+    "id": "mixi-sloth",
     "name": "Sloth Plush",
+    "description": "A laid-back sloth plush with long limbs and a relaxed hanging pose. Made for slow mornings, cosy corners, and anyone who loves a sleepy smile.",
+    "caption": "Sloths",
+    "primaryImage": "assets/products/gallery/mixi-sloth-main.webp",
     "prices": {
       "Small": 236,
       "Medium": 374,
-      "Large": 650
+      "Large": 451
     }
   },
   "mixi-wombat": {
+    "id": "mixi-wombat",
     "name": "Sherpa Wombat",
+    "description": "A sherpa-textured wombat with a rounded body and rosy cheeks. Its soft, tactile finish makes it a comforting cuddle companion.",
+    "caption": "Wombats",
+    "primaryImage": "assets/products/gallery/mixi-wombat-main.webp",
     "prices": {
       "Small": 211,
       "Medium": 520,
-      "Large": 668
+      "Large": 469
     }
   },
   "mixi-avocado": {
+    "id": "mixi-avocado",
     "name": "Sherpa Avocado",
+    "description": "A sherpa-style avocado plush with a smiling face and a soft, fuzzy finish. A light-hearted gift for food lovers and desk-side cheer.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-avocado-main.webp",
     "prices": {
       "Small": 229,
       "Medium": 367,
-      "Large": 626
+      "Large": 427
     }
   },
   "mixi-gingerbread": {
+    "id": "mixi-gingerbread",
     "name": "Gingerbread Plush",
+    "description": "A gingerbread character in corduroy-look fabric, finished with a bright red scarf. A cosy festive friend for Christmas shelves and gift hampers.",
+    "caption": "Seasonal",
+    "primaryImage": "assets/products/gallery/mixi-gingerbread-main.webp",
     "prices": {
       "Small": 258,
       "Medium": 446,
-      "Large": 599
+      "Large": 400
     }
   },
   "mixi-round-cat": {
+    "id": "mixi-round-cat",
     "name": "Round Cat Plush",
+    "description": "A plump, round cat with cream-coloured patches and a contented expression. Its compact shape makes it easy to cuddle or perch on a shelf.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/mixi-round-cat-main.webp",
     "prices": {
       "Small": 269,
       "Medium": 473,
-      "Large": 724
+      "Large": 525
     }
   },
   "mixi-cloud-pillow": {
+    "id": "mixi-cloud-pillow",
     "name": "Cloud Pillow",
+    "description": "A cloud-shaped pillow with a smiling face and rosy cheeks. Soft and light-hearted, it adds a dreamy touch to a bed or reading corner.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-cloud-pillow-main.webp",
     "prices": {
       "Small": 276,
       "Medium": 399,
-      "Large": 720
+      "Large": 521
     }
   },
   "mixi-avocado-dinosaur": {
+    "id": "mixi-avocado-dinosaur",
     "name": "Avocado Dinosaur",
+    "description": "A green dinosaur plush with an avocado-inspired belly and a friendly face. A quirky mash-up for dinosaur fans and food-plush collectors.",
+    "caption": "Dinosaurs",
+    "primaryImage": "assets/products/gallery/mixi-avocado-dinosaur-main.webp",
     "prices": {
       "Small": 297,
       "Medium": 382,
-      "Large": 799
+      "Large": 600
     }
   },
   "mixi-christmas-dinosaur": {
+    "id": "mixi-christmas-dinosaur",
     "name": "Christmas Tree Dinosaur",
+    "description": "A dinosaur plush dressed with Christmas-tree details for a festive twist. A fun stocking filler for dino-mad kids and holiday collectors.",
+    "caption": "Dinosaurs",
+    "primaryImage": "assets/products/gallery/mixi-christmas-dinosaur-main.webp",
     "prices": {
       "Small": 268,
       "Medium": 505,
-      "Large": 608
+      "Large": 409
     }
   },
   "mixi-capybara": {
+    "id": "mixi-capybara",
     "name": "Yellow Capybara",
+    "description": "A yellow capybara plush with a sleepy, easy-going expression. Its rounded shape and calm face make it a soothing companion.",
+    "caption": "Capybaras",
+    "primaryImage": "assets/products/gallery/mixi-capybara-main.webp",
     "prices": {
       "Small": 251,
       "Medium": 392,
-      "Large": 766
+      "Large": 567
     }
   },
   "mixi-fluffy-fox": {
+    "id": "mixi-fluffy-fox",
     "name": "Fluffy Fox Plush",
+    "description": "An orange fox with a full, fluffy tail and soft plush fur. A warm woodland friend for cuddles, display, or bedtime.",
+    "caption": "Foxes",
+    "primaryImage": "assets/products/gallery/mixi-fluffy-fox-main.webp",
     "prices": {
       "Small": 273,
       "Medium": 546,
-      "Large": 720
+      "Large": 521
     }
   },
   "mixi-1601997687874": {
+    "id": "mixi-1601997687874",
     "name": "Bow Bunny",
+    "description": "A soft rabbit plush with a pretty bow and a gentle, round face. Its long ears and cuddly body make it a sweet gift for little ones.",
+    "caption": "Bunnies",
+    "primaryImage": "assets/products/gallery/mixi-1601997687874-main.webp",
     "prices": {
       "Small": 257,
       "Medium": 360,
-      "Large": 633
+      "Large": 434
     }
   },
   "mixi-1601599663563": {
+    "id": "mixi-1601599663563",
     "name": "80 cm Giant Teddy Bear",
+    "description": "An 80 cm teddy bear with a large, classic silhouette and plenty of room to hug. A statement gift for birthdays, anniversaries, or room decor.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601599663563-main.webp",
     "prices": {
       "Small": 248,
       "Medium": 351,
-      "Large": 727
+      "Large": 528
     }
   },
   "mixi-1601984481652": {
+    "id": "mixi-1601984481652",
     "name": "Long Fox Pillow",
+    "description": "A long-bodied fox plush shaped for hugging, with a soft tail and a relaxed pose. Use it as a reading pillow or a cosy companion at bedtime.",
+    "caption": "Foxes",
+    "primaryImage": "assets/products/gallery/mixi-1601984481652-main.webp",
     "prices": {
       "Small": 233,
       "Medium": 546,
-      "Large": 705
+      "Large": 506
     }
   },
   "mixi-1601402734988": {
+    "id": "mixi-1601402734988",
     "name": "Panda & Unicorn Seat",
+    "description": "A plush children's sofa seat available in bear, panda, unicorn, and duck styles. A soft, playful spot for reading, snacking, and downtime.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601402734988-main.webp",
     "prices": {
       "Small": 240,
       "Medium": 384,
-      "Large": 797
+      "Large": 598
     }
   },
   "mixi-1601951424117": {
+    "id": "mixi-1601951424117",
     "name": "Blue Shark",
+    "description": "A blue shark plush with a curved fin and a streamlined ocean-animal shape. A playful pick for sea-life fans and adventurous bedrooms.",
+    "caption": "Sea life",
+    "primaryImage": "assets/products/gallery/mixi-1601951424117-main.webp",
     "prices": {
       "Small": 238,
       "Medium": 480,
-      "Large": 736
+      "Large": 537
     }
   },
   "mixi-1600505133691": {
+    "id": "mixi-1600505133691",
     "name": "Classic Teddy Bear",
+    "description": "A classic teddy bear with a rounded body, soft plush, and PP-cotton filling. An easy everyday companion for hugs and bedtime.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1600505133691-main.webp",
     "prices": {
       "Small": 296,
       "Medium": 496,
-      "Large": 770
+      "Large": 571
     }
   },
   "mixi-1601208310393": {
+    "id": "mixi-1601208310393",
     "name": "Teddy Bear Couple",
+    "description": "A pair of dressed teddy bears presented together as a matching couple. Give them as a set for anniversaries, weddings, or a shared shelf.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601208310393-main.webp",
     "prices": {
       "Small": 219,
       "Medium": 463,
-      "Large": 787
+      "Large": 588
     }
   },
   "mixi-1601965815825": {
+    "id": "mixi-1601965815825",
     "name": "Baker Lamb",
+    "description": "A lamb plush wearing a baker's hat and a cheerful expression. A sweet choice for budding bakers and kitchen-shelf display.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601965815825-main.webp",
     "prices": {
       "Small": 284,
       "Medium": 406,
-      "Large": 679
+      "Large": 480
     }
   },
   "mixi-1601217965092": {
+    "id": "mixi-1601217965092",
     "name": "Frog Hand Warmer",
+    "description": "A frog-shaped hand-warmer muff with a sherpa-fleece exterior and a cosy pocket for cold hands. A fun, practical companion for winter walks.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601217965092-main.webp",
     "prices": {
       "Small": 278,
       "Medium": 396,
-      "Large": 631
+      "Large": 432
     }
   },
   "mixi-1601965822939": {
+    "id": "mixi-1601965822939",
     "name": "Bandana Puppy",
+    "description": "A puppy plush with soft grey floppy ears and a bandana at its neck. Its friendly face makes it a loyal-looking cuddle buddy.",
+    "caption": "Dogs",
+    "primaryImage": "assets/products/gallery/mixi-1601965822939-main.webp",
     "prices": {
       "Small": 211,
       "Medium": 355,
-      "Large": 782
+      "Large": 583
     }
   },
   "mixi-1601965900193": {
+    "id": "mixi-1601965900193",
     "name": "Pajama Lamb",
+    "description": "A lamb dressed in cosy pyjamas and holding a star wand. A bedtime-themed friend for sleepyheads and nursery shelves.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601965900193-main.webp",
     "prices": {
       "Small": 299,
       "Medium": 418,
-      "Large": 794
+      "Large": 595
     }
   },
   "mixi-1601965799656": {
+    "id": "mixi-1601965799656",
     "name": "Photographer Puppy",
+    "description": "A puppy plush wearing glasses and styled as a photographer. A quirky, characterful gift for creative kids and puppy lovers.",
+    "caption": "Dogs",
+    "primaryImage": "assets/products/gallery/mixi-1601965799656-main.webp",
     "prices": {
       "Small": 206,
       "Medium": 369,
-      "Large": 722
+      "Large": 523
     }
   },
   "mixi-1601965671012": {
+    "id": "mixi-1601965671012",
     "name": "Yellow-Chest Bird",
+    "description": "A round bird plush with a black beak and a bright yellow chest. Its compact, chubby shape fits neatly in a hand or on a shelf.",
+    "caption": "Birds",
+    "primaryImage": "assets/products/gallery/mixi-1601965671012-main.webp",
     "prices": {
       "Small": 275,
       "Medium": 500,
-      "Large": 615
+      "Large": 416
     }
   },
   "mixi-1601965636048": {
+    "id": "mixi-1601965636048",
     "name": "Chocolate Cupcake",
+    "description": "A cupcake-shaped plush with chocolate-coloured layers and a swirl of soft frosting. A calorie-free treat for food-plush fans.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601965636048-main.webp",
     "prices": {
       "Small": 231,
       "Medium": 518,
-      "Large": 721
+      "Large": 522
     }
   },
   "mixi-1601965563375": {
+    "id": "mixi-1601965563375",
     "name": "Strawberry Cake Roll",
+    "description": "A strawberry cake-roll plush keychain with embroidered text and a sweet, pocket-sized shape. Clip it to a bag or keys for a little dessert cheer.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601965563375-main.webp",
     "prices": {
       "Small": 216,
       "Medium": 390,
-      "Large": 705
+      "Large": 506
     }
   },
   "mixi-1601965533448": {
+    "id": "mixi-1601965533448",
     "name": "Matcha Cake Keychain",
+    "description": "A matcha layer-cake plush keychain topped with a cherry. A small, playful accessory for bags, backpacks, and gift toppers.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601965533448-main.webp",
     "prices": {
       "Small": 281,
       "Medium": 408,
-      "Large": 697
+      "Large": 498
     }
   },
   "mixi-1601965397803": {
+    "id": "mixi-1601965397803",
     "name": "Blue Overall Doll",
+    "description": "A girl doll plush wearing blue striped overalls and a soft, friendly face. A lovely companion for imaginative play and bedroom display.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601965397803-main.webp",
     "prices": {
       "Small": 212,
       "Medium": 514,
-      "Large": 729
+      "Large": 530
     }
   },
   "mixi-1601965384668": {
+    "id": "mixi-1601965384668",
     "name": "Zigzag Penguin Cushion",
+    "description": "A penguin cushion with blue zigzag trim and a plump, supportive shape. Prop it on a sofa or bed for a playful polar touch.",
+    "caption": "Birds",
+    "primaryImage": "assets/products/gallery/mixi-1601965384668-main.webp",
     "prices": {
       "Small": 294,
       "Medium": 470,
-      "Large": 635
+      "Large": 436
     }
   },
   "mixi-1601965390528": {
+    "id": "mixi-1601965390528",
     "name": "Long Cat Body Pillow",
+    "description": "A long cat-shaped body pillow wearing a knit hat. Its elongated shape is made for hugging, lounging, and bedtime comfort.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/mixi-1601965390528-main.webp",
     "prices": {
       "Small": 240,
       "Medium": 431,
-      "Large": 793
+      "Large": 594
     }
   },
   "mixi-1601965389019": {
+    "id": "mixi-1601965389019",
     "name": "Cream Toast Cushion",
+    "description": "A toast-shaped cushion with a cream-coloured topping and a soft, squishy body. A fun foodie accent for beds, sofas, and desks.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601965389019-main.webp",
     "prices": {
       "Small": 206,
       "Medium": 377,
-      "Large": 751
+      "Large": 552
     }
   },
   "mixi-1601965331197": {
+    "id": "mixi-1601965331197",
     "name": "Bear Headboard Pillow",
+    "description": "A bear-shaped headboard and backrest pillow that adds a soft, friendly focal point to a bed. Lean back against it for reading and relaxing.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601965331197-main.webp",
     "prices": {
       "Small": 243,
       "Medium": 384,
-      "Large": 684
+      "Large": 485
     }
   },
   "mixi-1601965296351": {
+    "id": "mixi-1601965296351",
     "name": "Dachshund Body Pillow",
+    "description": "A long brown dachshund plush shaped as a body pillow. Its sausage-dog silhouette makes a playful, huggable addition to a bed or sofa.",
+    "caption": "Dogs",
+    "primaryImage": "assets/products/gallery/mixi-1601965296351-main.webp",
     "prices": {
       "Small": 300,
       "Medium": 494,
-      "Large": 797
+      "Large": 598
     }
   },
   "mixi-1601964843805": {
+    "id": "mixi-1601964843805",
     "name": "Schnauzer Puppy",
+    "description": "A grey schnauzer plush with a heart charm and a characterful beard. A loyal-looking companion for dog lovers of all ages.",
+    "caption": "Dogs",
+    "primaryImage": "assets/products/gallery/mixi-1601964843805-main.webp",
     "prices": {
       "Small": 262,
       "Medium": 484,
-      "Large": 741
+      "Large": 542
     }
   },
   "mixi-1601964798654": {
+    "id": "mixi-1601964798654",
     "name": "Burger Hat Pig",
+    "description": "A pink pig plush wearing a hamburger-shaped hat. Silly, sweet, and made for smiles, it suits foodies and playful shelves.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601964798654-main.webp",
     "prices": {
       "Small": 209,
       "Medium": 487,
-      "Large": 687
+      "Large": 488
     }
   },
   "mixi-1601964824429": {
+    "id": "mixi-1601964824429",
     "name": "Gingham Bunny Charm",
+    "description": "A cream bunny in a gingham dress, designed as a hanging bag charm. A small, charming accessory for bags, backpacks, and gift wrap.",
+    "caption": "Bunnies",
+    "primaryImage": "assets/products/gallery/mixi-1601964824429-main.webp",
     "prices": {
       "Small": 213,
       "Medium": 456,
-      "Large": 797
+      "Large": 598
     }
   },
   "mixi-1601964751330": {
+    "id": "mixi-1601964751330",
     "name": "Birthday Cake",
+    "description": "A green birthday-cake plush topped with pom-pom-style frosting. A festive, no-calorie centrepiece for birthday displays and gifts.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601964751330-main.webp",
     "prices": {
       "Small": 278,
       "Medium": 505,
-      "Large": 737
+      "Large": 538
     }
   },
   "mixi-1601964672375": {
+    "id": "mixi-1601964672375",
     "name": "Persimmon Pillow",
+    "description": "A persimmon-shaped pillow with green leaf details and a round, squishy body. A fruitful little accent for a sofa, bed, or reading chair.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601964672375-main.webp",
     "prices": {
       "Small": 300,
       "Medium": 365,
-      "Large": 772
+      "Large": 573
     }
   },
   "mixi-1601964597537": {
+    "id": "mixi-1601964597537",
     "name": "Crested Plush Ball",
+    "description": "A round, squishy plush ball with a crest detail and a soft, bouncy feel. An easy toss-and-cuddle toy for playrooms and desks.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601964597537-main.webp",
     "prices": {
       "Small": 288,
       "Medium": 483,
-      "Large": 726
+      "Large": 527
     }
   },
   "mixi-1601964213603": {
+    "id": "mixi-1601964213603",
     "name": "Rainbow Cloud Pillow",
+    "description": "A rainbow pillow with a smiling face and cloud-shaped design. Bright and soft, it brings a cheerful touch to a bed or play corner.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601964213603-main.webp",
     "prices": {
       "Small": 245,
       "Medium": 511,
-      "Large": 681
+      "Large": 482
     }
   },
   "mixi-1601964218161": {
+    "id": "mixi-1601964218161",
     "name": "Pink Elephant",
+    "description": "A pink elephant plush wearing a lace-trimmed dress. Its gentle expression and dressed-up look make it a sweet gift for elephant lovers.",
+    "caption": "Elephants",
+    "primaryImage": "assets/products/gallery/mixi-1601964218161-main.webp",
     "prices": {
       "Small": 228,
       "Medium": 408,
-      "Large": 756
+      "Large": 557
     }
   },
   "mixi-1601964044939": {
+    "id": "mixi-1601964044939",
     "name": "Strawberry Fox",
+    "description": "An orange fox plush wearing a striped top with a strawberry detail. A playful character for fox fans and food-themed collections.",
+    "caption": "Foxes",
+    "primaryImage": "assets/products/gallery/mixi-1601964044939-main.webp",
     "prices": {
       "Small": 256,
       "Medium": 394,
-      "Large": 738
+      "Large": 539
     }
   },
   "mixi-1601964093227": {
+    "id": "mixi-1601964093227",
     "name": "Pink-Paw Teddy",
+    "description": "A chubby grey teddy bear with soft pink paw details and a huggable build. A gentle everyday friend for cuddles and bedtime.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601964093227-main.webp",
     "prices": {
       "Small": 280,
       "Medium": 378,
-      "Large": 780
+      "Large": 581
     }
   },
   "mixi-1601963957922": {
+    "id": "mixi-1601963957922",
     "name": "Curly-Horn Lamb",
+    "description": "A fluffy white lamb plush with curly horns and a soft, cloud-like coat. A sweet farmyard friend for nurseries and Easter gifting.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601963957922-main.webp",
     "prices": {
       "Small": 205,
       "Medium": 420,
-      "Large": 773
+      "Large": 574
     }
   },
   "mixi-1601962875327": {
+    "id": "mixi-1601962875327",
     "name": "Blueberry Jar",
+    "description": "A blueberry-themed jar plush with heart embroidery and a playful foodie shape. A cute desk companion or gift for berry lovers.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601962875327-main.webp",
     "prices": {
       "Small": 270,
       "Medium": 403,
-      "Large": 755
+      "Large": 556
     }
   },
   "mixi-1601962882307": {
+    "id": "mixi-1601962882307",
     "name": "Penguin Artist",
+    "description": "A grey penguin plush wearing a beret and holding a paint palette. A creative character for art lovers and playful shelves.",
+    "caption": "Birds",
+    "primaryImage": "assets/products/gallery/mixi-1601962882307-main.webp",
     "prices": {
       "Small": 201,
       "Medium": 532,
-      "Large": 612
+      "Large": 413
     }
   },
   "mixi-1601962844388": {
+    "id": "mixi-1601962844388",
     "name": "Long Dinosaur Pillow",
+    "description": "A long, rust-coloured dinosaur plush pillow with a soft, stretchy body. Hug it for comfort or use it as a playful bed accent.",
+    "caption": "Dinosaurs",
+    "primaryImage": "assets/products/gallery/mixi-1601962844388-main.webp",
     "prices": {
       "Small": 261,
       "Medium": 539,
-      "Large": 779
+      "Large": 580
     }
   },
   "mixi-1601962745970": {
+    "id": "mixi-1601962745970",
     "name": "Green Dino",
+    "description": "A green dinosaur plush with a white belly and curled details. Its friendly face and soft body make it a dependable cuddle buddy.",
+    "caption": "Dinosaurs",
+    "primaryImage": "assets/products/gallery/mixi-1601962745970-main.webp",
     "prices": {
       "Small": 265,
       "Medium": 374,
-      "Large": 623
+      "Large": 424
     }
   },
   "mixi-1601962761223": {
+    "id": "mixi-1601962761223",
     "name": "Big-Eyed Spider",
+    "description": "A spider plush with large, glossy eyes and a soft, rounded body. More cute than creepy, it makes a fun gift for bug fans.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601962761223-main.webp",
     "prices": {
       "Small": 240,
       "Medium": 518,
-      "Large": 636
+      "Large": 437
     }
   },
   "mixi-1601962670339": {
+    "id": "mixi-1601962670339",
     "name": "White Duckling",
+    "description": "A white duck plush with an orange beak and a soft, round body. A sweet little companion for bathtime, bedtime, or a spring display.",
+    "caption": "Birds",
+    "primaryImage": "assets/products/gallery/mixi-1601962670339-main.webp",
     "prices": {
       "Small": 228,
       "Medium": 429,
-      "Large": 731
+      "Large": 532
     }
   },
   "mixi-1601962592713": {
+    "id": "mixi-1601962592713",
     "name": "Curly-Horn Ram",
+    "description": "A white ram plush with curly grey horns and a fluffy coat. A sturdy farmyard friend for cuddles and imaginative play.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601962592713-main.webp",
     "prices": {
       "Small": 217,
       "Medium": 416,
-      "Large": 743
+      "Large": 544
     }
   },
   "mixi-1601962523820": {
+    "id": "mixi-1601962523820",
     "name": "Sweater Puppy",
+    "description": "A brown puppy plush wearing a knit-style sweater. Cosy and characterful, it makes a warm-hearted gift for dog lovers.",
+    "caption": "Dogs",
+    "primaryImage": "assets/products/gallery/mixi-1601962523820-main.webp",
     "prices": {
       "Small": 296,
       "Medium": 517,
-      "Large": 733
+      "Large": 534
     }
   },
   "mixi-1601962566435": {
+    "id": "mixi-1601962566435",
     "name": "Rainbow Ram",
+    "description": "A ram plush with curly horns and rainbow-speckled fur. Bright, soft, and a little bit magical, it stands out on any shelf.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601962566435-main.webp",
     "prices": {
       "Small": 214,
       "Medium": 503,
-      "Large": 653
+      "Large": 454
     }
   },
   "mixi-1601962410000": {
+    "id": "mixi-1601962410000",
     "name": "Calico Cat Pillow",
+    "description": "A long cat-shaped pillow with calico colouring and a soft, lounging body. A comfortable companion for beds, sofas, and reading nooks.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/mixi-1601962410000-main.webp",
     "prices": {
       "Small": 205,
       "Medium": 486,
-      "Large": 622
+      "Large": 423
     }
   },
   "mixi-1601949071111": {
+    "id": "mixi-1601949071111",
     "name": "Baby Elephant",
+    "description": "A baby elephant plush wearing a polka-dot romper and nightcap. A sweet, sleepy-time friend for little ones and elephant collectors.",
+    "caption": "Elephants",
+    "primaryImage": "assets/products/gallery/mixi-1601949071111-main.webp",
     "prices": {
       "Small": 291,
       "Medium": 520,
-      "Large": 635
+      "Large": 436
     }
   },
   "mixi-1601519681907": {
+    "id": "mixi-1601519681907",
     "name": "Devon Rex Cat",
+    "description": "A cat plush styled after a Devon Rex kitten, with a soft coat and an alert expression. A realistic-looking companion for cat lovers.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/mixi-1601519681907-main.webp",
     "prices": {
       "Small": 295,
       "Medium": 471,
-      "Large": 787
+      "Large": 588
     }
   },
   "mixi-1601611828052": {
+    "id": "mixi-1601611828052",
     "name": "Little Stegosaurus",
+    "description": "A stegosaurus plush with a row of plates along its back and a friendly face. A gentle first dinosaur for young fans.",
+    "caption": "Dinosaurs",
+    "primaryImage": "assets/products/gallery/mixi-1601611828052-main.webp",
     "prices": {
       "Small": 202,
       "Medium": 422,
-      "Large": 787
+      "Large": 588
     }
   },
   "mixi-1601558925086": {
+    "id": "mixi-1601558925086",
     "name": "Bunny Plush",
+    "description": "A rabbit plush with soft fur and PP-cotton filling. A simple, huggable companion for bedtime and everyday play.",
+    "caption": "Bunnies",
+    "primaryImage": "assets/products/gallery/mixi-1601558925086-main.webp",
     "prices": {
       "Small": 241,
       "Medium": 379,
-      "Large": 699
+      "Large": 500
     }
   },
   "mixi-1601951234049": {
+    "id": "mixi-1601951234049",
     "name": "Pom-Pom Flower",
+    "description": "A flower plush with pom-pom feet and an embroidered face. A cheerful bloom that never needs watering, perfect for desks and shelves.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601951234049-main.webp",
     "prices": {
       "Small": 257,
       "Medium": 466,
-      "Large": 791
+      "Large": 592
     }
   },
   "mixi-1601953987321": {
+    "id": "mixi-1601953987321",
     "name": "Strawberry Bear",
+    "description": "A pink teddy bear holding a strawberry-shaped cushion. A sweet, fruity twist on a classic bear for birthdays and treats.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601953987321-main.webp",
     "prices": {
       "Small": 244,
       "Medium": 397,
-      "Large": 599
+      "Large": 400
     }
   },
   "mixi-1601951434825": {
+    "id": "mixi-1601951434825",
     "name": "Scarlet Macaw",
+    "description": "A scarlet macaw plush with a red body and colourful parrot details. A bright, tropical companion for bird lovers and playrooms.",
+    "caption": "Birds",
+    "primaryImage": "assets/products/gallery/mixi-1601951434825-main.webp",
     "prices": {
       "Small": 259,
       "Medium": 383,
-      "Large": 693
+      "Large": 494
     }
   },
   "mixi-1601952781293": {
+    "id": "mixi-1601952781293",
     "name": "Moon & Star Lamb",
+    "description": "A cream sheep plush with star-and-moon patches and a soft, cuddly coat. A dreamy bedtime friend for little ones.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601952781293-main.webp",
     "prices": {
       "Small": 288,
       "Medium": 476,
-      "Large": 612
+      "Large": 413
     }
   },
   "mixi-1601953365224": {
+    "id": "mixi-1601953365224",
     "name": "Strawberry Cake Bear",
+    "description": "A white teddy bear with a strawberry-cake-shaped body and a sweet, dessert-inspired look. A playful gift for food-plush fans.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601953365224-main.webp",
     "prices": {
       "Small": 278,
       "Medium": 357,
-      "Large": 730
+      "Large": 531
     }
   },
   "mixi-1601952108837": {
+    "id": "mixi-1601952108837",
     "name": "Heart-Eared Monster",
+    "description": "A coral-coloured monster plush with heart-shaped ears and a cheeky wink. A lovable little oddball for anyone who likes their cuddles quirky.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601952108837-main.webp",
     "prices": {
       "Small": 219,
       "Medium": 368,
-      "Large": 764
+      "Large": 565
     }
   },
   "mixi-1601953801910": {
+    "id": "mixi-1601953801910",
     "name": "Toucan Plush",
+    "description": "A toucan plush perched on a wooden-style perch, with a large black-and-yellow beak. A colourful character for bird fans and tropical rooms.",
+    "caption": "Birds",
+    "primaryImage": "assets/products/gallery/mixi-1601953801910-main.webp",
     "prices": {
       "Small": 224,
       "Medium": 460,
-      "Large": 768
+      "Large": 569
     }
   },
   "mixi-1601951308587": {
+    "id": "mixi-1601951308587",
     "name": "Orange Fruit Plush",
+    "description": "An orange-crescent fruit plush with big eyes and a green leaf. A zesty little companion for food-plush collections and desks.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601951308587-main.webp",
     "prices": {
       "Small": 280,
       "Medium": 441,
-      "Large": 769
+      "Large": 570
     }
   },
   "mixi-1601953614047": {
+    "id": "mixi-1601953614047",
     "name": "Green Sea Turtle",
+    "description": "A green sea-turtle plush with a mottled shell and soft flippers. A calm ocean friend for cuddles and sea-life displays.",
+    "caption": "Sea life",
+    "primaryImage": "assets/products/gallery/mixi-1601953614047-main.webp",
     "prices": {
       "Small": 258,
       "Medium": 391,
-      "Large": 769
+      "Large": 570
     }
   },
   "mixi-1601953402407": {
+    "id": "mixi-1601953402407",
     "name": "Tiger Popsicle",
+    "description": "A tiger-striped popsicle plush topped with whipped-cream detail. A playful dessert-and-animal mash-up for summer gifting.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601953402407-main.webp",
     "prices": {
       "Small": 246,
       "Medium": 442,
-      "Large": 692
+      "Large": 493
     }
   },
   "mixi-1601952641314": {
+    "id": "mixi-1601952641314",
     "name": "Mint-Dress Bunny",
+    "description": "A cream bunny plush wearing a mint dress and carrying a heart purse. A dressed-up sweetheart for nursery shelves and gifts.",
+    "caption": "Bunnies",
+    "primaryImage": "assets/products/gallery/mixi-1601952641314-main.webp",
     "prices": {
       "Small": 205,
       "Medium": 397,
-      "Large": 667
+      "Large": 468
     }
   },
   "mixi-1601952431209": {
+    "id": "mixi-1601952431209",
     "name": "Eye-Patch Puppy",
+    "description": "A cream puppy plush with floppy ears and a distinctive eye patch. Its scrappy, lovable look makes it a loyal cuddle companion.",
+    "caption": "Dogs",
+    "primaryImage": "assets/products/gallery/mixi-1601952431209-main.webp",
     "prices": {
       "Small": 232,
       "Medium": 420,
-      "Large": 706
+      "Large": 507
     }
   },
   "mixi-1601952368178": {
+    "id": "mixi-1601952368178",
     "name": "Hamster in a Cup",
+    "description": "A hamster plush sitting snugly in a cup, with a heart-shaped nose. A tiny, cheerful desk friend or gift for hamster fans.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601952368178-main.webp",
     "prices": {
       "Small": 230,
       "Medium": 356,
-      "Large": 740
+      "Large": 541
     }
   },
   "mixi-1601952275614": {
+    "id": "mixi-1601952275614",
     "name": "Christmas Tree Plush",
+    "description": "A green Christmas-tree plush topped with a star. A soft, kid-friendly decoration for the holidays and a fun gift for tree lovers.",
+    "caption": "Seasonal",
+    "primaryImage": "assets/products/gallery/mixi-1601952275614-main.webp",
     "prices": {
       "Small": 272,
       "Medium": 547,
-      "Large": 743
+      "Large": 544
     }
   },
   "mixi-1601952335231": {
+    "id": "mixi-1601952335231",
     "name": "Potted Flower",
+    "description": "A potted flower plush with a smiling face and green leaves. A cheerful, low-maintenance bloom for desks, shelves, and windowsills.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601952335231-main.webp",
     "prices": {
       "Small": 215,
       "Medium": 517,
-      "Large": 765
+      "Large": 566
     }
   },
   "mixi-1601715847042": {
+    "id": "mixi-1601715847042",
     "name": "Patting Animal Doll",
+    "description": "A hand-shaped animal plush designed for patting and soothing. A tactile little companion for gentle play and comfort.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601715847042-main.webp",
     "prices": {
       "Small": 232,
       "Medium": 351,
-      "Large": 618
+      "Large": 419
     }
   },
   "mixi-1601951949995": {
+    "id": "mixi-1601951949995",
     "name": "Strawberry Bib Pig",
+    "description": "A peach-coloured pig plush with a strawberry bib and fluffy hair detail. A sweet, dressed-up friend for pig lovers and nurseries.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601951949995-main.webp",
     "prices": {
       "Small": 296,
       "Medium": 349,
-      "Large": 741
+      "Large": 542
     }
   },
   "mixi-1601951444684": {
+    "id": "mixi-1601951444684",
     "name": "Ruffle-Dress Pig",
+    "description": "A pink pig plush wearing a baby bib and ruffled bloomers. A playful, dressed-up character for cuddles and display.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601951444684-main.webp",
     "prices": {
       "Small": 201,
       "Medium": 402,
-      "Large": 656
+      "Large": 457
     }
   },
   "mixi-1601951499308": {
+    "id": "mixi-1601951499308",
     "name": "Tulip-Ribbon Bunny",
+    "description": "A cream bunny plush with long-pile fabric and a tulip ribbon charm. A soft, spring-like friend for Easter and everyday cuddles.",
+    "caption": "Bunnies",
+    "primaryImage": "assets/products/gallery/mixi-1601951499308-main.webp",
     "prices": {
       "Small": 297,
       "Medium": 368,
-      "Large": 675
+      "Large": 476
     }
   },
   "mixi-1601951420220": {
+    "id": "mixi-1601951420220",
     "name": "Lace-Bonnet Teddy",
+    "description": "A teddy bear plush wearing a lace bonnet and purple bow. A vintage-inspired sweetheart for shelves, nurseries, and gifts.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601951420220-main.webp",
     "prices": {
       "Small": 251,
       "Medium": 529,
-      "Large": 655
+      "Large": 456
     }
   },
   "mixi-1601951169430": {
+    "id": "mixi-1601951169430",
     "name": "Velvet-Dress Lamb",
+    "description": "A cream lamb plush in a green velvet-look dress with a burgundy bow. A dressed-up farmyard friend for special shelves.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601951169430-main.webp",
     "prices": {
       "Small": 253,
       "Medium": 467,
-      "Large": 743
+      "Large": 544
     }
   },
   "mixi-1601950545660": {
+    "id": "mixi-1601950545660",
     "name": "Popcorn Teddy",
+    "description": "A teddy bear plush with popcorn styling and a knit-look LOVE sweater. A cosy, movie-night-inspired gift for bear collectors.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601950545660-main.webp",
     "prices": {
       "Small": 288,
       "Medium": 491,
-      "Large": 699
+      "Large": 500
     }
   },
   "mixi-1601950913740": {
+    "id": "mixi-1601950913740",
     "name": "Smiling Bamboo Plant",
+    "description": "A smiling bamboo-plant plush in a yellow pot. A cheerful, no-watering-needed green friend for desks and shelves.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601950913740-main.webp",
     "prices": {
       "Small": 247,
       "Medium": 475,
-      "Large": 687
+      "Large": 488
     }
   },
   "mixi-1601950039277": {
+    "id": "mixi-1601950039277",
     "name": "Messenger Beaver",
+    "description": "A brown beaver plush with buck teeth and a green messenger bag. A characterful companion for woodland fans and imaginative play.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601950039277-main.webp",
     "prices": {
       "Small": 221,
       "Medium": 451,
-      "Large": 668
+      "Large": 469
     }
   },
   "mixi-1601949989538": {
+    "id": "mixi-1601949989538",
     "name": "Hamburger Pig",
+    "description": "A pink pig plush styled as a hamburger, complete with cheese and lettuce details. A funny foodie gift for burger lovers.",
+    "caption": "Farm friends",
+    "primaryImage": "assets/products/gallery/mixi-1601949989538-main.webp",
     "prices": {
       "Small": 242,
       "Medium": 415,
-      "Large": 783
+      "Large": 584
     }
   },
   "mixi-1601949860992": {
+    "id": "mixi-1601949860992",
     "name": "Necktie Gorilla",
+    "description": "A grey gorilla plush with a blue necktie and a broad chest. A dapper, characterful companion for desks and shelves.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601949860992-main.webp",
     "prices": {
       "Small": 232,
       "Medium": 459,
-      "Large": 664
+      "Large": 465
     }
   },
   "mixi-1601949153036": {
+    "id": "mixi-1601949153036",
     "name": "Spiky-Back Dino",
+    "description": "A green dinosaur plush with a spiky back and a big smile. A friendly prehistoric pal for playtime and bedtime.",
+    "caption": "Dinosaurs",
+    "primaryImage": "assets/products/gallery/mixi-1601949153036-main.webp",
     "prices": {
       "Small": 276,
       "Medium": 398,
-      "Large": 796
+      "Large": 597
     }
   },
   "mixi-1601730148383": {
+    "id": "mixi-1601730148383",
     "name": "Animal Pillow Plush",
+    "description": "A cartoon animal plush styled as a pillow and filled with PP cotton. Soft enough for naps, cute enough for display.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601730148383-main.webp",
     "prices": {
       "Small": 236,
       "Medium": 473,
-      "Large": 660
+      "Large": 461
     }
   },
   "mixi-1600070126738": {
+    "id": "mixi-1600070126738",
     "name": "Weighted Animal Plush",
+    "description": "A weighted plush toy offered in elephant and dinosaur styles. The comforting weight makes it a soothing companion for quiet time.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1600070126738-main.webp",
     "prices": {
       "Small": 226,
       "Medium": 427,
-      "Large": 742
+      "Large": 543
     }
   },
   "mixi-1600844982549": {
+    "id": "mixi-1600844982549",
     "name": "Kawaii Teddy Bear",
+    "description": "A classic teddy bear plush listed as a customizable gift. Soft, simple, and ready to be personalised for someone special.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1600844982549-main.webp",
     "prices": {
       "Small": 201,
       "Medium": 516,
-      "Large": 614
+      "Large": 415
     }
   },
   "mixi-1601001399345": {
+    "id": "mixi-1601001399345",
     "name": "Graduation Teddy Bear",
+    "description": "A teddy bear plush with a graduation theme. A fun way to celebrate a big milestone, from school leavers to university grads.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601001399345-main.webp",
     "prices": {
       "Small": 246,
       "Medium": 379,
-      "Large": 759
+      "Large": 560
     }
   },
   "mixi-1601954647674": {
+    "id": "mixi-1601954647674",
     "name": "Embroidered Plush Pal",
+    "description": "An embroidered stuffed-animal plush offered in custom designs. A detailed little friend for gifting or collecting.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601954647674-main.webp",
     "prices": {
       "Small": 265,
       "Medium": 495,
-      "Large": 670
+      "Large": 471
     }
   },
   "mixi-1600848688511": {
+    "id": "mixi-1600848688511",
     "name": "Lazy Cat Plush",
+    "description": "A cat plush styled with a relaxed, realistic look. Its lounging pose makes it a calm companion for beds and sofas.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/mixi-1600848688511-main.webp",
     "prices": {
       "Small": 218,
       "Medium": 365,
-      "Large": 766
+      "Large": 567
     }
   },
   "mixi-1601057238589": {
+    "id": "mixi-1601057238589",
     "name": "Colorful Feather Cat Toy",
+    "description": "A cat-shaped plush with a colourful feather detail, listed as an interactive pet toy. A playful pick for keeping feline friends entertained.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/mixi-1601057238589-main.webp",
     "prices": {
       "Small": 277,
       "Medium": 540,
-      "Large": 769
+      "Large": 570
     }
   },
   "mixi-1600854257933": {
+    "id": "mixi-1600854257933",
     "name": "Peach Blossom Pillow",
+    "description": "A peach-blossom plush cushion listed for sofa or home decor. Its soft petals and warm colour add a gentle seasonal touch.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1600854257933-main.webp",
     "prices": {
       "Small": 205,
       "Medium": 396,
-      "Large": 601
+      "Large": 402
     }
   },
   "mixi-1601962723968": {
+    "id": "mixi-1601962723968",
     "name": "Rice Ball Plush",
+    "description": "A rice-ball-shaped plush with a green seaweed-style patch. A cute, squishy snack that never goes stale.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601962723968-main.webp",
     "prices": {
       "Small": 247,
       "Medium": 475,
-      "Large": 717
+      "Large": 518
     }
   },
   "mixi-1601984803947": {
+    "id": "mixi-1601984803947",
     "name": "Pirate Boy Plush Doll",
+    "description": "A cartoon boy plush doll styled in a pirate outfit. A swashbuckling companion for imaginative play and story time.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601984803947-main.webp",
     "prices": {
       "Small": 258,
       "Medium": 537,
-      "Large": 784
+      "Large": 585
     }
   },
   "mixi-1601961470435": {
+    "id": "mixi-1601961470435",
     "name": "Crocodile Plush",
+    "description": "A crocodile plush with an olive-green body and cream-coloured belly. A snuggly reptile for animal fans and playful rooms.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601961470435-main.webp",
     "prices": {
       "Small": 202,
       "Medium": 501,
-      "Large": 668
+      "Large": 469
     }
   },
   "mixi-1601264604757": {
+    "id": "mixi-1601264604757",
     "name": "Capybara Plush Doll",
+    "description": "A capybara plush doll listed as a soft toy and party gift. Its calm face and rounded body make it a soothing companion.",
+    "caption": "Capybaras",
+    "primaryImage": "assets/products/gallery/mixi-1601264604757-main.webp",
     "prices": {
       "Small": 260,
       "Medium": 354,
-      "Large": 704
+      "Large": 505
     }
   },
   "mixi-1601586460566": {
+    "id": "mixi-1601586460566",
     "name": "Easter Bunny",
+    "description": "A stuffed bunny plush listed as a seasonal Easter gift. Soft ears and a sweet expression make it a springtime favourite.",
+    "caption": "Bunnies",
+    "primaryImage": "assets/products/gallery/mixi-1601586460566-main.webp",
     "prices": {
       "Small": 235,
       "Medium": 423,
-      "Large": 611
+      "Large": 412
     }
   },
   "mixi-1600996228152": {
+    "id": "mixi-1600996228152",
     "name": "Reversible Octopus Plush",
+    "description": "A reversible octopus plush designed to flip between two sides. Change its expression to match your mood, or just enjoy the squish.",
+    "caption": "Sea life",
+    "primaryImage": "assets/products/gallery/mixi-1600996228152-main.webp",
     "prices": {
       "Small": 210,
       "Medium": 474,
-      "Large": 698
+      "Large": 499
     }
   },
   "mixi-1601038856321": {
+    "id": "mixi-1601038856321",
     "name": "Angel Cat Plush",
+    "description": "A cartoon cat plush doll with angel-themed styling. A sweet, whimsical friend for cat lovers and bedroom shelves.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/mixi-1601038856321-main.webp",
     "prices": {
       "Small": 208,
       "Medium": 366,
-      "Large": 730
+      "Large": 531
     }
   },
   "mixi-1601578193411": {
+    "id": "mixi-1601578193411",
     "name": "Assorted Animal Plush",
+    "description": "An assortment of small animal plush dolls listed for gifts and party favours. A fun way to share a little softness with a crowd.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601578193411-main.webp",
     "prices": {
       "Small": 202,
       "Medium": 392,
-      "Large": 766
+      "Large": 567
     }
   },
   "mixi-1601596378384": {
+    "id": "mixi-1601596378384",
     "name": "Claw Machine Plush Doll",
+    "description": "A creative plush doll listed as a soft toy and claw-machine prize. A fun surprise-style gift for kids and collectors.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601596378384-main.webp",
     "prices": {
       "Small": 255,
       "Medium": 431,
-      "Large": 619
+      "Large": 420
     }
   },
   "mixi-1601755374676": {
+    "id": "mixi-1601755374676",
     "name": "Birthday Plush Pal",
+    "description": "A plush doll described as a birthday gift or desk companion. A small, cheerful way to mark a special day.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601755374676-main.webp",
     "prices": {
       "Small": 212,
       "Medium": 500,
-      "Large": 653
+      "Large": 454
     }
   },
   "mixi-1601536245463": {
+    "id": "mixi-1601536245463",
     "name": "Large Capybara Plush",
+    "description": "A large capybara plush with embroidered details and a calm, rounded shape. Big enough for proper hugs and sofa lounging.",
+    "caption": "Capybaras",
+    "primaryImage": "assets/products/gallery/mixi-1601536245463-main.webp",
     "prices": {
       "Small": 208,
       "Medium": 427,
-      "Large": 720
+      "Large": 521
     }
   },
   "mixi-1601665575926": {
+    "id": "mixi-1601665575926",
     "name": "Handmade Animal Pillow",
+    "description": "A 20 cm animal-themed plush pillow listed with PP-cotton filling. A small, soft accent for beds, chairs, and gifts.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601665575926-main.webp",
     "prices": {
       "Small": 216,
       "Medium": 398,
-      "Large": 795
+      "Large": 596
     }
   },
   "mixi-1601717614004": {
+    "id": "mixi-1601717614004",
     "name": "Singing Cactus Plush",
+    "description": "A cactus-shaped plush listed with singing, recording, and talking functions. A silly, interactive desk companion for music lovers.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601717614004-main.webp",
     "prices": {
       "Small": 212,
       "Medium": 528,
-      "Large": 754
+      "Large": 555
     }
   },
   "mixi-1601720291900": {
+    "id": "mixi-1601720291900",
     "name": "Custom Plush Animal",
+    "description": "A customizable stuffed-animal plush offered by the supplier. A blank-canvas friend for personalised gifts and branded projects.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601720291900-main.webp",
     "prices": {
       "Small": 241,
       "Medium": 434,
-      "Large": 746
+      "Large": 547
     }
   },
   "mixi-1601982803916": {
+    "id": "mixi-1601982803916",
     "name": "Animal Plush Toy",
+    "description": "An animal-style plush toy listed in multiple designs. Soft, simple, and easy to love, whichever character you choose.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601982803916-main.webp",
     "prices": {
       "Small": 207,
       "Medium": 547,
-      "Large": 636
+      "Large": 437
     }
   },
   "mixi-1601257255298": {
+    "id": "mixi-1601257255298",
     "name": "Custom Plush Doll",
+    "description": "A customizable cartoon-character plush doll made to order. A one-of-a-kind gift for fans, mascots, and special occasions.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601257255298-main.webp",
     "prices": {
       "Small": 200,
       "Medium": 365,
-      "Large": 654
+      "Large": 455
     }
   },
   "mixi-1601394001913": {
+    "id": "mixi-1601394001913",
     "name": "Mixed Plush Toys",
+    "description": "A selection of mixed-design stuffed plush toys listed for claw machines. A playful bundle for party prizes and surprise gifts.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601394001913-main.webp",
     "prices": {
       "Small": 205,
       "Medium": 396,
-      "Large": 658
+      "Large": 459
     }
   },
   "mixi-1601641500914": {
+    "id": "mixi-1601641500914",
     "name": "Mini Crane Machine Plush",
+    "description": "Small plush dolls in multiple designs, listed as crane-game prizes. Pocket-sized pals for party bags and collecting.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601641500914-main.webp",
     "prices": {
       "Small": 210,
       "Medium": 388,
-      "Large": 780
+      "Large": 581
     }
   },
   "mixi-1601634793417": {
+    "id": "mixi-1601634793417",
     "name": "Giant Teddy Bear",
+    "description": "A large teddy bear plush in a classic American-style design. A room-filling gift for big hugs and even bigger birthdays.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601634793417-main.webp",
     "prices": {
       "Small": 296,
       "Medium": 388,
-      "Large": 789
+      "Large": 590
     }
   },
   "mixi-1601673768888": {
+    "id": "mixi-1601673768888",
     "name": "Brown Oversized Teddy",
+    "description": "A giant brown teddy bear plush described as a cuddle toy. Its oversized build makes it a statement gift and a soft place to land.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601673768888-main.webp",
     "prices": {
       "Small": 260,
       "Medium": 422,
-      "Large": 755
+      "Large": 556
     }
   },
   "mixi-1600284029541": {
+    "id": "mixi-1600284029541",
     "name": "Mini Animal Plush",
+    "description": "Small stuffed-animal plush toys offered in multiple designs. Perfect for party favours, stockings, and desk-sized companionship.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1600284029541-main.webp",
     "prices": {
       "Small": 214,
       "Medium": 514,
-      "Large": 699
+      "Large": 500
     }
   },
   "mixi-1600467530632": {
+    "id": "mixi-1600467530632",
     "name": "Custom Animal Plush",
+    "description": "A stuffed-animal plush listing with custom logo and design options. A soft, huggable way to bring a brand or idea to life.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1600467530632-main.webp",
     "prices": {
       "Small": 282,
       "Medium": 370,
-      "Large": 610
+      "Large": 411
     }
   },
   "mixi-1601690638527": {
+    "id": "mixi-1601690638527",
     "name": "Desk Companion Plush",
+    "description": "A small animal plush doll described as a desk companion and gift. A cheerful little presence for long study or work sessions.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601690638527-main.webp",
     "prices": {
       "Small": 279,
       "Medium": 457,
-      "Large": 741
+      "Large": 542
     }
   },
   "mixi-1601666407697": {
+    "id": "mixi-1601666407697",
     "name": "Claw Machine Animal Plush",
+    "description": "Stuffed-animal plush toys listed as prizes for a vending claw machine. A fun, collectible format for parties and arcades.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601666407697-main.webp",
     "prices": {
       "Small": 295,
       "Medium": 379,
-      "Large": 795
+      "Large": 596
     }
   },
   "mixi-1600817667979": {
+    "id": "mixi-1600817667979",
     "name": "Cuddle Bear Plush",
+    "description": "A teddy bear plush described as a cuddle or throw-pillow gift. Soft, rounded, and made for lazy afternoons.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1600817667979-main.webp",
     "prices": {
       "Small": 234,
       "Medium": 357,
-      "Large": 608
+      "Large": 409
     }
   },
   "mixi-1601296281579": {
+    "id": "mixi-1601296281579",
     "name": "Claw Machine Plush Doll",
+    "description": "A plush doll listed as a birthday gift and claw-machine prize. A playful little surprise for parties and collectors.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601296281579-main.webp",
     "prices": {
       "Small": 225,
       "Medium": 544,
-      "Large": 673
+      "Large": 474
     }
   },
   "mixi-1601809708036": {
+    "id": "mixi-1601809708036",
     "name": "Embroidered Animal Plush",
+    "description": "An embroidered plush toy series offered in multiple designs. Detailed stitching gives each character its own personality.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601809708036-main.webp",
     "prices": {
       "Small": 215,
       "Medium": 468,
-      "Large": 664
+      "Large": 465
     }
   },
   "mixi-1601557226882": {
+    "id": "mixi-1601557226882",
     "name": "Hugging Teddy Bear",
+    "description": "A giant teddy bear plush with a bowknot, listed as a birthday gift. Big, soft, and ready for a proper hug.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601557226882-main.webp",
     "prices": {
       "Small": 224,
       "Medium": 469,
-      "Large": 708
+      "Large": 509
     }
   },
   "mixi-1601991105342": {
+    "id": "mixi-1601991105342",
     "name": "Peach Drink Can Plush",
+    "description": "A kawaii plush designed like a peach drink can for desk or room decor. A juicy little pop of colour for shelves and studies.",
+    "caption": "Food plush",
+    "primaryImage": "assets/products/gallery/mixi-1601991105342-main.webp",
     "prices": {
       "Small": 296,
       "Medium": 533,
-      "Large": 740
+      "Large": 541
     }
   },
   "mixi-1601616451191": {
+    "id": "mixi-1601616451191",
     "name": "Mixed Anime Plush Dolls",
+    "description": "A selection of anime-style plush dolls listed in several sizes. A fun pick for fans and collectors building a character shelf.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601616451191-main.webp",
     "prices": {
       "Small": 207,
       "Medium": 462,
-      "Large": 659
+      "Large": 460
     }
   },
   "mixi-1601840122746": {
+    "id": "mixi-1601840122746",
     "name": "Silverback Gorilla Plush",
+    "description": "A sitting silverback gorilla plush with shaggy grey styling and a blue bow. A bold, characterful companion for desks and shelves.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601840122746-main.webp",
     "prices": {
       "Small": 208,
       "Medium": 353,
-      "Large": 756
+      "Large": 557
     }
   },
   "mixi-1601842446843": {
+    "id": "mixi-1601842446843",
     "name": "Mini Plush Pendant",
+    "description": "Small plush animal pendants listed as promotional charms. Clip one to a bag, keys, or lanyard for a tiny bit of company.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601842446843-main.webp",
     "prices": {
       "Small": 284,
       "Medium": 417,
-      "Large": 606
+      "Large": 407
     }
   },
   "mixi-1601560311907": {
+    "id": "mixi-1601560311907",
     "name": "LED Musical Teddy Bear",
+    "description": "A teddy bear plush listed with light and music features. A cosy, interactive gift for bedtime and quiet evenings.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601560311907-main.webp",
     "prices": {
       "Small": 300,
       "Medium": 491,
-      "Large": 792
+      "Large": 593
     }
   },
   "mixi-1601608912717": {
+    "id": "mixi-1601608912717",
     "name": "Mixed Animal Plush Set",
+    "description": "An assortment of animal plush toys with fox, koala, lion, and deer designs. A ready-made set for party favours or a woodland-themed shelf.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601608912717-main.webp",
     "prices": {
       "Small": 211,
       "Medium": 413,
-      "Large": 778
+      "Large": 579
     }
   },
   "mixi-1601461258462": {
+    "id": "mixi-1601461258462",
     "name": "Weighted Turtle Plush",
+    "description": "A weighted turtle-shaped plush described as a warming comfort toy. Its gentle weight and soft shell make it a soothing companion.",
+    "caption": "Sea life",
+    "primaryImage": "assets/products/gallery/mixi-1601461258462-main.webp",
     "prices": {
       "Small": 238,
       "Medium": 459,
-      "Large": 739
+      "Large": 540
     }
   },
   "mixi-1601051614683": {
+    "id": "mixi-1601051614683",
     "name": "Custom Plush Figure",
+    "description": "A custom-made stuffed character figure listed as a gift. A personal, made-to-order keepsake for fans and special occasions.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/mixi-1601051614683-main.webp",
     "prices": {
       "Small": 300,
       "Medium": 528,
-      "Large": 748
+      "Large": 549
     }
   },
   "mixi-1601662268776": {
+    "id": "mixi-1601662268776",
     "name": "Butterfly-Bow Teddy Bear",
+    "description": "A large teddy bear plush with a butterfly bow detail. Soft and roomy, it makes a graceful gift for birthdays and anniversaries.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-1601662268776-main.webp",
     "prices": {
       "Small": 284,
       "Medium": 360,
-      "Large": 642
+      "Large": 443
     }
   },
   "mixi-1600917026719": {
+    "id": "mixi-1600917026719",
     "name": "Mini Plush Animal",
+    "description": "A small stuffed-animal plush listed as a toy and claw-machine prize. A pocket-money-friendly friend for party bags and collections.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1600917026719-main.webp",
     "prices": {
       "Small": 246,
       "Medium": 546,
-      "Large": 610
+      "Large": 411
     }
   },
   "mixi-62240575515": {
+    "id": "mixi-62240575515",
     "name": "Mini White Teddy Bear",
+    "description": "A small teddy plush listed with a T-shirt and assorted colour options. A sweet little gift that can be dressed to match its owner.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/mixi-62240575515-main.webp",
     "prices": {
       "Small": 207,
       "Medium": 506,
-      "Large": 672
+      "Large": 473
     }
   },
   "mixi-1601843333633": {
+    "id": "mixi-1601843333633",
     "name": "Baby Handbell Plush",
+    "description": "A soft animal plush rattle listed as a baby handbell toy. Light and easy to hold, it adds a gentle sound to playtime.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601843333633-main.webp",
     "prices": {
       "Small": 266,
       "Medium": 517,
-      "Large": 648
+      "Large": 449
     }
   },
   "mixi-1601942301972": {
+    "id": "mixi-1601942301972",
     "name": "Plush Animal Bowling Set",
+    "description": "An animal-themed soft bowling set described as plush and cotton-filled. A playful way to introduce little ones to bowling indoors.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/mixi-1601942301972-main.webp",
     "prices": {
       "Small": 262,
       "Medium": 440,
-      "Large": 629
+      "Large": 430
     }
   },
   "mixi-1601733603164": {
+    "id": "mixi-1601733603164",
     "name": "Seal Plush Charm",
+    "description": "A fluffy seal-shaped plush charm listed as a bag pendant. A small, sea-soft companion for backpacks, keys, and gift wrap.",
+    "caption": "Sea life",
+    "primaryImage": "assets/products/gallery/mixi-1601733603164-main.webp",
     "prices": {
       "Small": 225,
       "Medium": 399,
-      "Large": 774
+      "Large": 575
     }
   },
   "amazon-B07CXR8G11": {
+    "id": "amazon-B07CXR8G11",
     "name": "Five-Foot Cream Giant Teddy",
+    "description": "A five-foot cream teddy bear with a soft, rounded body and a classic cuddly expression. A statement plush for bedrooms, gifting, and properly big hugs.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B07CXR8G11-main.webp",
     "prices": {
       "Large": 899
     }
   },
   "amazon-B09TW8DLT6": {
+    "id": "amazon-B09TW8DLT6",
     "name": "Seven-Foot Red Giant Teddy",
+    "description": "A seven-foot red teddy bear with a huggable body and a cheerful gift-ready look. Designed to make a room feel instantly cosy and celebratory.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B09TW8DLT6-main.webp",
     "prices": {
       "Large": 899
     }
   },
   "amazon-B0BHYMM8WC": {
+    "id": "amazon-B0BHYMM8WC",
     "name": "Rainbow Unicorn Giant Plush",
+    "description": "A one-metre rainbow unicorn plush with a pastel mane and a soft, squishy body. A bright statement piece for bedrooms, playrooms, and birthday gifting.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/amazon-B0BHYMM8WC-main.webp",
     "prices": {
       "Large": 799
     }
   },
   "amazon-B0CMD87R7D": {
+    "id": "amazon-B0CMD87R7D",
     "name": "Giant Duck Plush",
+    "description": "A one-metre giant duck plush with a round body and a friendly face. A playful, room-filling companion for kids and anyone who loves oversized toys.",
+    "caption": "Birds",
+    "primaryImage": "assets/products/gallery/amazon-B0CMD87R7D-main.webp",
     "prices": {
       "Large": 799
     }
   },
   "amazon-B07CXK7HHZ": {
+    "id": "amazon-B07CXK7HHZ",
     "name": "Four-Foot Classic Cream Teddy",
+    "description": "A four-foot cream teddy bear with a soft, huggable shape and a classic teddy face. A generous gift for birthdays, anniversaries, and cosy corners.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B07CXK7HHZ-main.webp",
     "prices": {
       "Large": 799
     }
   },
   "amazon-B0D2NKDNYZ": {
+    "id": "amazon-B0D2NKDNYZ",
     "name": "Grey Long Dog Pillow",
+    "description": "A long grey dog plush pillow with a relaxed, stretched-out shape. Ideal for leaning against on a bed or sofa, or for wrapping up in a hug.",
+    "caption": "Dogs",
+    "primaryImage": "assets/products/gallery/amazon-B0D2NKDNYZ-main.webp",
     "prices": {
       "Large": 599
     }
   },
   "amazon-B0BZ3WYMK1": {
+    "id": "amazon-B0BZ3WYMK1",
     "name": "Shiba Inu Body Pillow",
+    "description": "A Shiba Inu-shaped body pillow with a long, squishy form and a soft plush finish. A playful companion for bedtime, sofa time, and lazy afternoons.",
+    "caption": "Dogs",
+    "primaryImage": "assets/products/gallery/amazon-B0BZ3WYMK1-main.webp",
     "prices": {
       "Large": 649
     }
   },
   "amazon-B0D395YPNZ": {
+    "id": "amazon-B0D395YPNZ",
     "name": "Grey Long Cat Pillow",
+    "description": "A long grey cat plush pillow with a rounded head and a stretchy, huggable body. A soft accent for beds, sofas, and anyone who likes a cat-shaped cuddle.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/amazon-B0D395YPNZ-main.webp",
     "prices": {
       "Large": 649
     }
   },
   "amazon-B0D8V3VF3X": {
+    "id": "amazon-B0D8V3VF3X",
     "name": "Large Dog Hugging Pillow",
+    "description": "A large dog-shaped hugging toy with a long body and a soft, squishy fill. Designed for big hugs, bed support, and comfortable lounging.",
+    "caption": "Dogs",
+    "primaryImage": "assets/products/gallery/amazon-B0D8V3VF3X-main.webp",
     "prices": {
       "Large": 899
     }
   },
   "amazon-B0H124QTFD": {
+    "id": "amazon-B0H124QTFD",
     "name": "Giant Capybara Body Pillow",
+    "description": "A giant capybara-shaped plush pillow with a long, rounded body and a calm expression. A squishy statement piece for beds, sofas, and capybara fans.",
+    "caption": "Capybaras",
+    "primaryImage": "assets/products/gallery/amazon-B0H124QTFD-main.webp",
     "prices": {
       "Large": 899
     }
   },
   "amazon-B0C8FXF89K": {
+    "id": "amazon-B0C8FXF89K",
     "name": "Three-Foot Pink Teddy",
+    "description": "A three-foot pink teddy bear with a soft, fluffy finish and a sweet face. A cuddly gift for kids and anyone who likes a pastel plush.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B0C8FXF89K-main.webp",
     "prices": {
       "Large": 499
     }
   },
   "amazon-B08X3N99DH": {
+    "id": "amazon-B08X3N99DH",
     "name": "Four-Foot Monkey Plush",
+    "description": "A four-foot dark brown monkey plush with long arms and a huggable body. A playful, oversized companion for bedrooms and gift-giving.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/amazon-B08X3N99DH-main.webp",
     "prices": {
       "Large": 799
     }
   },
   "amazon-B0GZKGHTX5": {
+    "id": "amazon-B0GZKGHTX5",
     "name": "Panda Body-Support Pillow",
+    "description": "A panda-shaped body-support pillow with a clinging pose and a soft plush surface. Designed as a comforting cushion for lounging and quiet time.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/amazon-B0GZKGHTX5-main.webp",
     "prices": {
       "Large": 899
     }
   },
   "amazon-B08X3QBKB6": {
+    "id": "amazon-B08X3QBKB6",
     "name": "Three-Foot Panda Teddy",
+    "description": "A three-foot black-and-white panda teddy with a round body and a soft, huggable finish. A bold, cuddly gift for animal lovers.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B08X3QBKB6-main.webp",
     "prices": {
       "Large": 499
     }
   },
   "amazon-B091N5G614": {
+    "id": "amazon-B091N5G614",
     "name": "Giant Cat Body Pillow",
+    "description": "A giant cat-shaped body pillow with a long, relaxed pose and a soft plush finish. A cosy companion for beds, sofas, and long naps.",
+    "caption": "Cats",
+    "primaryImage": "assets/products/gallery/amazon-B091N5G614-main.webp",
     "prices": {
       "Large": 899
     }
   },
   "amazon-B09BL5KCDQ": {
+    "id": "amazon-B09BL5KCDQ",
     "name": "Pink Unicorn Plush 75 cm",
+    "description": "A 75 cm pink unicorn plush with a soft mane and a huggable body. A magical-looking gift for kids, birthdays, and pastel room decor.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/amazon-B09BL5KCDQ-main.webp",
     "prices": {
       "Large": 599
     }
   },
   "amazon-B0813NW2RY": {
+    "id": "amazon-B0813NW2RY",
     "name": "Four-Foot Teddy with Heart Cushion",
+    "description": "A four-foot cream teddy bear paired with a soft heart-shaped cushion. A ready-made gift for anniversaries, birthdays, and big cuddles.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B0813NW2RY-main.webp",
     "prices": {
       "Large": 799
     }
   },
   "amazon-B075VTNC7X": {
+    "id": "amazon-B075VTNC7X",
     "name": "Grey Elephant Plush 60 cm",
+    "description": "A 60 cm grey elephant plush with a soft, rounded body and floppy ears. A gentle, huggable gift for kids and elephant lovers.",
+    "caption": "Elephants",
+    "primaryImage": "assets/products/gallery/amazon-B075VTNC7X-main.webp",
     "prices": {
       "Large": 499
     }
   },
   "amazon-B0GZX6YD19": {
+    "id": "amazon-B0GZX6YD19",
     "name": "Doraemon Giant Plush",
+    "description": "An extra-large Doraemon plush with a recognisable blue-and-white design. A bold collector's piece and a room-filling gift for fans.",
+    "caption": "Novelty & pillows",
+    "primaryImage": "assets/products/gallery/amazon-B0GZX6YD19-main.webp",
     "prices": {
       "Large": 899
     }
   },
   "amazon-B0FR9S2346": {
+    "id": "amazon-B0FR9S2346",
     "name": "Four-Foot Cloud Cream Teddy",
+    "description": "A four-foot cream teddy bear with a soft, fluffy body and a classic face. A generous cuddle companion for bedrooms and special occasions.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B0FR9S2346-main.webp",
     "prices": {
       "Large": 799
     }
   },
   "amazon-B0HMPF4XM7": {
+    "id": "amazon-B0HMPF4XM7",
     "name": "Four-Foot Pink-and-White Teddy",
+    "description": "A four-foot pink-and-white teddy bear with a soft finish and a sweet, gift-ready look. A cuddly statement for kids' rooms and celebrations.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B0HMPF4XM7-main.webp",
     "prices": {
       "Large": 799
     }
   },
   "amazon-B0HN8H49SY": {
+    "id": "amazon-B0HN8H49SY",
     "name": "Five-Foot Grey Teddy",
+    "description": "A five-foot grey teddy bear with a plush, huggable body and a calm colour. A big, comforting gift for bedrooms and cosy corners.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B0HN8H49SY-main.webp",
     "prices": {
       "Large": 899
     }
   },
   "amazon-B0HKZYP75M": {
+    "id": "amazon-B0HKZYP75M",
     "name": "Two-and-a-Half-Foot Plush Doll",
+    "description": "A 2.5-foot plush doll with a soft pink outfit, hat, and braided hair. A huggable gift for kids' rooms, birthdays, and imaginative play.",
+    "caption": "Dolls & charms",
+    "primaryImage": "assets/products/gallery/amazon-B0HKZYP75M-main.webp",
     "prices": {
       "Large": 599
     }
   },
   "amazon-B09MWCN7MJ": {
+    "id": "amazon-B09MWCN7MJ",
     "name": "Three-Foot Cream Teddy",
+    "description": "A three-foot cream teddy bear with a soft, fluffy finish and a classic teddy shape. A cuddly gift for kids and a cosy bedroom companion.",
+    "caption": "Bears",
+    "primaryImage": "assets/products/gallery/amazon-B09MWCN7MJ-main.webp",
     "prices": {
       "Large": 499
     }

@@ -24,11 +24,34 @@ let isProcessing = false;
 let orderComplete = false;
 let paymentSubmitted = false;
 let razorpayScriptPromise = null;
+let initiateCheckoutTracked = false;
 
 function getValidCart() {
   return cart.filter((item) => {
     const product = store.products.find((entry) => entry.id === item.id);
     return Boolean(product) && Number.isInteger(item.quantity) && item.quantity > 0;
+  });
+}
+
+function trackEvent(name, parameters) {
+  if (window.PlushStoryTracking) window.PlushStoryTracking.track(name, parameters);
+}
+
+function trackInitiateCheckout() {
+  if (initiateCheckoutTracked) return;
+  const validCart = getValidCart();
+  if (!validCart.length) return;
+  initiateCheckoutTracked = true;
+  const value = validCart.reduce((total, item) => {
+    const product = store.products.find((entry) => entry.id === item.id);
+    return total + store.productPrice(product, item.size) * item.quantity;
+  }, 0);
+  trackEvent("InitiateCheckout", {
+    content_type: "product",
+    content_ids: validCart.map((item) => item.id),
+    num_items: validCart.reduce((total, item) => total + item.quantity, 0),
+    value,
+    currency: "INR",
   });
 }
 
@@ -81,10 +104,10 @@ function renderCheckout() {
       <article class="checkout-line">
         <div class="checkout-line-art" style="background:${product.color}">${store.productVisual(product, "lazy", "thumbnail")}</div>
         <div class="checkout-line-info">
-          <a href="product.html?id=${encodeURIComponent(product.id)}">${product.name}</a>
+          <a href="/product?id=${encodeURIComponent(product.id)}">${product.name}</a>
           <span>Size: ${sizeText}</span>
           <span>${store.formatCurrency.format(unitPrice)} each</span>
-          <div class="checkout-quantity" aria-label="Quantity for ${product.name}, ${item.size}">
+          <div class="checkout-quantity" role="group" aria-label="Quantity for ${product.name}, ${item.size}">
             <button type="button" data-quantity="${product.id}" data-size="${item.size}" data-change="-1" aria-label="Remove one ${product.name}, ${item.size}">−</button>
             <span>${item.quantity}</span>
             <button type="button" data-quantity="${product.id}" data-size="${item.size}" data-change="1" aria-label="Add one ${product.name}, ${item.size}">+</button>
@@ -158,14 +181,8 @@ async function loadCheckoutConfig() {
       setStatus(
         "ready",
         "Secure checkout by Razorpay",
-        "UPI, cards and netbanking. Your payment details are handled securely by Razorpay.",
+        "UPI, cards and netbanking. Free delivery across India. Payment details are handled securely by Razorpay.",
       );
-      const warmRazorpay = () => loadRazorpayScript().catch(() => {});
-      if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(warmRazorpay, { timeout: 3000 });
-      } else {
-        window.setTimeout(warmRazorpay, 1200);
-      }
     } else {
       setStatus(
         "warning",
@@ -209,6 +226,7 @@ function showResult(order, customer, confirmed) {
 
   document.querySelector(".checkout-title").hidden = true;
   statusBox.hidden = true;
+  document.querySelector(".checkout-trust").hidden = true;
   document.querySelector(".checkout-layout").hidden = true;
   successPanel.hidden = false;
 
@@ -226,11 +244,12 @@ function showResult(order, customer, confirmed) {
     typeof order.total === "number" ? order.total : order.amount / 100,
   );
   document.querySelector("#success-email").textContent = customer.email;
-  document.querySelector("#success-note").textContent = confirmed
-    ? "Keep your order number handy. If you need help with this order, contact the store with this number."
-    : "Your payment was submitted, but automatic confirmation did not complete. Keep this order number and contact the store before trying to pay again.";
+  document.querySelector("#success-note").innerHTML = confirmed
+    ? `Keep your order number handy. For help with this order, email <a href="mailto:support@plushstory.shop?subject=Order%20help">support@plushstory.shop</a>.`
+    : `Your payment was submitted, but automatic confirmation did not complete. Keep this order number and email <a href="mailto:support@plushstory.shop?subject=Payment%20confirmation">support@plushstory.shop</a> before trying to pay again.`;
 
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
 }
 
 async function verifyPayment(payment, order, customer) {
@@ -254,9 +273,18 @@ async function verifyPayment(payment, order, customer) {
       throw new Error(data.error || "We couldn't verify the payment.");
     }
 
+    const purchasedItems = cart.map((item) => ({ id: item.id, quantity: item.quantity }));
     store.saveCart([]);
     cart = [];
     showResult({ ...order, ...data }, customer, true);
+    trackEvent("Purchase", {
+      content_type: "product",
+      content_ids: purchasedItems.map((item) => item.id),
+      num_items: purchasedItems.reduce((total, item) => total + item.quantity, 0),
+      value: typeof data.total === "number" ? data.total : order.total,
+      currency: "INR",
+      order_id: data.orderNumber || order.orderNumber,
+    });
   } catch (error) {
     console.error("Payment verification failed.", error);
     store.saveCart([]);
@@ -392,6 +420,8 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
-document.querySelector("#current-year").textContent = new Date().getFullYear();
+const yearNode = document.querySelector("#current-year");
+if (yearNode) yearNode.textContent = new Date().getFullYear();
 renderCheckout();
+trackInitiateCheckout();
 loadCheckoutConfig();

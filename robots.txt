@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Checkout should not appear in search results.
+Disallow: /checkout
+
+Sitemap: https://plushstory.shop/sitemap.xml

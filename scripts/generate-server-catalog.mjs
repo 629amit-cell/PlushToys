@@ -8,6 +8,7 @@ const catalogFiles = [
   "catalog-additions.js",
   "catalog-expansion.js",
   "catalog-amazon.js",
+  "catalog-gallery.js",
   "store.js",
 ];
 
@@ -41,7 +42,11 @@ for (const product of store.products) {
     prices[size] = store.productPrice(product, size);
   }
   catalog[product.id] = {
+    id: product.id,
     name: product.name,
+    description: product.description,
+    caption: product.caption,
+    primaryImage: store.productImages(product)[0],
     prices,
   };
 }

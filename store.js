@@ -493,7 +493,8 @@
       : size === "thumbnail"
         ? ` width="240" height="240"`
         : ` width="480" height="480"`;
-    return `<img class="product-image" src="${source}"${responsiveAttributes}${dimensions} alt="${product.name}" loading="${loading}" decoding="async">`;
+    const priority = size === "full" && image ? " fetchpriority=\"high\"" : "";
+    return `<img class="product-image" src="${source}"${responsiveAttributes}${dimensions} alt="${product.name}" loading="${loading}" decoding="async"${priority}>`;
   }
 
   function galleryThumbnail(image) {

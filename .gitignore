@@ -8,3 +8,5 @@
 .wrangler/
 dist/
 node_modules/
+
+scripts/.product-og-manifest.json

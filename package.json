@@ -7,7 +7,9 @@
     "dev": "npm run build && wrangler dev",
     "deploy": "npm run build && wrangler deploy",
     "generate:catalog": "node scripts/generate-server-catalog.mjs",
-    "generate:assets": "python3 scripts/generate-product-assets.py"
+    "generate:assets": "python3 scripts/generate-product-assets.py",
+    "generate:og": "node scripts/export-og-manifest.mjs && python3 scripts/generate-product-og.py",
+    "test:checkout": "node scripts/test-checkout-dry-run.mjs"
   },
   "engines": {
     "node": ">=20.11"
