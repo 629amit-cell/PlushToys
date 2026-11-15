@@ -78,7 +78,7 @@ function getFilteredProducts() {
   return visibleProducts;
 }
 
-function productCard(product, index) {
+function productCard(product) {
   const sizes = productSizesFor(product);
   const priceLabel = sizes.length > 1 ? "From" : "One size";
   const isSeasonal = product.category === "seasonal" || (product.collections || []).includes("seasonal");
@@ -91,7 +91,7 @@ function productCard(product, index) {
           ${badge ? `<span class="product-badge${seasonalBadge ? " product-badge-christmas" : ""}">${badge}</span>` : ""}
           <span class="decor decor-one" aria-hidden="true">✦</span>
           <span class="decor decor-two" aria-hidden="true">✧</span>
-          ${productVisual(product, index < 4 ? "eager" : "lazy", "card")}
+          ${productVisual(product, "lazy", "card")}
         </div>
         <div class="product-details">
           <div class="product-name-row"><h3 class="product-name">${product.name}</h3><span class="product-price"><small>${priceLabel}</small>${formatCurrency.format(fromPrice(product))}</span></div>
@@ -108,10 +108,7 @@ function initializeProductVisuals() {
   document.querySelectorAll("[data-product]").forEach((element) => {
     const product = products.find((entry) => entry.id === element.dataset.product);
     if (!product) return;
-    const loading = element.classList.contains("hero-plush") || element.classList.contains("avatar-plush")
-      ? "eager"
-      : "lazy";
-    element.innerHTML = productVisual(product, loading);
+    element.innerHTML = productVisual(product, "lazy");
   });
 }
 
@@ -123,7 +120,7 @@ function renderProducts({ append = false } = {}) {
   }
 
   const nextProducts = currentProducts.slice(renderedCount, renderedCount + PAGE_SIZE);
-  productGrid.insertAdjacentHTML("beforeend", nextProducts.map((product, index) => productCard(product, renderedCount + index)).join(""));
+  productGrid.insertAdjacentHTML("beforeend", nextProducts.map((product) => productCard(product)).join(""));
   renderedCount += nextProducts.length;
 
   const total = currentProducts.length;
