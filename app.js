@@ -81,11 +81,14 @@ function getFilteredProducts() {
 function productCard(product, index) {
   const sizes = productSizesFor(product);
   const priceLabel = sizes.length > 1 ? "From" : "One size";
+  const isSeasonal = product.category === "seasonal" || (product.collections || []).includes("seasonal");
+  const seasonalBadge = !product.badge && isSeasonal;
+  const badge = product.badge || (seasonalBadge ? "Christmas pick" : "");
   return `
     <article class="product-card">
       <a class="product-link" href="/product?id=${encodeURIComponent(product.id)}">
         <div class="product-art" style="background:${product.color}">
-          ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
+          ${badge ? `<span class="product-badge${seasonalBadge ? " product-badge-christmas" : ""}">${badge}</span>` : ""}
           <span class="decor decor-one" aria-hidden="true">✦</span>
           <span class="decor decor-two" aria-hidden="true">✧</span>
           ${productVisual(product, index < 4 ? "eager" : "lazy", "card")}
@@ -247,6 +250,35 @@ function setDrawerOpen(isOpen) {
 function updateSearchUi() {
   clearSearchButton.hidden = searchInput.value.length === 0;
 }
+
+function openShopCategory(category) {
+  activeCategory = category || "all";
+  searchInput.value = "";
+  searchTerm = "";
+  updateSearchUi();
+  renderCategories();
+  renderProducts();
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const activeChip = categoryList.querySelector(".is-active");
+  if (activeChip) {
+    const targetLeft = activeChip.offsetLeft - (categoryList.clientWidth - activeChip.offsetWidth) / 2;
+    categoryList.scrollTo({ left: Math.max(0, targetLeft), behavior: reduceMotion ? "auto" : "smooth" });
+  }
+
+  const shop = document.querySelector("#shop");
+  const shopTitle = document.querySelector("#shop-title");
+  shop.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  shopTitle.setAttribute("tabindex", "-1");
+  shopTitle.focus({ preventScroll: true });
+}
+
+document.querySelectorAll("[data-shop-category]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    openShopCategory(link.dataset.shopCategory);
+  });
+});
 
 categoryList.addEventListener("click", (event) => {
   const button = event.target.closest("[data-category]");

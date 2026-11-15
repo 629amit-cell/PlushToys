@@ -6,6 +6,7 @@ A fast, responsive plush-toy storefront built with plain HTML, CSS, and JavaScri
 
 - 174 plush products, including 124 AliExpress-sourced products and 24 Amazon-sourced giant plushies
 - Category filters, search, biggest-first and name sorting, and a Giant plush collection
+- Seasonal Christmas sale banner with a direct seasonal-collection filter and festive product badges
 - Individual product pages with 3–6 aligned gallery photos, detailed descriptions, size charts, care notes, and recommendations
 - Local 480 × 480 WebP card images and 240 × 240 WebP gallery thumbnails served from the same Cloudflare deployment
 - Secure Razorpay checkout with server-side price recalculation, signature verification, and an optional webhook
