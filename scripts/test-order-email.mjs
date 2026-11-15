@@ -25,7 +25,7 @@ const order = {
 const env = {
   RESEND_API_KEY: "re_test_dryrun",
   EMAIL_FROM: "Plush Story <support@plushstory.shop>",
-  EMAIL_REPLY_TO: "support@plushstory.shop",
+  EMAIL_REPLY_TO: "plushsupportcare@gmail.com",
   SITE_URL: "https://plushstory.shop",
   ORDERS_DB: createFakeD1(order),
 };
@@ -111,7 +111,7 @@ globalThis.fetch = async (input, options) => {
   const body = JSON.parse(options.body);
   assert.equal(body.from, "Plush Story <support@plushstory.shop>");
   assert.deepEqual(body.to, ["amit@example.com"]);
-  assert.equal(body.reply_to, "support@plushstory.shop");
+  assert.equal(body.reply_to, "plushsupportcare@gmail.com");
   assert.match(body.subject, /PS-261115-TEST/);
   assert.match(body.html, /Order confirmed/i);
   return new Response(JSON.stringify({ id: "email_dryrun_1" }), {

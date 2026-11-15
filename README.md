@@ -74,7 +74,7 @@ The first deployment will ask you to authenticate with Cloudflare.
 | `SHIPPING_FEE_INR` | No | Flat delivery fee in whole rupees. Defaults to `0` (free delivery). |
 | `RESEND_API_KEY` | For email | Resend API key used to send order confirmation emails. |
 | `EMAIL_FROM` | No | Sender name and address. Defaults to `Plush Story <support@plushstory.shop>`. |
-| `EMAIL_REPLY_TO` | No | Reply-to address. Defaults to `support@plushstory.shop`. |
+| `EMAIL_REPLY_TO` | No | Reply-to address. Production uses `plushsupportcare@gmail.com`. |
 | `SITE_URL` | No | Canonical site URL used in email links. Defaults to `https://plushstory.shop`. |
 
 Locally, these go in `.dev.vars`. In Cloudflare, add them under **Settings → Variables & Secrets**. Do not commit `.dev.vars`.
@@ -122,7 +122,7 @@ Paid orders send a branded confirmation email to the customer. The email include
    ```
 7. Check `/api/health` for `"confirmationEmailConfigured": true`.
 
-The default sender is `Plush Story <support@plushstory.shop>`. Replies go to `support@plushstory.shop`. If you use a different sender, set `EMAIL_FROM` to an address on the verified domain.
+The default sender is `Plush Story <support@plushstory.shop>`. Replies go to `plushsupportcare@gmail.com`. If you use a different sender, set `EMAIL_FROM` to an address on the verified domain.
 
 The Worker claims each order's email row in D1 before sending. If Resend fails or times out, the claim is released so a later Razorpay retry can send it. A successful send records `confirmation_email_sent_at` and `confirmation_email_message_id`, so duplicate webhooks do not send duplicate emails.
 

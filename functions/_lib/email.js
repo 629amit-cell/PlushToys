@@ -1,6 +1,6 @@
 const DEFAULT_SITE_URL = "https://plushstory.shop";
 const DEFAULT_FROM = "Plush Story <support@plushstory.shop>";
-const DEFAULT_REPLY_TO = "support@plushstory.shop";
+const DEFAULT_REPLY_TO = "plushsupportcare@gmail.com";
 
 const currency = new Intl.NumberFormat("en-IN", {
   style: "currency",
