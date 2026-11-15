@@ -1,8 +1,9 @@
 import { errorResponse, HttpError, json, methodNotAllowed } from "../_lib/http.js";
+import { queueOrderConfirmationEmail } from "../_lib/order-email.js";
 import { markOrderPaid } from "../_lib/orders.js";
 import { verifyHmacSha256Hex } from "../_lib/security.js";
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   try {
     const secret = String(env.RAZORPAY_WEBHOOK_SECRET || "").trim();
     if (!secret) {
@@ -44,6 +45,7 @@ export async function onRequestPost({ request, env }) {
           console.error("The webhook could not mark the order as paid.", error);
           throw new HttpError(500, "The webhook could not be recorded.");
         }
+        queueOrderConfirmationEmail(env, orderId, waitUntil);
       }
     }
 

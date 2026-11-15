@@ -10,6 +10,7 @@ A fast, responsive plush-toy storefront built with plain HTML, CSS, and JavaScri
 - Local 480 × 480 WebP card images and 240 × 240 WebP gallery thumbnails served from the same Cloudflare deployment
 - Secure Razorpay checkout with server-side price recalculation, signature verification, and an optional webhook
 - Cloudflare D1 order records (database `plush-story-orders`)
+- Automatic branded order confirmation emails to customers after payment, with duplicate-send protection
 - Responsive layout, keyboard-accessible controls, locally saved bag contents, and accessible policy pages
 - Branded 1200 × 630 product social cards, Open Graph metadata, and structured data
 - Meta Pixel event hooks for PageView, ViewContent, AddToCart, InitiateCheckout, and Purchase
@@ -71,6 +72,10 @@ The first deployment will ask you to authenticate with Cloudflare.
 | `RAZORPAY_KEY_SECRET` | Yes | Server-only Razorpay secret. Never expose this in frontend files. |
 | `RAZORPAY_WEBHOOK_SECRET` | Recommended | Secret entered when creating the Razorpay webhook. |
 | `SHIPPING_FEE_INR` | No | Flat delivery fee in whole rupees. Defaults to `0` (free delivery). |
+| `RESEND_API_KEY` | For email | Resend API key used to send order confirmation emails. |
+| `EMAIL_FROM` | No | Sender name and address. Defaults to `Plush Story <support@plushstory.shop>`. |
+| `EMAIL_REPLY_TO` | No | Reply-to address. Defaults to `support@plushstory.shop`. |
+| `SITE_URL` | No | Canonical site URL used in email links. Defaults to `https://plushstory.shop`. |
 
 Locally, these go in `.dev.vars`. In Cloudflare, add them under **Settings → Variables & Secrets**. Do not commit `.dev.vars`.
 
@@ -80,7 +85,7 @@ D1 is not required for payments, but it is the store's order record source of tr
 
 - Database: `plush-story-orders`
 - Region: APAC
-- Migration: `migrations/0001_orders.sql`
+- Migrations: `migrations/0001_orders.sql`, `migrations/0002_order_confirmation_email.sql`
 
 To create or migrate it on another account:
 
@@ -88,9 +93,40 @@ To create or migrate it on another account:
 npx wrangler d1 create plush-story-orders
 # Copy the printed database_id into wrangler.toml
 npx wrangler d1 execute plush-story-orders --remote --file=./migrations/0001_orders.sql
+npx wrangler d1 execute plush-story-orders --remote --file=./migrations/0002_order_confirmation_email.sql
 ```
 
 For local D1 testing, run the same command with `--local`.
+
+The confirmation-email columns are added by `migrations/0002_order_confirmation_email.sql`:
+
+```sh
+npx wrangler d1 execute plush-story-orders --remote --file=./migrations/0002_order_confirmation_email.sql
+```
+
+### Order confirmation emails
+
+Paid orders send a branded confirmation email to the customer. The email includes the order number, item and size breakdown, total paid, delivery address, dispatch estimate, and support link. It is sent from Resend only after Razorpay confirms payment.
+
+1. Create a [Resend](https://resend.com) account.
+2. Add `plushstory.shop` as a sending domain and add the DNS records Resend gives you in Cloudflare.
+3. Wait until Resend shows the domain as verified.
+4. Create an API key with sending access.
+5. Store the key in Cloudflare:
+   ```sh
+   npx wrangler secret put RESEND_API_KEY
+   ```
+6. Deploy:
+   ```sh
+   npx wrangler deploy
+   ```
+7. Check `/api/health` for `"confirmationEmailConfigured": true`.
+
+The default sender is `Plush Story <support@plushstory.shop>`. Replies go to `support@plushstory.shop`. If you use a different sender, set `EMAIL_FROM` to an address on the verified domain.
+
+The Worker claims each order's email row in D1 before sending. If Resend fails or times out, the claim is released so a later Razorpay retry can send it. A successful send records `confirmation_email_sent_at` and `confirmation_email_message_id`, so duplicate webhooks do not send duplicate emails.
+
+`npm run test:email` builds the email, mocks Resend, and verifies duplicate protection without sending a real message.
 
 ### Customer support and policies
 
@@ -135,7 +171,7 @@ The browser receives only the public key ID and the Razorpay order ID. The secre
 
 | Route | Method | Purpose |
 | --- | --- | --- |
-| `/api/health` | GET | Deployment and configuration check. |
+| `/api/health` | GET | Deployment, payment, database, and email configuration check. |
 | `/api/checkout-config` | GET | Returns shipping fee and whether Razorpay is configured. |
 | `/api/create-order` | POST | Validates the bag and customer details, then creates a Razorpay order. |
 | `/api/verify-payment` | POST | Verifies the Razorpay signature, payment status, and amount. |
@@ -193,8 +229,10 @@ The asset scripts require Python 3 and Pillow. `generate:assets` rebuilds `catal
 - Confirm the Razorpay webhook points to `https://plushstory.shop/api/razorpay-webhook` with `payment.captured` and `order.paid` events.
 - The `www.plushstory.shop` → apex 301 redirect and HTTPS are configured. Optionally enable Always Use HTTPS and HSTS in Cloudflare.
 - Verify the configured Meta Pixel events in Meta Events Manager before launching ads.
-- Complete a small live Razorpay payment and refund (or a controlled test-mode run with test keys) to verify the full order, webhook, and D1 records flow.
+- Complete a small live Razorpay payment and refund (or a controlled test-mode run with test keys) to verify the full order, webhook, D1, and confirmation-email flow.
+- Verify the Resend domain, then place one real paid order and confirm the confirmation email arrives in the customer inbox and looks correct on mobile.
 - Run `npm run test:checkout` for a safe, mocked Razorpay order and signature-verification dry run. It does not contact Razorpay or charge anyone.
+- Run `npm run test:email` for a safe, mocked confirmation-email test. It does not send a real email.
 - Send a test email to `support@plushstory.shop` and confirm it arrives in the forwarding inbox.
 
 ## Catalogue and image notes

@@ -6,11 +6,13 @@ import {
   methodNotAllowed,
   readJson,
 } from "../_lib/http.js";
+import { isOrderEmailConfigured } from "../_lib/email.js";
+import { queueOrderConfirmationEmail } from "../_lib/order-email.js";
 import { markOrderPaid } from "../_lib/orders.js";
 import { getRazorpayOrder, getRazorpayPayment } from "../_lib/razorpay.js";
 import { verifyHmacSha256Hex } from "../_lib/security.js";
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   try {
     assertSameOrigin(request);
 
@@ -57,6 +59,7 @@ export async function onRequestPost({ request, env }) {
     } catch (error) {
       console.error("The payment was verified but could not be marked as paid.", error);
     }
+    queueOrderConfirmationEmail(env, orderId, waitUntil);
 
     return json({
       verified: true,
@@ -67,6 +70,7 @@ export async function onRequestPost({ request, env }) {
       amount: payment.amount,
       currency: payment.currency,
       total: payment.amount / 100,
+      confirmationEmail: isOrderEmailConfigured(env),
     });
   } catch (error) {
     return errorResponse(error);

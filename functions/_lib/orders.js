@@ -49,3 +49,65 @@ export async function markOrderPaid(env, { razorpayOrderId, paymentId }) {
     throw error;
   }
 }
+
+export async function getOrderByRazorpayOrderId(env, razorpayOrderId) {
+  if (!hasDatabase(env)) return null;
+
+  return env.ORDERS_DB.prepare(`
+    SELECT
+      order_number, customer_name, customer_email, customer_phone,
+      shipping_address, items_json, amount, currency, paid_at, created_at,
+      confirmation_email_sent_at
+    FROM orders
+    WHERE razorpay_order_id = ?
+    LIMIT 1
+  `).bind(razorpayOrderId).first();
+}
+
+export async function claimOrderConfirmationEmail(env, razorpayOrderId) {
+  if (!hasDatabase(env)) return false;
+
+  const now = new Date();
+  const staleBefore = new Date(now.getTime() - 10 * 60 * 1000).toISOString();
+  const result = await env.ORDERS_DB.prepare(`
+    UPDATE orders
+    SET confirmation_email_claimed_at = ?, confirmation_email_error = NULL
+    WHERE razorpay_order_id = ?
+      AND status = 'paid'
+      AND confirmation_email_sent_at IS NULL
+      AND (
+        confirmation_email_claimed_at IS NULL
+        OR confirmation_email_claimed_at < ?
+      )
+  `).bind(now.toISOString(), razorpayOrderId, staleBefore).run();
+
+  return Number(result.meta?.changes || 0) === 1;
+}
+
+export async function markOrderConfirmationEmailSent(env, razorpayOrderId, messageId) {
+  if (!hasDatabase(env)) return false;
+
+  await env.ORDERS_DB.prepare(`
+    UPDATE orders
+    SET
+      confirmation_email_sent_at = ?,
+      confirmation_email_message_id = ?,
+      confirmation_email_claimed_at = NULL,
+      confirmation_email_error = NULL
+    WHERE razorpay_order_id = ?
+  `).bind(new Date().toISOString(), String(messageId || ""), razorpayOrderId).run();
+
+  return true;
+}
+
+export async function releaseOrderConfirmationEmailClaim(env, razorpayOrderId, errorMessage) {
+  if (!hasDatabase(env)) return false;
+
+  await env.ORDERS_DB.prepare(`
+    UPDATE orders
+    SET confirmation_email_claimed_at = NULL, confirmation_email_error = ?
+    WHERE razorpay_order_id = ?
+  `).bind(String(errorMessage || "Confirmation email failed.").slice(0, 500), razorpayOrderId).run();
+
+  return true;
+}

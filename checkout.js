@@ -244,8 +244,11 @@ function showResult(order, customer, confirmed) {
     typeof order.total === "number" ? order.total : order.amount / 100,
   );
   document.querySelector("#success-email").textContent = customer.email;
+  const emailNote = confirmed && order.confirmationEmail
+    ? "A confirmation email is on its way to the address above. If it doesn’t arrive in a few minutes, check your spam folder. "
+    : "";
   document.querySelector("#success-note").innerHTML = confirmed
-    ? `Keep your order number handy. For help with this order, email <a href="mailto:support@plushstory.shop?subject=Order%20help">support@plushstory.shop</a>.`
+    ? `${emailNote}Keep your order number handy. For help with this order, email <a href="mailto:support@plushstory.shop?subject=Order%20help">support@plushstory.shop</a>.`
     : `Your payment was submitted, but automatic confirmation did not complete. Keep this order number and email <a href="mailto:support@plushstory.shop?subject=Payment%20confirmation">support@plushstory.shop</a> before trying to pay again.`;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

@@ -2,3 +2,8 @@ RAZORPAY_KEY_ID=rzp_test_replace_me
 RAZORPAY_KEY_SECRET=replace_me
 RAZORPAY_WEBHOOK_SECRET=replace_me
 SHIPPING_FEE_INR=0
+
+# Optional: order confirmation emails through Resend.
+# RESEND_API_KEY=re_replace_me
+# EMAIL_FROM=Plush Story <support@plushstory.shop>
+# EMAIL_REPLY_TO=support@plushstory.shop
