@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import {
   purchaseEventId,
   queuePurchaseEvent,
@@ -18,6 +19,7 @@ globalThis.fetch = async (url, options) => {
 };
 
 const env = { META_CAPI_ACCESS_TOKEN: "fake-token" };
+const hash = (value) => createHash("sha256").update(value).digest("hex");
 const request = new Request("https://plushstory.shop/api/meta-event", {
   method: "POST",
   headers: {
@@ -54,7 +56,9 @@ assert.equal(capturedEvent.custom_data.value, 499);
 assert.equal(capturedEvent.custom_data.currency, "INR");
 assert.ok(capturedEvent.user_data.em?.[0]);
 assert.notEqual(capturedEvent.user_data.em[0], "customer@example.com");
+assert.equal(capturedEvent.user_data.em[0], hash("customer@example.com"));
 assert.ok(capturedEvent.user_data.ph?.[0]);
+assert.equal(capturedEvent.user_data.ph[0], hash("919876543210"));
 assert.equal(capturedEvent.user_data.fbp, "fb.1.1700000000000.123456789");
 assert.equal(capturedEvent.user_data.fbc, "fb.1.1700000000000.AbCdEf");
 assert.equal(capturedEvent.user_data.client_ip_address, "203.0.113.10");

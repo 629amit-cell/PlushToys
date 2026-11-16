@@ -46,8 +46,9 @@ function normalizeEmail(value) {
 
 function normalizePhone(value) {
   let digits = clean(value, 40).replace(/\D/g, "");
-  if (digits.length === 12 && digits.startsWith("91")) digits = digits.slice(2);
+  if (digits.length === 12 && digits.startsWith("91")) return digits;
   if (digits.length === 11 && digits.startsWith("0")) digits = digits.slice(1);
+  if (digits.length === 10) return `91${digits}`;
   return digits;
 }
 
