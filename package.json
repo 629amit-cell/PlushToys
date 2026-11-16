@@ -10,7 +10,8 @@
     "generate:assets": "python3 scripts/generate-product-assets.py",
     "generate:og": "node scripts/export-og-manifest.mjs && python3 scripts/generate-product-og.py",
     "test:checkout": "node scripts/test-checkout-dry-run.mjs",
-    "test:email": "node scripts/test-order-email.mjs"
+    "test:email": "node scripts/test-order-email.mjs",
+    "test:meta": "node scripts/test-meta-capi.mjs"
   },
   "engines": {
     "node": ">=20.11"

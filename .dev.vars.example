@@ -2,6 +2,13 @@ RAZORPAY_KEY_ID=rzp_test_replace_me
 RAZORPAY_KEY_SECRET=replace_me
 RAZORPAY_WEBHOOK_SECRET=replace_me
 SHIPPING_FEE_INR=0
+META_PIXEL_ID=4673915832877599
+
+# Optional: Meta Conversions API. Create a token in Events Manager →
+# Settings → Conversions API, then add it as a Worker secret.
+# META_CAPI_ACCESS_TOKEN=replace_me
+# Use a Test Events code only while testing, then remove it.
+# META_TEST_EVENT_CODE=TEST12345
 
 # Optional: order confirmation emails through Resend.
 # RESEND_API_KEY=re_replace_me

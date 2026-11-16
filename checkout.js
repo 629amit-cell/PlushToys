@@ -33,8 +33,8 @@ function getValidCart() {
   });
 }
 
-function trackEvent(name, parameters) {
-  if (window.PlushStoryTracking) window.PlushStoryTracking.track(name, parameters);
+function trackEvent(name, parameters, options) {
+  if (window.PlushStoryTracking) window.PlushStoryTracking.track(name, parameters, options);
 }
 
 function trackInitiateCheckout() {
@@ -280,6 +280,7 @@ async function verifyPayment(payment, order, customer) {
     store.saveCart([]);
     cart = [];
     showResult({ ...order, ...data }, customer, true);
+    const purchaseEventId = data.metaEventId || `purchase_${data.orderNumber || order.orderNumber}`;
     trackEvent("Purchase", {
       content_type: "product",
       content_ids: purchasedItems.map((item) => item.id),
@@ -287,7 +288,7 @@ async function verifyPayment(payment, order, customer) {
       value: typeof data.total === "number" ? data.total : order.total,
       currency: "INR",
       order_id: data.orderNumber || order.orderNumber,
-    });
+    }, { eventID: purchaseEventId, server: false });
   } catch (error) {
     console.error("Payment verification failed.", error);
     store.saveCart([]);

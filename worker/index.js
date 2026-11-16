@@ -3,6 +3,7 @@ import { CATALOG } from "../functions/_lib/catalog-data.js";
 import * as checkoutConfig from "../functions/api/checkout-config.js";
 import * as createOrder from "../functions/api/create-order.js";
 import * as health from "../functions/api/health.js";
+import * as metaEvent from "../functions/api/meta-event.js";
 import * as razorpayWebhook from "../functions/api/razorpay-webhook.js";
 import * as verifyPayment from "../functions/api/verify-payment.js";
 
@@ -11,6 +12,7 @@ const apiRoutes = new Map([
   ["/api/checkout-config", checkoutConfig],
   ["/api/create-order", createOrder],
   ["/api/verify-payment", verifyPayment],
+  ["/api/meta-event", metaEvent],
   ["/api/razorpay-webhook", razorpayWebhook],
 ]);
 

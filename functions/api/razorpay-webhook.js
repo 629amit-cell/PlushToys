@@ -1,4 +1,5 @@
 import { errorResponse, HttpError, json, methodNotAllowed } from "../_lib/http.js";
+import { queuePurchaseEvent } from "../_lib/meta-capi.js";
 import { queueOrderConfirmationEmail } from "../_lib/order-email.js";
 import { markOrderPaid } from "../_lib/orders.js";
 import { verifyHmacSha256Hex } from "../_lib/security.js";
@@ -46,6 +47,10 @@ export async function onRequestPost({ request, env, waitUntil }) {
           throw new HttpError(500, "The webhook could not be recorded.");
         }
         queueOrderConfirmationEmail(env, orderId, waitUntil);
+        queuePurchaseEvent(env, {
+          razorpayOrderId: orderId,
+          eventSourceUrl: `${new URL(request.url).origin}/checkout`,
+        }, waitUntil);
       }
     }
 

@@ -7,6 +7,7 @@ import {
   readJson,
 } from "../_lib/http.js";
 import { isOrderEmailConfigured } from "../_lib/email.js";
+import { purchaseEventId, queuePurchaseEvent } from "../_lib/meta-capi.js";
 import { queueOrderConfirmationEmail } from "../_lib/order-email.js";
 import { markOrderPaid } from "../_lib/orders.js";
 import { getRazorpayOrder, getRazorpayPayment } from "../_lib/razorpay.js";
@@ -60,16 +61,23 @@ export async function onRequestPost({ request, env, waitUntil }) {
       console.error("The payment was verified but could not be marked as paid.", error);
     }
     queueOrderConfirmationEmail(env, orderId, waitUntil);
+    queuePurchaseEvent(env, {
+      razorpayOrderId: orderId,
+      eventSourceUrl: `${new URL(request.url).origin}/checkout`,
+    }, waitUntil);
+
+    const orderNumber = order.notes?.order_number || orderId;
 
     return json({
       verified: true,
-      orderNumber: order.notes?.order_number || orderId,
+      orderNumber,
       orderId,
       paymentId,
       status: payment.status,
       amount: payment.amount,
       currency: payment.currency,
       total: payment.amount / 100,
+      metaEventId: purchaseEventId(orderNumber, orderId),
       confirmationEmail: isOrderEmailConfigured(env),
     });
   } catch (error) {

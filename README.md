@@ -14,7 +14,7 @@ A fast, responsive plush-toy storefront built with plain HTML, CSS, and JavaScri
 - Automatic branded order confirmation emails to customers after payment, with duplicate-send protection
 - Responsive layout, keyboard-accessible controls, locally saved bag contents, and accessible policy pages
 - Branded 1200 × 630 product social cards, Open Graph metadata, and structured data
-- Meta Pixel event hooks for PageView, ViewContent, AddToCart, InitiateCheckout, and Purchase
+- Meta Pixel and Conversions API event hooks for PageView, ViewContent, AddToCart, InitiateCheckout, and Purchase
 
 ## Run locally
 
@@ -129,6 +129,8 @@ The Worker claims each order's email row in D1 before sending. If Resend fails o
 
 `npm run test:email` builds the email, mocks Resend, and verifies duplicate protection without sending a real message.
 
+`npm run test:meta` verifies the Conversions API payloads, event IDs, hashed matching data and Purchase contents without contacting Meta.
+
 ### Customer support and policies
 
 The public support address is `support@plushstory.shop`. Cloudflare Email Routing forwards `support@` and `hello@` to the configured destination inbox. The customer-facing pages are:
@@ -141,9 +143,9 @@ The public support address is `support@plushstory.shop`. Cloudflare Email Routin
 
 Cloudflare serves the HTML files at clean extensionless URLs. Old `.html` paths and `www.plushstory.shop` URLs 301-redirect to the canonical apex URL. Unknown pages and unknown product IDs return the branded 404 page.
 
-### Meta Pixel
+### Meta Pixel and Conversions API
 
-The production Pixel ID is set in `site-config.js`:
+The production Pixel ID is set in `site-config.js` and mirrored in `wrangler.toml`:
 
 ```js
 window.PLUSH_STORY_CONFIG = {
@@ -152,7 +154,23 @@ window.PLUSH_STORY_CONFIG = {
 };
 ```
 
-When the ID is empty, no advertising scripts are loaded. With an ID set, `meta-pixel.js` queues `PageView` and the storefront events immediately, then loads the Meta SDK after the page is idle. This keeps the Pixel off the critical path while still recording the first page view. The storefront sends `ViewContent`, `AddToCart`, `InitiateCheckout`, and `Purchase` through `window.PlushStoryTracking.track()`. The privacy policy already discloses advertising and analytics use. Test the events in Meta Events Manager before running ads.
+When the ID is empty, no advertising scripts are loaded. With an ID set, `meta-pixel.js` queues `PageView` and the storefront events immediately, then loads the Meta SDK after the page is idle. This keeps the Pixel off the critical path while still recording the first page view. The storefront sends `ViewContent`, `AddToCart`, `InitiateCheckout`, and `Purchase` through `window.PlushStoryTracking.track()`.
+
+The same events are mirrored through the Meta Conversions API:
+
+- Browser events pass an `eventID` to the Pixel.
+- `PageView`, `ViewContent`, `AddToCart`, and `InitiateCheckout` are posted to `/api/meta-event` with the same `event_id`.
+- `Purchase` is sent server-side from `/api/verify-payment` and the Razorpay webhook, using `purchase_<order number>` as the shared `event_id`. The browser Pixel reuses the ID returned by verification.
+- The server hashes email, phone and name before sending match data, and includes `fbp`, `fbc`, IP address and user agent where available.
+- Meta deduplicates the browser and server copies because both use the same `event_id`.
+
+Create a Conversions API access token in **Meta Events Manager → Settings → Conversions API → Set up Conversions API manually**, then store it as a Worker secret:
+
+```sh
+npx wrangler secret put META_CAPI_ACCESS_TOKEN --name plushtoys
+```
+
+`META_PIXEL_ID` is a public variable in `wrangler.toml`. To test server events in Events Manager, temporarily set `META_TEST_EVENT_CODE` as a Worker secret, then remove it. `/api/health` reports `conversionsApiConfigured` so you can confirm the token is present without exposing it. The privacy policy discloses the Pixel and Conversions API, including hashed matching data.
 
 ### Razorpay setup
 
@@ -168,14 +186,15 @@ When the ID is empty, no advertising scripts are loaded. With an ID set, `meta-p
 
 The browser receives only the public key ID and the Razorpay order ID. The secret and webhook secret stay in Cloudflare’s server environment. Every order total is recalculated on the server from `functions/_lib/catalog-data.js`; browser totals are never trusted.
 
-### Payment API routes
+### API routes
 
 | Route | Method | Purpose |
 | --- | --- | --- |
-| `/api/health` | GET | Deployment, payment, database, and email configuration check. |
+| `/api/health` | GET | Deployment, payment, database, email and Conversions API configuration check. |
 | `/api/checkout-config` | GET | Returns shipping fee and whether Razorpay is configured. |
 | `/api/create-order` | POST | Validates the bag and customer details, then creates a Razorpay order. |
 | `/api/verify-payment` | POST | Verifies the Razorpay signature, payment status, and amount. |
+| `/api/meta-event` | POST | Mirrors storefront events to the Meta Conversions API with the Pixel event ID. |
 | `/api/razorpay-webhook` | POST | Verifies the webhook signature and records captured payments. |
 
 ## Performance
@@ -229,11 +248,12 @@ The asset scripts require Python 3 and Pillow. `generate:assets` rebuilds `catal
 - Add a public support phone/WhatsApp number and full business/legal address if you want them shown. The current contact page uses the monitored support email and a contact form that opens the customer's email app.
 - Confirm the Razorpay webhook points to `https://plushstory.shop/api/razorpay-webhook` with `payment.captured` and `order.paid` events.
 - The `www.plushstory.shop` → apex 301 redirect and HTTPS are configured. Optionally enable Always Use HTTPS and HSTS in Cloudflare.
-- Verify the configured Meta Pixel events in Meta Events Manager before launching ads.
+- Verify the configured Meta Pixel and Conversions API events in Meta Events Manager before launching ads. Confirm `ViewContent`, `AddToCart`, `InitiateCheckout` and `Purchase` show both browser and server sources and deduplicate to one event.
 - Complete a small live Razorpay payment and refund (or a controlled test-mode run with test keys) to verify the full order, webhook, D1, and confirmation-email flow.
 - Verify the Resend domain, then place one real paid order and confirm the confirmation email arrives in the customer inbox and looks correct on mobile.
 - Run `npm run test:checkout` for a safe, mocked Razorpay order and signature-verification dry run. It does not contact Razorpay or charge anyone.
 - Run `npm run test:email` for a safe, mocked confirmation-email test. It does not send a real email.
+- Run `npm run test:meta` for a safe, mocked Conversions API test. It does not contact Meta.
 - Send a test email to `support@plushstory.shop` and confirm it arrives in the forwarding inbox.
 
 ## Catalogue and image notes

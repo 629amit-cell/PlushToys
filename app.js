@@ -37,8 +37,8 @@ const cartSummary = document.querySelector("#cart-summary");
 const openCartButton = document.querySelector("#open-cart");
 const backToTop = document.querySelector("#back-to-top");
 
-function trackEvent(name, parameters) {
-  if (window.PlushStoryTracking) window.PlushStoryTracking.track(name, parameters);
+function trackEvent(name, parameters, options) {
+  if (window.PlushStoryTracking) window.PlushStoryTracking.track(name, parameters, options);
 }
 
 function saveCart() {

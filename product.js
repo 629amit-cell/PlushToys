@@ -56,8 +56,8 @@ if (toastClose) {
   });
 }
 
-function trackEvent(name, parameters) {
-  if (window.PlushStoryTracking) window.PlushStoryTracking.track(name, parameters);
+function trackEvent(name, parameters, options) {
+  if (window.PlushStoryTracking) window.PlushStoryTracking.track(name, parameters, options);
 }
 
 function updateBagCount(cart) {
