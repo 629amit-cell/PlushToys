@@ -73,6 +73,25 @@ await sendClientMetaEvent(env, request, {
 });
 assert.deepEqual(capturedEvent.custom_data, {});
 
+const addToCartResult = await sendClientMetaEvent(env, request, {
+  event_name: "AddToCart",
+  event_id: "ps_addtocart_test_123",
+  event_source_url: "https://plushstory.shop/product?id=mixi-gingerbread",
+  custom_data: {
+    content_type: "product",
+    content_ids: ["mixi-gingerbread"],
+    content_name: "Gingerbread",
+    value: 499,
+    currency: "INR",
+    num_items: 1,
+  },
+});
+assert.equal(addToCartResult.sent, true);
+assert.equal(capturedEvent.event_name, "AddToCart");
+assert.equal(capturedEvent.event_id, "ps_addtocart_test_123");
+assert.ok("event_id" in capturedEvent);
+assert.ok(!("event_id" in capturedEvent.custom_data));
+
 const order = {
   order_number: "PS-261116-ABCD",
   customer_name: "Amit Tamrakar",
@@ -111,5 +130,6 @@ console.log("Meta Conversions API dry run passed");
 console.log("  ViewContent event ID and deduplication: OK");
 console.log("  Hashed customer matching data: OK");
 console.log("  PageView payload: OK");
+console.log("  AddToCart top-level event_id: OK");
 console.log("  Purchase event ID and contents: OK");
 console.log("  No live Meta request was made.");
