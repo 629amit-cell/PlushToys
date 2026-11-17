@@ -92,6 +92,24 @@ assert.equal(capturedEvent.event_id, "ps_addtocart_test_123");
 assert.ok("event_id" in capturedEvent);
 assert.ok(!("event_id" in capturedEvent.custom_data));
 
+const initiateCheckoutResult = await sendClientMetaEvent(env, request, {
+  event_name: "InitiateCheckout",
+  event_id: "ps_initiatecheckout_test_123",
+  event_source_url: "https://plushstory.shop/checkout",
+  custom_data: {
+    content_type: "product",
+    content_ids: ["mixi-gingerbread", "heart-balloon-teddy"],
+    value: 762,
+    currency: "INR",
+    num_items: 2,
+  },
+});
+assert.equal(initiateCheckoutResult.sent, true);
+assert.equal(capturedEvent.event_name, "InitiateCheckout");
+assert.equal(capturedEvent.event_id, "ps_initiatecheckout_test_123");
+assert.ok("event_id" in capturedEvent);
+assert.ok(!("event_id" in capturedEvent.custom_data));
+
 const order = {
   order_number: "PS-261116-ABCD",
   customer_name: "Amit Tamrakar",
@@ -131,5 +149,6 @@ console.log("  ViewContent event ID and deduplication: OK");
 console.log("  Hashed customer matching data: OK");
 console.log("  PageView payload: OK");
 console.log("  AddToCart top-level event_id: OK");
+console.log("  InitiateCheckout top-level event_id: OK");
 console.log("  Purchase event ID and contents: OK");
 console.log("  No live Meta request was made.");
